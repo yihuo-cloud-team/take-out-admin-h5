@@ -1,11 +1,11 @@
 <template>
   <div class="default">
     <nuxt class="view-body" />
-    <van-tabbar v-model="active" :fixed="false">
-      <van-tabbar-item icon="home-o">首页</van-tabbar-item>
-      <van-tabbar-item icon="search">标签</van-tabbar-item>
-      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-      <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+    <van-tabbar route v-model="active" :fixed="false">
+      <van-tabbar-item replace url="/home" icon="wap-home-o">首页</van-tabbar-item>
+      <van-tabbar-item replace url="/store/info"  icon="shop-o">店铺</van-tabbar-item>
+      <van-tabbar-item replace url="/order/list"  icon="orders-o">订单</van-tabbar-item>
+      <van-tabbar-item replace url="/user" icon="user-o">我的</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
