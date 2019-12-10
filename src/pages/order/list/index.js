@@ -1,7 +1,9 @@
 export default {
     name: 'list',
     data() {
-        return {};
+        return {
+            active: 0
+        };
     },
     methods: {
         // 用于初始化一些数据
