@@ -1,7 +1,7 @@
 <template>
   <div id="list">
     <div class="tab">
-      <van-tabs v-model="active">
+      <van-tabs v-model="active" sticky="true">
         <van-tab>
           <div slot="title">
             <div>待支付(18)</div>

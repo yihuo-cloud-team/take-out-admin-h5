@@ -1,10 +1,18 @@
 @import "@/styles/variable.scss";
 #home {
+    // padding: 20px 20px;
     background-color: #F6F6F6;
 }
 
 // 门店数据
 .panel {
+    &.a {
+        margin-left: 20px;
+        margin-right: 20px;
+        box-shadow: 0 8px 12px rgba(0,0,0,0.5);
+        border-radius: 10px;
+    }
+    
     margin-bottom: 15px;
     background-color: #fff;
     .panel-header {
