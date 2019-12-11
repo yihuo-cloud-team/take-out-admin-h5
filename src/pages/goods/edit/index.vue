@@ -8,7 +8,7 @@
     </div>
 
     <div class="image" v-else>
-      <div class="info-image">
+      <div class="info-image" @click="qie = !qie">
         <van-icon class="img" name="photograph" />
       </div>
       <div class="upload-title">最多可以上传5张照片</div>
@@ -58,7 +58,7 @@
       </div>
       <div class="remarks-info">商家承诺：我方郑重承诺，严格遵守平台使用要求，并确保提供所有信息的真实性。</div>
     </div>
-    <div class="footer" @click="qie = !qie">
+    <div class="footer" @click="$router.push('/goods/list')">
       保存
     </div>
   </div>
