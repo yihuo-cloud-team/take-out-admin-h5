@@ -1,22 +1,27 @@
 export default {
     name: 'list',
+    layout:'sub',
     data() {
         return {
-            active: 0
+            active:0
         };
     },
     methods: {
         // 用于初始化一些数据
         init() {
-            if(typeof this.$route.query['state'] != 'undefined') {
-                this.active = this.$route.query.state*1
-            }
             this.update();
         },
         // 用于更新一些数据
         async update() {
             // const res = await this.$http.post('', {});
         },
+        del() {
+            if(confirm('确定要删除吗')==true){
+               return true;
+            }else{
+               return false;
+            }
+        }
     },
     // 计算属性
     computed: {},

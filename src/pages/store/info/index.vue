@@ -15,19 +15,19 @@
       </div>
       <div class="panel-footer">
         <van-grid :border="false" :column-num="4">
-          <van-grid-item text="待支付">
+          <van-grid-item text="待支付" to="/order/list?state=0">
             <div slot="icon" class="num">15</div>
           </van-grid-item>
 
-          <van-grid-item text="待取货">
+          <van-grid-item text="待取货" to="/order/list?state=1">
             <div slot="icon" class="num">15</div>
           </van-grid-item>
 
-          <van-grid-item text="已发货">
+          <van-grid-item text="已发货" to="/order/list?state=2">
             <div slot="icon" class="num">15</div>
           </van-grid-item>
 
-          <van-grid-item text="已完成">
+          <van-grid-item text="已完成" to="/order/list?state=3">
             <div slot="icon" class="num">15</div>
           </van-grid-item>
         </van-grid>
@@ -56,8 +56,8 @@
       </div>
       <van-grid :border="false">
         <van-grid-item icon="shop-o" text="店铺管理" />
-        <van-grid-item icon="cart-o" text="商品管理" />
-        <van-grid-item icon="orders-o" text="订单管理" />
+        <van-grid-item icon="cart-o" to="/goods/list" text="商品管理" />
+        <van-grid-item icon="orders-o" to="/order/list" text="订单管理" />
         <van-grid-item icon="manager-o" text="会员管理" />
       </van-grid>
     </div>

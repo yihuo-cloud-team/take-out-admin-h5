@@ -1,6 +1,5 @@
 <template>
   <div class="root">
-    <h1>Root</h1>
     <nuxt />
   </div>
 </template>

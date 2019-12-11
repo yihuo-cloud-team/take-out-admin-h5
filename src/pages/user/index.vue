@@ -9,7 +9,7 @@
     <div class="security">
       <van-cell title="账户与安全" is-link />
     </div>
-    <div class="btn">
+    <div class="btn" @click="$router.push('/login')">
       退出登录
     </div>
   </div>

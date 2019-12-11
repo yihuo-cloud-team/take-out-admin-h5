@@ -1,5 +1,6 @@
 export default {
     name: 'login',
+    layout:'root',
     data() {
         return {};
     },

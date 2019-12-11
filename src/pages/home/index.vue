@@ -43,7 +43,7 @@
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">最新订单</div>
-          <div class="more">
+          <div class="more" @click="$router.push('/order/list')">
             <div>更多</div>
             <van-icon name="arrow" />
           </div>
@@ -72,7 +72,7 @@
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">热门商品</div>
-          <div class="more">
+          <div class="more" @click="$router.push('/goods/list')">
             <div>更多</div>
             <van-icon name="arrow" />
           </div>
