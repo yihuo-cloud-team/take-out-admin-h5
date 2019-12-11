@@ -2,12 +2,14 @@
   <div id="edit">
 
     <div class="image1" v-if="qie">
-        <img class="img-nav" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576650944&di=77af3c71211f7252d2756b121a83b7c0&imgtype=jpg&er=1&src=http%3A%2F%2Fyucaiyuanfood.com%2FupLoad%2Falbum%2Fmonth_1512%2F201512101019209547.jpg" alt="">
+        <img class="img-nav" src="/images/04.jpg" alt="">
+        <div class="btn"><van-icon name="photograph" /></div>
+        <div class="num">1/5</div>
     </div>
 
     <div class="image" v-else>
       <div class="info-image">
-        <van-icon class="img" name="photo-o" />
+        <van-icon class="img" name="photograph" />
       </div>
       <div class="upload-title">最多可以上传5张照片</div>
     </div>
