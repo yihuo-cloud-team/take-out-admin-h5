@@ -1,44 +1,17 @@
 export default {
-    name: 'home',
+    name: 'open',
+    layout:'sub',
     data() {
-        return {
-            goodsList:[],
-            orderList:[],
-            snapshot:[],
-            total:0,
-            query: {
-                page_size: 4,
-                page: 1,
-                is_up: '',
-                title: '',
-                type: 1,
-                app_id:"",
-                store_id:"S_WLs3pkrBJu5fYJ"
-            },
-        };
+        return {};
     },
     methods: {
         // 用于初始化一些数据
         init() {
-            // this.query.app_id= 
             this.update();
         },
         // 用于更新一些数据
         async update() {
-            const goodsList = await this.$http.post('/goods/list', this.query);
-            if(goodsList.code == 1) {
-                this.total = goodsList.total,
-                this.goodsList = goodsList.data
-            };
-
-            const orderList = await this.$http.post('/order/list', this.query);
-            if(orderList.code == 4) {
-                this.total = orderList.total,
-                this.orderList = orderList.data
-            };
-
-            console.log(this.goodsList)
-
+            // const res = await this.$http.post('', {});
         },
     },
     // 计算属性

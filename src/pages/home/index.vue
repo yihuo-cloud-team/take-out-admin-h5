@@ -49,18 +49,18 @@
           </div>
         </div>
         <div class="panel-body">
-          <div class="order" v-for="item in 4" :key="item">
+          <div class="order" v-for="item in this.orderList" :key="item">
             <div class="order-left">
                 <div class="order-head">
                     <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575968504480&di=a0ed6f723c584fef588eafb65e7ba461&imgtype=0&src=http%3A%2F%2Fpic1.zhimg.com%2F50%2Fv2-6444e641d0235006e81bc4210b5da89b_hd.jpg" alt="">
                 </div>
-                <div class="order-info">
-                    <div class="goods-name">黄焖牛腩</div>
+                <div class="order-info" v-for="i in item.snapshotInfo" :key="i">
+                    <div class="goods-name">{{i.title}}</div>
                     <div class="goods-num">x1</div>
                 </div>
             </div>
             <div class="order-right">
-              <div>25￥</div>
+              <div>{{item.price}}￥</div>
             </div>
           </div>
         </div>
@@ -78,12 +78,12 @@
           </div>
         </div>
         <div class="panel-body">
-          <div class="goods" v-for="item in 4" :key="item">
+          <div class="goods" v-for="item in this.goodsList" :key="item">
             <div class="goods-head">
-                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575972105271&di=f90d1784ba7dd464e6ae6d7bc7076ed4&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3De78cc382ac18972ba33a00c2d6cc7b9d%2Fea6175c4b74543a9b5bc055a19178a82b801147d.jpg" alt="">
+                <img :src="goods_head" alt="">
             </div>
             <div class="goods-info">
-                <div class="goods-name">黄焖牛腩</div>
+                <div class="goods-name">{{item.title}}</div>
             </div>
             <div class="price">总销量：20</div>
           </div>
