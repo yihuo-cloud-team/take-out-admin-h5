@@ -1,0 +1,103 @@
+@import "@/styles/variable.scss";
+#edit {
+    background-color: #F6F6F6;
+}
+
+.store {
+    background-color: #fff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
+    .store-image {
+        text-align: center;
+        .img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    }
+    .upload {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        bottom: 72px;
+        left: 57%;
+        text-align: center;
+        line-height: 32px;
+        color: #ffffff;
+        border-radius: 50%;
+        background-color: rgb(230, 230, 230);
+    }
+    .store-name {
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+
+.store-info {
+    margin-top: 15px;
+    background-color: #fff;
+    .info-title {
+        padding: 15px 15px;
+        font-size: 16px;
+    }
+}
+
+.store-type {
+    margin-top: 15px;
+    background-color: #fff;
+    .type-title {
+        padding: 15px 15px;
+        font-size: 16px;
+    }
+    .date-title {
+        padding: 15px 15px;
+        font-size: 16px;
+    }
+}
+
+.store-date {
+    margin-top: 15px;
+    padding: 15px 15px;
+    background-color: #fff;
+    .date-title {
+        
+    }
+    .week {
+        margin-top: 5px;
+        .checkb {
+            margin-top: 5px;
+        }
+    }
+    .date {
+        margin-top: 5px;
+    }
+}
+
+.store-tag {
+    margin-top: 15px;
+    background-color: #fff;
+    margin-bottom: 25px;
+    position: relative;
+    .tag-title {
+        padding: 15px 15px;
+        font-size: 16px;
+    }
+    .tags {
+        padding-left: 10px;
+        padding-bottom: 15px;
+        .add-tag {
+            padding-top: 2px;
+        }
+    }
+    .add {
+        width: 20px;
+        height: 22px;
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        border: 1px solid #cccccc;
+    }
+}
+
+#edit /deep/ {}
