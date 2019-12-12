@@ -5,7 +5,14 @@ export default {
         return {
             checked:'',
             show:false,
-            qie:false
+            qie:false,
+            columns: [
+                '汤', 
+                '炒饭', 
+                '炒菜', 
+                '焖', 
+                '炖'
+            ]
         };
     },
     methods: {
@@ -19,6 +26,12 @@ export default {
         },
         open() {
             this.show = true
+        },
+        onConfirm(value, index) {
+            Toast(`当前值：${value}, 当前索引：${index}`);
+        },
+        onCancel() {
+            Toast('取消');
         }
     },
     // 计算属性

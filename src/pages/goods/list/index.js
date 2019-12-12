@@ -3,7 +3,12 @@ export default {
     layout:'sub',
     data() {
         return {
-            active:0
+            active:0,
+            list:[],
+            form:{
+                page:1,
+                page_size:4
+            }
         };
     },
     methods: {
@@ -13,7 +18,12 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+            const res = await this.$http.post('/goods/list', this.data.form);
+
+            this.data.list = res.data.list,
+            this.data.form.page = ++this.data.form.page,
+            this.data.form.page_size = 4
+            
         },
         del() {
             if(confirm('确定要删除吗')==true){

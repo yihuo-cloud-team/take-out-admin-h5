@@ -45,11 +45,15 @@
           placeholder="请输入库存量"
         />
       <van-cell :required="true" title="分类" is-link value="请选择分类" @click="open" />
-      <van-popup
-        v-model="show"
-        position="bottom"
-        :style="{ height: '300px' }"
-      />
+      <van-popup  v-model="show" position="bottom" :style="{ height: '300px' }" > 
+        <van-picker
+          show-toolbar
+          title="菜品分类"
+          :columns="columns"
+          @cancel="onCancel"
+          @confirm="onConfirm"
+        />
+      </van-popup>
       </van-cell-group>
     </div>
     <div class="remarks">
