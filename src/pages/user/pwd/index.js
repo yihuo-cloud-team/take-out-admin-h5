@@ -1,11 +1,17 @@
 export default {
     name: 'pwd',
     layout:'sub',
+    // title:'修改密码',
     data() {
         return {
             pwd:'',
             pwd1:''
         };
+    },
+    head(){
+        return {
+            title:'修改密码'
+        }
     },
     methods: {
         // 用于初始化一些数据
