@@ -6,7 +6,7 @@
       </div>
       <div class="user-name">kido</div>
     </div>
-    <div class="security">
+    <div class="security" @click="$router.push('/user/pwd')">
       <van-cell title="账户与安全" is-link />
     </div>
     <div class="btn" @click="$router.push('/login')">
