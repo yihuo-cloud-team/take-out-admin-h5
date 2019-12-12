@@ -2,7 +2,16 @@ export default {
     name: 'info',
     layout:'sub',
     data() {
-        return {};
+        return {
+            phone:'17674007036',
+            city:'上海',
+            enterprise_name:'上海益火科技有限公司',
+            enterprise_address:'平高世贸大厦1711',
+            name:'嘿嘿哈哈',
+            phone:'17805202448',
+            email:'3120263575@163.com',
+            num:'4529'
+        };
     },
     methods: {
         // 用于初始化一些数据
