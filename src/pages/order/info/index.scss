@@ -53,5 +53,12 @@
         margin-top: 10px;
     }
 }
+.freight {
+    display: flex;
+    font-size: 14px;
+    .freight-name {
+        flex: 1;
+    }
+}
 
 #info /deep/ {}

@@ -19,14 +19,19 @@
         </div>
         <div class="price">25￥</div>
       </div>
+      <van-divider />
+      <div class="freight">
+        <div class="freight-name">配送费</div>
+        <div class="freight-price">5￥</div>
+      </div>
     </div>
     <div class="address-info">
       <div class="address-title">地址信息</div>
       <div class="address">
         <van-cell-group :border="false">
-          <van-cell :border="false" title="收货地址：" value="中山中路99弄99号平高世贸大厦1711" />
-          <van-cell :border="false" title="联系人：" value="孙辉" />
-          <van-cell :border="false" title="手机号：" value="17674007036" />
+          <van-cell :border="false" title="收货地址" value="中山中路99弄99号平高世贸大厦1711" />
+          <van-cell :border="false" title="联系人" value="孙辉" />
+          <van-cell :border="false" title="手机号" value="17674007036" />
         </van-cell-group>
         <!-- <div class="address-name">：</div>
         <div class="a-info">中山中路99弄99号平高世贸大厦1711</div> -->
