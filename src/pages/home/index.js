@@ -36,9 +36,6 @@ export default {
                 this.total = orderList.total,
                 this.orderList = orderList.data
             };
-
-            console.log(this.goodsList)
-
         },
     },
     // 计算属性
