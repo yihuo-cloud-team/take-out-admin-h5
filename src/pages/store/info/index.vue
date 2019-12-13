@@ -19,15 +19,15 @@
             <div slot="icon" class="num">15</div>
           </van-grid-item>
 
-          <van-grid-item text="待取货" to="/order/list?state=1">
+          <van-grid-item text="待取货" to="/order/list?state=2">
             <div slot="icon" class="num">15</div>
           </van-grid-item>
 
-          <van-grid-item text="已发货" to="/order/list?state=2">
+          <van-grid-item text="已发货" to="/order/list?state=3">
             <div slot="icon" class="num">15</div>
           </van-grid-item>
 
-          <van-grid-item text="已完成" to="/order/list?state=3">
+          <van-grid-item text="已完成" to="/order/list?state=4">
             <div slot="icon" class="num">15</div>
           </van-grid-item>
         </van-grid>
