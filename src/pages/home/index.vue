@@ -49,10 +49,10 @@
           </div>
         </div>
         <div class="panel-body">
-          <div class="order" v-for="item in this.orderList" :key="item">
+          <div class="order" v-for="(item,index) in this.orderList" :key="index">
             <div class="order-left">
                 
-                <div class="order-info" v-for="i in item.snapshotInfo" :key="i">
+                <div class="order-info" v-for="(i,j) in item.snapshotInfo" :key="j">
                     <div class="goods-name">{{i.title}}</div>
                     <div class="goods-num">等3件商品</div>
                 </div>
@@ -76,9 +76,9 @@
           </div>
         </div>
         <div class="panel-body">
-          <div class="goods" v-for="item in this.goodsList" :key="item">
+          <div class="goods" v-for="(item,index) in this.goodsList" :key="index">
             <div class="goods-head">
-                <img :src="goods_head" alt="">
+                <img :src="$getUrl(item.goods_head)" alt="">
             </div>
             <div class="goods-info">
                 <div class="goods-name">{{item.title}}</div>
