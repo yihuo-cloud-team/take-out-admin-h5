@@ -1,13 +1,18 @@
 export default {
     name: 'list',
-    layout:'sub',
+    layout: 'sub',
     data() {
         return {
-            active:0,
-            list:[],
-            form:{
-                page:1,
-                page_size:4
+            active: 1,
+            list: [],
+            loading: false,
+            finished: false,
+            form: {
+                is_up: 1,
+                name: "",
+                page: 1,
+                page_size: 10,
+                store_id: "S_WLs3pkrBJu5fYJ",
             }
         };
     },
@@ -18,19 +23,50 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            const res = await this.$http.post('/goods/list', this.data.form);
 
-            this.data.list = res.data.list,
-            this.data.form.page = ++this.data.form.page,
-            this.data.form.page_size = 4
-            
+            try {
+                this.loading = true
+                const res = await this.$http.post('/goods/list', this.form);
+                if (res.code > 0) {
+                    this.list = [...this.list, ...res.data]
+                    this.loading = false
+                } else {
+                    this.finished = true
+                }
+            } catch (error) {
+
+            }
+
         },
         del() {
-            if(confirm('确定要删除吗')==true){
-               return true;
-            }else{
-               return false;
-            }
+            if (confirm('确定要删除吗') == true) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        LoadMore() {
+            this.form.page = ++this.form.page
+            this.finished = false
+            this.update()
+        },
+        async save(item) {
+
+            const is_up = item.is_up ? 0 : 1
+            try {
+                const res = await this.$http.post('/goods/save', {
+                    id: item.id,
+                    is_up: is_up
+                });
+                if (res.code >= 0) {
+                    this.$toast('下价成功');
+                    this.form.page = 1
+                    this.list = []
+                    this.update()
+                }
+            } catch (error) {
+
+            }
         }
     },
     // 计算属性
@@ -61,7 +97,14 @@ export default {
     // 包含 Vue 实例可用指令的哈希表。
     directives: {},
     // 一个对象，键是需要观察的表达式，值是对应回调函数。
-    watch: {},
+    watch: {
+        active(newval) {
+            this.form.is_up = newval
+            this.form.page = 1
+            this.list = []
+            this.update()
+        }
+    },
     // 组件列表
     components: {},
 };

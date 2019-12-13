@@ -3,11 +3,14 @@ export default {
     data() {
         return {
             active: '',
+            loading: false,
+            finished: false,
+            total: 0,
             query: {
                 app_id: '',
                 is_up: '',
                 page: 1,
-                page_size: 1000,
+                page_size: 10,
                 store_id: 'S_WLs3pkrBJu5fYJ',
                 title: '',
                 type: 1,
@@ -28,14 +31,22 @@ export default {
         // 用于更新一些数据
         async update() {
             try {
+                this.loading = true
                 const res = await this.$http.post('/order/list', this.query);
                 if (res.code > 0) {
-                    this.list = res.data
+                    this.loading = false
+                    this.list = [...this.list, ...res.data]
+                    this.total = res.total
+                } else {
+                    this.finished = true;
                 }
             } catch (error) {
-
             }
         },
+        LoadMore() {
+            this.query.page = ++this.query.page
+            this.update();
+        }
     },
     // 计算属性
     computed: {
@@ -70,8 +81,12 @@ export default {
     directives: {},
     // 一个对象，键是需要观察的表达式，值是对应回调函数。
     watch: {
-        active(newval){
+        active(newval) {
             this.query.state = newval
+            this.query.page = 1
+            this.list = []
+            this.total = 0
+            this.finished = false
             this.update()
         }
     },
