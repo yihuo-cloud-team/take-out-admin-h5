@@ -20,7 +20,14 @@
                 </div>
               </div>
               <van-divider />
+
+              <div class="freight">
+                <div class="freight-name">配送费</div>
+                <div class="freight-price">5￥</div>
+              </div>
               
+              <van-divider />
+
               <div class="panel-footer">
                 <div class="footer">
                   <div class="date">{{item.add_time}}</div>

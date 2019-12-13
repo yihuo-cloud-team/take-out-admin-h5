@@ -71,4 +71,11 @@
     }
 }
 
+.freight {
+    display: flex;
+    .freight-name {
+        flex: 1;
+    }
+}
+
 #list /deep/ {}
