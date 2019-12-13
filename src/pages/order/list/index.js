@@ -2,24 +2,47 @@ export default {
     name: 'list',
     data() {
         return {
-            active: 0
+            active: '',
+            query: {
+                app_id: '',
+                is_up: '',
+                page: 1,
+                page_size: 1000,
+                store_id: 'S_WLs3pkrBJu5fYJ',
+                title: '',
+                type: 1,
+                state: ''
+            },
+            list: []
         };
     },
     methods: {
         // 用于初始化一些数据
         init() {
-            if(typeof this.$route.query['state'] != 'undefined') {
-                this.active = this.$route.query.state*1
+            if (!this.isAdd) {
+                this.active = parseFloat(this.$route.query.state)
+                this.query.state = this.active
             }
             this.update();
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+            try {
+                const res = await this.$http.post('/order/list', this.query);
+                if (res.code > 0) {
+                    this.list = res.data
+                }
+            } catch (error) {
+
+            }
         },
     },
     // 计算属性
-    computed: {},
+    computed: {
+        isAdd() {
+            return typeof this.$route.query['state'] == 'undefined'
+        }
+    },
     // 包含 Vue 实例可用过滤器的哈希表。
     filters: {},
     // 在实例创建完成后被立即调用
@@ -46,7 +69,12 @@ export default {
     // 包含 Vue 实例可用指令的哈希表。
     directives: {},
     // 一个对象，键是需要观察的表达式，值是对应回调函数。
-    watch: {},
+    watch: {
+        active(newval){
+            this.query.state = newval
+            this.update()
+        }
+    },
     // 组件列表
     components: {},
 };
