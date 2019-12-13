@@ -46,15 +46,16 @@
           <div>更多</div>
           <van-icon name="arrow" />
         </div>
-      </div>
-      <div class="panel-body">
-        <div class="order" v-for="(item,index) in this.orderList" :key="index">
-          <div class="order-left">
-            <div class="order-head">
-              <img
-                src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575968504480&di=a0ed6f723c584fef588eafb65e7ba461&imgtype=0&src=http%3A%2F%2Fpic1.zhimg.com%2F50%2Fv2-6444e641d0235006e81bc4210b5da89b_hd.jpg"
-                alt
-              />
+        <div class="panel-body">
+          <div class="order" v-for="item in this.orderList" :key="item">
+            <div class="order-left">
+                <!-- <div class="order-head">
+                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575968504480&di=a0ed6f723c584fef588eafb65e7ba461&imgtype=0&src=http%3A%2F%2Fpic1.zhimg.com%2F50%2Fv2-6444e641d0235006e81bc4210b5da89b_hd.jpg" alt="">
+                </div> -->
+                <div class="order-info" v-for="i in item.snapshotInfo" :key="i">
+                    <div class="goods-name">{{i.title}}</div>
+                    <div class="goods-num">x1</div>
+                </div>
             </div>
             <div class="order-info" v-for="(i,j) in item.snapshotInfo" :key="j">
               <div class="goods-name">{{i.title}}</div>
