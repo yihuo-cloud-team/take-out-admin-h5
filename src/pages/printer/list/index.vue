@@ -33,7 +33,7 @@
         <div class="message2">离线</div>
         <van-divider />
     </div>
-    <div style="padding:15px 20px" @click="$router.push('/develop/edit')">
+    <div style="padding:15px 20px" @click="$router.push('/printer/edit')">
       <van-button type="default" block>添加打印机</van-button>
     </div>
   </div>
