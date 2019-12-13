@@ -59,6 +59,9 @@
         <van-grid-item icon="cart-o" to="/goods/list" text="商品管理" />
         <van-grid-item icon="orders-o" to="/order/list" text="订单管理" />
         <van-grid-item icon="manager-o" text="会员管理" />
+        <van-grid-item icon="newspaper-o" text="打印机管理" />
+        <van-grid-item icon="logistics" text="配送管理" />
+        <van-grid-item icon="points" text="开发设置" />
       </van-grid>
     </div>
     <!-- 管理 E -->
