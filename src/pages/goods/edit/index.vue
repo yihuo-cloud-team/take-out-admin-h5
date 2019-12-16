@@ -1,7 +1,7 @@
 <template>
   <div id="edit">
 
-    <div class="image1" v-if="qie">
+    <!-- <div class="image1" v-if="qie">
         <img class="img-nav" src="/images/04.jpg" alt="">
         <div class="btn"><van-icon name="photograph" /></div>
         <div class="num">1/5</div>
@@ -12,7 +12,7 @@
         <van-icon class="img" name="photograph" />
       </div>
       <div class="upload-title">最多可以上传5张照片</div>
-    </div>
+    </div> -->
     
 
     <div class="input-file">

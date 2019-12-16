@@ -3,7 +3,7 @@
     <div class="p-info">
       <van-cell-group>
         <van-field
-          v-model="message"
+          v-model="form.item_sn"
           rows="1"
           autosize
           label="编号SN"
@@ -11,7 +11,7 @@
           placeholder="请输入打印机编号，9位数字"
         />
         <van-field
-          v-model="message"
+          v-model="form.item_key"
           rows="1"
           autosize
           label="识别码KEY"
@@ -19,7 +19,7 @@
           placeholder="请输入打印机识别码，9位数字"
         />
         <van-field
-          v-model="message"
+          v-model="form.tag"
           rows="1"
           autosize
           label="备注"
@@ -28,7 +28,7 @@
         />
       </van-cell-group>
     </div>
-    <div style="padding:15px 20px" @click="$router.push('/printer/list')">
+    <div style="padding:15px 20px" @click="submit">
       <van-button type="default" block>保存</van-button>
     </div>
   </div>

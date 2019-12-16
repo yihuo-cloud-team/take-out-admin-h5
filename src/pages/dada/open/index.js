@@ -2,7 +2,21 @@ export default {
     name: 'open',
     layout:'sub',
     data() {
-        return {};
+        return {
+            form: {
+                mobile: '',//商户手机号
+                city_name: '',//商户城市名称
+                enterprise_name: '',//企业全称
+                enterprise_address: '',//企业地址
+                contact_name: '',//联系人姓名
+                contact_phone: '',//联系人电话
+                email: '',//邮箱地址
+                // is_up: ''//是否上下架
+            },
+            is_dada:"",
+            money:0.00,
+            yue:0,
+        };
     },
     methods: {
         // 用于初始化一些数据
@@ -11,7 +25,40 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+            const res = await this.$http.post('/domain/info', {});
+            if (res.code >= 0) {
+                this.is_dada = res.data.domain_info.is_dada;
+            }
+            const res1 = await this.$http.post('/domain/dadaBalance', {});
+            if (res1.code >= 0) {
+                this.yue = res1.data.deliverBalance;
+        
+                
+            }
+        },
+        async submit() {
+            // try {
+            //     await this.$refs['form'].validate();
+            // } catch (error) {
+            //     return;
+            // }
+
+            try {
+                const res = await this.$http.post('/domain/addDada', this.form);
+                if (res.code >= 0) {
+                    if (this.isAdd) {
+                        await this.$alert(`操作成功！`, '成功', { showClose: false, type: 'success' });
+                    } else {
+                        this.$message.success('保存成功~');
+                    }
+                    this.$router.go(-1);
+                }
+            } catch (error) {
+                return;
+            }
+
+
+
         },
     },
     // 计算属性

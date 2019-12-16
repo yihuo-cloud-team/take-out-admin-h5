@@ -1,13 +1,16 @@
 export default {
-    name: 'edit',
+    name: 'dadaInfo',
     layout:'sub',
     data() {
         return {
-            form: {
-                item_sn: '',//打印机编号SN
-                item_key: '',//打印机识别码KEY
-                tag: ""
-            }
+            phone:'17674007036',
+            city:'上海',
+            enterprise_name:'上海益火科技有限公司',
+            enterprise_address:'平高世贸大厦1711',
+            name:'嘿嘿哈哈',
+            phone:'17805202448',
+            email:'3120263575@163.com',
+            num:'4529'
         };
     },
     methods: {
@@ -18,29 +21,6 @@ export default {
         // 用于更新一些数据
         async update() {
             // const res = await this.$http.post('', {});
-        },
-        async submit() {
-            // try {
-            //     await this.$refs['form'].validate();
-            // } catch (error) {
-            //     return;
-            // }
-        
-            try {
-                const res = await this.$http.post('printer/save', this.form);
-                if (res.code >= 0) {
-                    this.$alert(`添加成功`, '成功');
-                    this.$router.go(-1)
-                } else {
-                    this.$alert(`添加失败`, res.msg);
-                }
-         
-            } catch (error) {
-                return;
-            }
-
-
-
         },
     },
     // 计算属性

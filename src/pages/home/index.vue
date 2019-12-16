@@ -1,8 +1,6 @@
 <template>
   <div id="home">
-
       <!-- 门店数据 S -->
-
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">门店数据</div>
@@ -11,19 +9,19 @@
           <van-row>
             <van-col span="8">
               <div class="data-order">
-                <div class="data-num">3200</div>
+                <div class="data-num">{{info.order}}</div>
                 <div class="data-title">今日订单数</div>
               </div>
             </van-col>
             <van-col span="8">
               <div class="data-order">
-                <div class="data-num">0.00</div>
+                <div class="data-num">{{info.tprice | tofixed}}</div>
                 <div class="data-title">今日成交额</div>
               </div>
             </van-col>
             <van-col span="8">
               <div class="data-order">
-                <div class="data-num">0.00</div>
+                <div class="data-num">{{info.yprice | tofixed}}</div>
                 <div class="data-title">昨日成交额</div>
               </div>
             </van-col>

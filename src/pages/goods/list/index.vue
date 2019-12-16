@@ -36,6 +36,7 @@
         </div>
       </van-list>
     </van-tabs>
+    <van-button class="fixed" @click="$router.push('/goods/edit')">发布商品</van-button>
   </div>
 </template>
 <script src="./index.js"></script>

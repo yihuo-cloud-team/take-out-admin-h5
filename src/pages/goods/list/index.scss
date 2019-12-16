@@ -63,7 +63,13 @@
         margin-right: 15px;
     }
 }
-
+.fixed{
+    position: fixed;
+    left: 0;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+}
 
 
 #list /deep/ {}

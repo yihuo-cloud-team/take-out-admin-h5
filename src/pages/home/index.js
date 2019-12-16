@@ -13,28 +13,35 @@ export default {
                 title: '',
                 type: 1,
                 app_id:"",
-                store_id:"S_WLs3pkrBJu5fYJ"
             },
+    
+            info:{
+                order:0,
+                tprice:0,
+                yprice:0
+            }
         };
     },
     methods: {
         // 用于初始化一些数据
         init() {
-            // this.query.app_id= 
             this.update();
         },
         // 用于更新一些数据
         async update() {
             const goodsList = await this.$http.post('/goods/list', this.query);
-            if(goodsList.code == 1) {
+            if(goodsList.code >= 0) {
                 this.total = goodsList.total,
                 this.goodsList = goodsList.data
             };
-
             const orderList = await this.$http.post('/order/list', this.query);
-            if(orderList.code == 4) {
+            if(orderList.code >= 0) {
                 this.total = orderList.total,
                 this.orderList = orderList.data
+            };
+            const res = await this.$http.post('/store/data/total', {});
+            if(res.code >= 0) {
+                this.info = res.data
             };
         },
     },

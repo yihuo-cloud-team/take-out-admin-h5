@@ -1,5 +1,5 @@
 <template>
-  <div id="info">
+ <div id="info">
     <div class="recharge">
       <div class="balance">
         <div class="balance-money">3200.00</div>
@@ -24,7 +24,7 @@
     </div>
   </div>
 </template>
-<script src="./index.js"></script>
+<script src="./dadaInfo.js"></script>
 <style lang="scss" scoped>
-@import "index.scss";
+@import "dadaInfo.scss";
 </style>
