@@ -11,8 +11,7 @@ export default {
                 is_up: 1,
                 name: "",
                 page: 1,
-                page_size: 10,
-                store_id: "S_WLs3pkrBJu5fYJ",
+                page_size: 10
             }
         };
     },
@@ -23,7 +22,6 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-
             try {
                 this.loading = true
                 const res = await this.$http.post('/goods/list', this.form);
@@ -34,9 +32,7 @@ export default {
                     this.finished = true
                 }
             } catch (error) {
-
             }
-
         },
         del() {
             if (confirm('确定要删除吗') == true) {

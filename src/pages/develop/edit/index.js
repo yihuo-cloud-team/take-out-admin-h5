@@ -2,7 +2,14 @@ export default {
     name: 'edit',
     layout:'sub',
     data() {
-        return {};
+        return {
+            form: {
+                wx_appid: "",
+                wx_secret: "",
+                wx_mch_id: "",
+                wx_mch_secret: ""
+              }
+        };
     },
     methods: {
         // 用于初始化一些数据
@@ -11,8 +18,27 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+         
+            const res = await this.$http.post("domain/miniapp/info", {});
+            console.log(res)
+            if (res.code >= 0) {
+              this.form = res.data
+            }
         },
+       async submit(){
+        try {
+            const res = await this.$http.post('domain/miniapp/save', this.form);
+            if (res.code >= 0) {
+                console.log(res.code)
+                this.$router.go(-1)
+
+            }
+          
+
+        } catch (error) {
+            return;
+        }
+        }
     },
     // 计算属性
     computed: {},

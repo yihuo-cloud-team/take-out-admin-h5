@@ -56,6 +56,7 @@
       </div>
       <van-grid :border="false">
         <van-grid-item icon="shop-o" text="店铺管理" />
+        <van-grid-item icon="cart-o" to="/class/list" text="分类管理" />
         <van-grid-item icon="cart-o" to="/goods/list" text="商品管理" />
         <van-grid-item icon="orders-o" to="/order/list" text="订单管理" />
         <van-grid-item icon="manager-o" to="/user/list" text="会员管理" />

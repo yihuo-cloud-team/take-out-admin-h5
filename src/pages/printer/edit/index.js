@@ -29,10 +29,9 @@ export default {
             try {
                 const res = await this.$http.post('printer/save', this.form);
                 if (res.code >= 0) {
-                    this.$alert(`添加成功`, '成功');
                     this.$router.go(-1)
+                    
                 } else {
-                    this.$alert(`添加失败`, res.msg);
                 }
          
             } catch (error) {

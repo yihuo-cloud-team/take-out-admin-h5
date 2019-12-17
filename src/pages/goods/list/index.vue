@@ -29,7 +29,7 @@
                   size="small"
                 >下架</van-button>
                 <van-button type="default" v-else @click="save(item)" size="small">上架</van-button>
-                <van-button type="default" size="small">编辑</van-button>
+                <van-button type="default" size="small" @click="$router.push(`/goods/edit?id=${item.id}`)">编辑</van-button>
               </div>
             </div>
           </div>

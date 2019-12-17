@@ -37,7 +37,6 @@ let Http = axios.create({
 
 // // 添加一个请求拦截器
 Http.interceptors.request.use(function (conf) {
-    console.log(config)
     conf.headers.Authorization = to(config);
 
     // conf.headers.Authorization = "token " + 'ssssssssssssssssssssssssssssssaa';

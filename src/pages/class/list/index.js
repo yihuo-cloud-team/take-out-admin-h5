@@ -1,8 +1,16 @@
 export default {
     name: 'list',
+    layout: 'sub',
     data() {
         return {
-            list:[]
+    
+            list: [],
+      
+            form: {
+                is_up: 1,
+                name: "",
+               
+            }
         };
     },
     methods: {
@@ -12,27 +20,51 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            const res = await this.$http.post('printer/list',{});
-            if (res.code >= 0) {
-                this.list = res.data;
-            }
-        },
-        async del(item) {
-            try {
-                const res = await this.$http.post('printer/del', item);
-                if (res.code >= 0) {
-                    this.update();
-                }else{
-
+ 
+                try {
+                    const res = await this.$http.post('/class/list', this.form);
+                    if (res.code > 0) {
+                        this.list = res.data
+                 
+                    } else {
+                 
+                    }
+                } catch (error) {
                 }
-                
-            } catch (error) {
-                return;
+            
+            
+        },
+        del() {
+            if (confirm('确定要删除吗') == true) {
+                return true;
+            } else {
+                return false;
             }
         },
+    
+        async save(item) {
+
+            const is_up = item.is_up ? 0 : 1
+            try {
+                const res = await this.$http.post('/goods/save', {
+                    id: item.id,
+                    is_up: is_up
+                });
+                if (res.code >= 0) {
+                    this.$toast('下价成功');
+                    this.form.page = 1
+                    this.list = []
+                    this.update()
+                }
+            } catch (error) {
+
+            }
+        }
     },
     // 计算属性
-    computed: {},
+    computed: {
+    
+    },
     // 包含 Vue 实例可用过滤器的哈希表。
     filters: {},
     // 在实例创建完成后被立即调用
@@ -59,7 +91,9 @@ export default {
     // 包含 Vue 实例可用指令的哈希表。
     directives: {},
     // 一个对象，键是需要观察的表达式，值是对应回调函数。
-    watch: {},
+    watch: {
+     
+    },
     // 组件列表
     components: {},
 };

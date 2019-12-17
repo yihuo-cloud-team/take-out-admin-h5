@@ -7,7 +7,7 @@
         <div class="list-info">
           <div class="info-name">{{item.name}}</div>
           <div class="info-date">注册时间：{{item.add_time}}</div>
-          <div class="num">订单量：20</div>
+          <div class="num">订单量：{{item.orderCount}}</div>
         </div>
       </div>
     </div>

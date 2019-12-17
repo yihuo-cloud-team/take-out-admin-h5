@@ -4,19 +4,20 @@
     <div class="mini-set">
       <van-cell-group>
         <van-field
-          v-model="appid"
+          v-model="form.wx_appid"
           rows="1"
           autosize
           label="微信appid："
+            clearable
           type="textarea"
           placeholder="请输入小程序appid"
         />
         <van-field
-          v-model="app_mi"
+          v-model="form.wx_secret"
           rows="1"
+          clearable
           autosize
           label="微信密钥："
-          type="password"
           placeholder="请输入小程序密钥"
         />
       </van-cell-group>
@@ -25,24 +26,25 @@
     <div class="vx-set">
       <van-cell-group>
         <van-field
-          v-model="vxid"
+          v-model="form.wx_mch_id"
           rows="1"
           autosize
           label="商户号："
+          clearable
           type="textarea"
           placeholder="请输入商户号"
         />
         <van-field
-          v-model="vx_mi"
+          v-model="form.wx_mch_secret"
           rows="1"
           autosize
+          clearable
           label="商户密钥："
-          type="password"
           placeholder="请输入商户密钥"
         />
       </van-cell-group>
     </div>
-    <div style="padding:15px 20px" @click="$router.push('/develop/edit')">
+    <div style="padding:15px 20px" @click="submit">
       <van-button type="default" block>保存</van-button>
     </div>
   </div>

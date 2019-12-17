@@ -1,8 +1,12 @@
 export default {
-    name: 'list',
+    name: 'edit',
+    layout: 'sub',
     data() {
         return {
-            list:[]
+            form:{
+                name:"",
+                sort:0
+            }
         };
     },
     methods: {
@@ -12,27 +16,37 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            const res = await this.$http.post('printer/list',{});
-            if (res.code >= 0) {
-                this.list = res.data;
-            }
-        },
-        async del(item) {
-            try {
-                const res = await this.$http.post('printer/del', item);
-                if (res.code >= 0) {
-                    this.update();
-                }else{
-
+            if(!this.isAdd){
+                const res = await this.$http.post('/class/info', { id: this.$route.query.id });
+                if (res.code >= 0) {    
+                    this.form = res.data;
                 }
-                
+            }
+    
+        },
+       async submit(){
+            try {
+                const res = await this.$http.post('/class/save', this.form);
+                if (res.code >= 0) {
+                    alert('操作成功')
+                    // if (this.isAdd) {
+                    //     await this.$alert(`操作成功！`, '成功', { showClose: false, type: 'success' });
+                    // } else {
+                    //     this.$message.success('保存成功~');
+                    // }
+                    this.$router.go(-1);
+                }
             } catch (error) {
                 return;
             }
-        },
+        }
     },
     // 计算属性
-    computed: {},
+    computed: {
+        isAdd() {
+            return typeof this.$route.query.id == 'undefined';
+        }
+    },
     // 包含 Vue 实例可用过滤器的哈希表。
     filters: {},
     // 在实例创建完成后被立即调用

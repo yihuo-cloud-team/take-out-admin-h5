@@ -1,8 +1,32 @@
 export default {
-    name: 'list',
+    name: 'kaidian',
+    layout:"sub",
     data() {
         return {
-            list:[]
+            form:{
+                fr_user_name:"",//法人姓名
+                fr_wx_code:"",//法人微信
+                enterprise_name:"",//企业名称
+                enterprise_code:"",//企业代码信息
+                qy_Business:"",//营业执照
+                qy_licence:"",//食品经营许可证
+                store_door_img:[],//门面照片
+                store_in_img:[],//内部照片
+                account_name:"",//公众号名称
+                account_img:"",//公众号图片（平台设计）
+                account_info:"",//公众号描述
+                mini_name:"",//小程序名称
+                account_join:"",//关联微信公众号（复用公众号）
+                mini_img:"",//小程序图片（平台设计）
+                mini_info:"",//小程序描述
+                user_email:"",//管理员邮箱（管理员等同于法人）
+                idcard_positive:"",//管理员身份证正面
+                idcard_unpositive:"",//管理员身份证反面
+                user_phone:"",//管理员手机号
+                user_wx_code:"",//管理员微信号
+            
+                
+            }
         };
     },
     methods: {
@@ -12,24 +36,14 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            const res = await this.$http.post('printer/list',{});
-            if (res.code >= 0) {
-                this.list = res.data;
-            }
+           
         },
-        async del(item) {
-            try {
-                const res = await this.$http.post('printer/del', item);
-                if (res.code >= 0) {
-                    this.update();
-                }else{
-
-                }
-                
-            } catch (error) {
-                return;
+        async submit(){
+            const res = await this.$http.post('/store/open', this.form);
+            if(res.code>=0){
+                console.log(res.data)
             }
-        },
+        }
     },
     // 计算属性
     computed: {},

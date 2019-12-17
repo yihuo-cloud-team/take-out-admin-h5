@@ -1,12 +1,12 @@
 <template>
   <div id="list">
-    <div v-for="item in list" :key="item" class="p-list">
+    <div v-for="(item,index) in list" :key="index" class="p-list">
         <div class="info-btn">
           <div class="num">
             <span>{{item.item_sn}}</span>
             <van-tag plain>前台</van-tag>
           </div>
-          <div class="binding">解绑</div>
+          <div class="binding" @click="del(item)">解绑</div>
         </div>
         <div class="message">{{item.printer_status}}</div>
         <van-divider />

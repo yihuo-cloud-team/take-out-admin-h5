@@ -1,0 +1,17 @@
+@import "@/styles/variable.scss";
+#kaidian {
+    .input-file{
+        margin-bottom: 46px;
+    }
+    .footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        padding: 13px 0;
+        text-align: center;
+        background-color: #fff;
+    }
+    
+}
+
+#kaidian /deep/ {}
