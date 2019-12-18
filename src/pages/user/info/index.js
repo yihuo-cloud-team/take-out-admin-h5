@@ -1,7 +1,10 @@
 export default {
     name: 'user',
     data() {
-        return {};
+        return {
+            list:[],
+            img:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575993797352&di=a8bd1a554d5d7cc882e8df923cda2c79&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201704%2F10%2F20170410073535_HXVfJ.thumb.700_0.jpeg"
+        };
     },
     methods: {
         // 用于初始化一些数据
@@ -10,8 +13,18 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+            const res = await this.$http.post('/user/info', {});
+            if(res.code>=0){
+                console.log(res.data)
+                this.list =res.data
+            }
         },
+        signOut() {
+            localStorage.clear();
+            this.$store.commit("user/set", null);
+            this.$store.commit("power/set", []);
+            this.$router.replace("/login");
+          }
     },
     // 计算属性
     computed: {},

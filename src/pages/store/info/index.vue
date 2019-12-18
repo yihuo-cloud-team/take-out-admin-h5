@@ -5,10 +5,10 @@
       <div class="panel-body">
         <div class="store">
             <div class="store-head">
-                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575980327207&di=c7b3b77cb7033ed3a8e4c9b1856d4ed1&imgtype=0&src=http%3A%2F%2Fpic1.zhimg.com%2F50%2Fv2-6444e641d0235006e81bc4210b5da89b_hd.jpg" alt="">
+                <img :src="storeInfo.logo" alt="">
             </div>
             <div class="store-info">
-                <div class="store-name">怪兽炒饭</div>
+                <div class="store-name">{{storeInfo.name}}</div>
             </div>
             <div class="go"><van-icon name="arrow" /></div>
           </div>

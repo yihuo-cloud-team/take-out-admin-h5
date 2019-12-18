@@ -14,7 +14,7 @@ export default {
         price: '', //优惠价
         stock: '', //库存
         class_id: '', //关联的分类
-        is_up: '', //是否上下架
+        is_up: 1, //是否上下架
         sort: 0,
         
       },
@@ -68,14 +68,7 @@ export default {
       try {
         const res = await this.$http.post('/goods/save', this.form);
         if (res.code >= 0) {
-          if (this.isAdd) {
-            await this.$alert(`操作成功！`, '成功', {
-              showClose: false,
-              type: 'success'
-            });
-          } else {
-            this.$message.success('保存成功~');
-          }
+      
           this.$router.go(-1);
         }
       } catch (error) {

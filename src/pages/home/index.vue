@@ -76,12 +76,12 @@
         <div class="panel-body">
           <div class="goods" v-for="(item,index) in this.goodsList" :key="index">
             <div class="goods-head">
-                <img :src="$getUrl(item.goods_head)" alt="">
+                <img :src="item.goods_head.length>0?$getUrl(item.goods_head):''" alt="">
             </div>
             <div class="goods-info">
                 <div class="goods-name">{{item.title}}</div>
             </div>
-            <div class="price">总销量：20</div>
+            <div class="price">总销量:{{item.goods_num}}</div>
           </div>
         </div>
       </div>

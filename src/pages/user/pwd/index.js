@@ -4,8 +4,10 @@ export default {
     // title:'修改密码',
     data() {
         return {
+           form:{
             pwd:'',
             pwd1:''
+           }
         };
     },
     head(){
@@ -20,8 +22,15 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+          
         },
+       async submit(){
+            const res = await this.$http.post('/user/setpwd', this.form);
+            if(res.code>=0){
+                
+                this.$router.go(-1)
+            }
+        }
     },
     // 计算属性
     computed: {},

@@ -7,7 +7,7 @@
         <div class="panel" v-for="(item,index) in list" :key="index">
           <div class="panel-body" @click="$router.push('/goods/edit')">
             <div class="goodss">
-              <img :src="$getUrl(item.goods_head)" alt />
+              <img :src="item.goods_head.length>0?$getUrl(item.goods_head[0]):''" alt />
               <div class="goods">
                 <div class="goods-info">
                   <div class="goods-title">{{item.title}}</div>
@@ -29,7 +29,17 @@
                   size="small"
                 >下架</van-button>
                 <van-button type="default" v-else @click="save(item)" size="small">上架</van-button>
-                <van-button type="default" size="small" @click="$router.push(`/goods/edit?id=${item.id}`)">编辑</van-button>
+                <van-button
+                  type="default"
+                  v-if="item.is_up == 0"
+                  @click="del(item.id)"
+                  size="small"
+                >删除</van-button>
+                <van-button
+                  type="default"
+                  size="small"
+                  @click="$router.push(`/goods/edit?id=${item.id}`)"
+                >编辑</van-button>
               </div>
             </div>
           </div>

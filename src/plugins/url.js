@@ -7,7 +7,7 @@ let Url = {
   // serverUrl: 'http://local.api.yihuo-cloud.com/admin',//李传浩的本地
   // serverUrl: 'http://192.168.0.122/admin',//吴杰1
   // uploadUrl: '',
-  uploadUrl: 'https://api.yihuo-cloud.com',
+  uploadUrl: 'https://api.take-out.yihuo-cloud.com',
   // imageUrl: '',
   imageUrl: 'https://api.take-out.yihuo-cloud.com',
 }

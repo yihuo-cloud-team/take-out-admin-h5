@@ -1,29 +1,39 @@
 export default {
-  name: 'info',
+  name: 'OlUpload',
+  props: {
+    value: {
+      type: String,
+      default: '',
+    }
+  },
   data() {
     return {
-      info: {},
-      storeInfo:{}
+      model: '',
     };
   },
   methods: {
     // 用于初始化一些数据
-    init() {
-      this.update();
-    },
+    init() {},
     // 用于更新一些数据
-    async update() {
-      const res = await this.$http.post('/store/data/total', {});
-      if (res.code >= 0) {
-        this.info = res.data
-        console.log(res.data)
-      }
-      const res1 = await this.$http.post('/store/info', {});
-      if (res1.code >= 0) {
-        this.storeInfo = res1.data;
-      };
-
+    update() {},
+    async onRead(file) {
+      let params = new FormData(); //创建form对象
+      params.append("file", file.file); //通过append向form对象添加数据//第一个参数字符串可以填任意命名，第二个根据对象属性来找到file
+      
+      let url = this.$Url.uploadUrl + `/file/upload`;
+      const res = await this.$http.post(url, params, {
+        headers: { //添加请求头
+          Authorization: localStorage.jwt
+        }
+      })
+      this.model = res.data.url;
+      this.updateInput();
     },
+    updateInput() {
+      this.$emit('success', this.model);
+      this.$emit('input', this.model);
+    }
+
   },
   // 计算属性
   computed: {},
@@ -35,7 +45,6 @@ export default {
   beforeMount() {},
   // el 被新创建的 vm.el 替换，并挂载到实例上去之后调用该钩子。
   mounted() {
-    this.init();
     this.$nextTick(() => {});
   },
   // 数据更新时调用，发生在虚拟 DOM 打补丁之前。

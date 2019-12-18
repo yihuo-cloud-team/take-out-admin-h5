@@ -1,19 +1,23 @@
 export default {
     name: 'edit',
-    layout:'sub',
+    layout: 'sub',
     data() {
         return {
-            radio: '',
-            checked1:true,
-            checked2:true,
-            checked3:true,
-            checked4:true,
-            checked5:true,
-            checked6:false,
-            checked7:false,
             show: false,
-            show1:false,
-            currentTime: '12:00'
+            show1: false,
+            form: {
+                logo:"",
+                name:"",
+                info: "",
+                week: [],
+                state: 1,
+                store_class:"",
+                phone:"",
+                start_time:'12:00',
+                end_time:'12:00'
+            },
+            start_time:'12:00',
+            end_time:'12:00'
         };
     },
     methods: {
@@ -23,7 +27,21 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+
+            const res = await this.$http.post('/store/info', {});
+            if (res.code >= 0) {
+                this.form = res.data
+                
+            }
+
+        },
+        async submit() {
+            const res = await this.$http.post('/store/save', this.form);
+            if (res.code >= 0) {
+                this.$toast("添加成功")
+                this.$router.go(-1)
+
+            }
         },
         showPopup() {
             this.show = true;
@@ -36,6 +54,17 @@ export default {
                 return options.filter(option => option % 5 === 0)
             }
             return options;
+        },
+        start(e){
+            this.form.start_time = e
+            this.start_time = e
+            
+            this.show=false
+        },
+        end(e){
+            this.form.end_time = e
+            this.end_time = e
+            this.show1=false
         }
     },
     // 计算属性

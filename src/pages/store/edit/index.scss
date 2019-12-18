@@ -67,6 +67,9 @@
         margin-top: 5px;
         .checkb {
             margin-top: 5px;
+            .check{
+                margin-bottom: 10px;
+            }
         }
     }
     .date {
@@ -76,8 +79,9 @@
 
 .store-tag {
     margin-top: 15px;
+
     background-color: #fff;
-    margin-bottom: 25px;
+    margin-bottom: 46px;
     position: relative;
     .tag-title {
         padding: 15px 15px;
@@ -98,6 +102,15 @@
         right: 15px;
         border: 1px solid #cccccc;
     }
+ 
+}
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 13px 0;
+    text-align: center;
+    background-color: #fff;
 }
 
 #edit /deep/ {}

@@ -54,6 +54,15 @@
           placeholder="请输入价格"
         />
         <van-field
+          v-model="form.sort"
+          :required="true"
+          rows="1"
+          autosize
+          label="排序"
+          type="textarea"
+          placeholder="请输入排序"
+        />
+        <van-field
           v-model="form.stock"
           :required="true"
           rows="1"
