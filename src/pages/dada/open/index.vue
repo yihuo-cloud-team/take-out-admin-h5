@@ -33,7 +33,7 @@
             placeholder="请输入商户城市名称"
           />
           <van-field
-            v-model="form.enterprise_address"
+            v-model="form.enterprise_name"
             rows="1"
             autosize
             required
@@ -80,7 +80,7 @@
         </van-cell-group>
       </div>
       <div style="padding:15px 20px">
-        <van-button type="default"  block>开通达达</van-button>
+        <van-button type="default" @click="submit" block>开通达达</van-button>
       </div>
     </div>
 

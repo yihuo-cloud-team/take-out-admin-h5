@@ -28,6 +28,7 @@ export default {
             const res = await this.$http.post('/domain/info', {});
             if (res.code >= 0) {
                 this.is_dada = res.data.domain_info.is_dada;
+                console.log(this.is_dada)
             }
             const res1 = await this.$http.post('/domain/dadaBalance', {});
             if (res1.code >= 0) {
