@@ -25,6 +25,36 @@
         </van-cell-group>
       </div>
     </div>
+    <!-- 多图上传 -->
+    <div class="store-img">
+      <div class="left">logo背景图</div>
+      <div class="right">
+        <div class="upload">
+          <img class="img" v-if="form.store_bg" :src="$getUrl(form.store_bg)" alt />
+          <ol-upload class="right"  v-model="form.store_bg"></ol-upload>
+        </div>
+      </div>
+    </div>
+    <div class="store-img">
+      <div class="left">商家图片</div>
+      <div class="right">
+        <div class="upload">
+          <img
+            class="img"
+            v-for="(item,index) in form.store_img"
+            :key="index"
+            :src="$getUrl(item)"
+            @click="form.store_img.splice(index,1)"
+            alt
+          />
+          <ol-upload
+            class="shangchuan"
+            v-if="form.store_img.length<9"
+            @success="url=>form.store_img.push(url)"
+          ></ol-upload>
+        </div>
+      </div>
+    </div>
     <div class="store-type">
       <div class="type-title">营业状态</div>
       <div class="type">
@@ -45,13 +75,13 @@
       <div class="week">
         <div class="checkb">
           <van-checkbox-group v-model="form.week">
-            <van-checkbox class="check" name="1">周一</van-checkbox>
-            <van-checkbox class="check" name="2">周二</van-checkbox>
-            <van-checkbox class="check" name="3">周三</van-checkbox>
-            <van-checkbox class="check" name="4">周四</van-checkbox>
-            <van-checkbox class="check" name="5">周五</van-checkbox>
-            <van-checkbox class="check" name="6">周六</van-checkbox>
-            <van-checkbox class="check" name="7">周日</van-checkbox>
+            <van-checkbox class="check" name="周一">周一</van-checkbox>
+            <van-checkbox class="check" name="周二">周二</van-checkbox>
+            <van-checkbox class="check" name="周三">周三</van-checkbox>
+            <van-checkbox class="check" name="周四">周四</van-checkbox>
+            <van-checkbox class="check" name="周五">周五</van-checkbox>
+            <van-checkbox class="check" name="周六">周六</van-checkbox>
+            <van-checkbox class="check" name="周日">周日</van-checkbox>
           </van-checkbox-group>
         </div>
       </div>

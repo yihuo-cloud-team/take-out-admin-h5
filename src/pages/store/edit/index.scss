@@ -34,7 +34,40 @@
     }
 }
 
+.store-img {
+    display: flex;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px 5px;
+    align-items: center;
+    .left {
+      flex: 1;
+      font-size: 14px;
+      
+    }
+
+    .right {
+      font-size: 14px;
+      flex: 3;
+      display: flex;
+      .top {
+        margin-bottom: 10px;
+      }
+      .upload {
+          display: flex;
+          flex-wrap: wrap;
+        .img {
+          width: 78px;
+          height: 78px;
+          margin-right: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+    }
+  }
 .store-info {
+    margin-bottom: 10px;
     margin-top: 15px;
     background-color: #fff;
     .info-title {

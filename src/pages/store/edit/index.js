@@ -14,7 +14,9 @@ export default {
                 store_class:"",
                 phone:"",
                 start_time:'12:00',
-                end_time:'12:00'
+                end_time:'12:00',
+                store_img:[],
+                store_bg:""
             },
             start_time:'12:00',
             end_time:'12:00'
