@@ -1,28 +1,26 @@
 <template>
   <div id="info">
     <div class="order-type">
-      <div class="type">待取货</div>
-      <div class="date">下单时间：2019-12-12 14:15:00</div>
+      <div v-if="orderInfo.state==1" class="type">已接单</div>
+      <div v-if="orderInfo.state==2" class="type">待取货</div>
+      <div v-if="orderInfo.state==3" class="type">送货中</div>
+      <div v-if="orderInfo.state==4" class="type">已完成</div>
+      <div v-if="orderInfo.state==5" class="type">订单取消</div>
+      <div class="date">下单时间:{{orderInfo.add_time}}</div>
     </div>
     <div class="goods-list">
-      <div class="goods-info">
+      <div v-for="item in orderInfo.snapshotInfo" :key="item" class="goods-info">
         <div class="info">
-          <div class="name">黄焖牛腩</div>
-          <div class="copies">x1</div>
+          <div class="name">{{item.data.title}}</div>
+          <div class="copies">x{{item.data.quantity}}</div>
         </div>
-        <div class="price">20￥</div>
+        <div class="price">{{item.data.price}}￥</div>
       </div>
-      <div class="goods-info">
-        <div class="info">
-          <div class="name">黄焖排骨</div>
-          <div class="copies">x1</div>
-        </div>
-        <div class="price">25￥</div>
-      </div>
+
       <van-divider />
       <div class="freight">
         <div class="freight-name">配送费</div>
-        <div class="freight-price">5￥</div>
+        <div class="freight-price">{{orderInfo.freight_price}}￥</div>
       </div>
     </div>
     <div class="address-info">
@@ -33,8 +31,8 @@
           <van-cell :border="false" title="联系人" value="孙辉" />
           <van-cell :border="false" title="手机号" value="17674007036" />
         </van-cell-group>
-        <!-- <div class="address-name">：</div>
-        <div class="a-info">中山中路99弄99号平高世贸大厦1711</div> -->
+        <!-- <div class="address-name">：</div>  -->
+        <!-- <div class="a-info">{{orderInfo.addressInfo.address_num}}</div> -->
       </div>
     </div>
   </div>

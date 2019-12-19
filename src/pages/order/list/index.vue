@@ -36,7 +36,7 @@
 
       <div class="tab-body">
         <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="LoadMore()">
-          <div class="panel" v-for="(item,index) in list" :key="index">
+          <div class="panel" @click="$router.push(`/order/info?order_id=${item.order_id}`)" v-for="(item,index) in list" :key="index">
             <div class="panel-body">
               <div class="order" v-for="(i,j) in item.snapshotInfo" :key="j">
                 <div class="order-left">
