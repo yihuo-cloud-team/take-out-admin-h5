@@ -12,7 +12,6 @@
       </van-cell-group>
       <div class="footer">
         <van-button type="default" class="left" @click="submit">登录</van-button>
-        <div class="right" @click="$router.push('/kaidian')">我要开店</div>
       </div>
    
 
