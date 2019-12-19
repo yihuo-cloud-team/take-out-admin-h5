@@ -46,8 +46,8 @@
             <van-icon name="arrow" />
           </div>
         </div>
-        <div class="panel-body">
-          <div class="order" v-for="(item,index) in this.orderList" :key="index">
+        <div v-if="orderList.length>0" class="panel-body">
+          <div class="order"  v-for="(item,index) in orderList" :key="index">
             <div class="order-left">
                 
                 <div class="order-info" v-for="(i,j) in item.snapshotInfo" :key="j">
@@ -59,6 +59,9 @@
               <div>{{item.price}}￥</div>
             </div>
           </div>
+        </div>
+        <div v-if="orderList.length==0" class="panel-body">
+          暂无数据
         </div>
       </div>
       <!-- 最新订单 E -->
@@ -73,8 +76,8 @@
             <van-icon name="arrow" />
           </div>
         </div>
-        <div class="panel-body">
-          <div class="goods" v-for="(item,index) in this.goodsList" :key="index">
+        <div v-if="goodsList.length>0" class="panel-body">
+          <div class="goods" v-for="(item,index) in goodsList" :key="index">
             <div class="goods-head">
                 <img :src="item.goods_head.length>0?$getUrl(item.goods_head):''" alt="">
             </div>
@@ -83,6 +86,9 @@
             </div>
             <div class="price">总销量:{{item.goods_num}}</div>
           </div>
+        </div>
+        <div v-if="goodsList.length==0" class="panel-body">
+          暂无数据
         </div>
       </div>
       <!-- 热门商品 E -->
