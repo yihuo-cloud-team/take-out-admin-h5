@@ -1,19 +1,24 @@
 <template>
   <div id="edit">
-    <!-- <div class="image1" v-if="qie">
-      <img class="img-nav" src="/images/04.jpg" alt />
-      <div class="btn">
-        <van-icon name="photograph" />
+    <div class="header">
+      <div class="image1" v-if="form.goods_head.length>0">
+        <img class="img-nav" v-for="item in form.goods_head" :key="item" :src="$getUrl(item)" alt />
       </div>
-      <div class="num">1/5</div>
+      <div class="btn">
+        <ol-upload @success="url=>form.goods_head.push(url)">
+          <van-icon name="photograph" />
+        </ol-upload>
+      </div>
+      <!-- <div class="num">1/5</div> -->
     </div>
-
-    <div class="image" v-else>
-      <div class="info-image" @click="qie = !qie">
-        <van-icon class="img" name="photograph" />
+    <div v-if="form.goods_head.length==0" class="image">
+      <div class="info-image">
+        <ol-upload @success="url=>form.goods_head.push(url)">
+          <van-icon class="img" name="photograph" />
+        </ol-upload>
       </div>
       <div class="upload-title">最多可以上传5张照片</div>
-    </div> -->
+    </div>
 
     <div class="input-file">
       <van-cell-group>

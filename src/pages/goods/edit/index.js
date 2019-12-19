@@ -68,7 +68,7 @@ export default {
       try {
         const res = await this.$http.post('/goods/save', this.form);
         if (res.code >= 0) {
-      
+          this.$toast("添加成功")
           this.$router.go(-1);
         }
       } catch (error) {
