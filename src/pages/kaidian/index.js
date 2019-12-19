@@ -10,8 +10,8 @@ export default {
                 enterprise_code:"",//企业代码信息
                 qy_Business:"",//营业执照
                 qy_licence:"",//食品经营许可证
-                store_door_img:[],//门面照片
-                store_in_img:[],//内部照片
+                store_door_img:'',//门面照片
+                store_in_img:'',//内部照片
                 account_name:"",//公众号名称
                 account_img:"",//公众号图片（平台设计）
                 account_info:"",//公众号描述
@@ -24,8 +24,6 @@ export default {
                 idcard_unpositive:"",//管理员身份证反面
                 user_phone:"",//管理员手机号
                 user_wx_code:"",//管理员微信号
-            
-                
             }
         };
     },
@@ -39,9 +37,11 @@ export default {
            
         },
         async submit(){
+            
             const res = await this.$http.post('/store/open', this.form);
             if(res.code>=0){
-                console.log(res.data)
+                this.$toast("添加成功")
+                this.$router.go(-1)
             }
         }
     },

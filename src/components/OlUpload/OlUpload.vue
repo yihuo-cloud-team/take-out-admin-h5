@@ -1,7 +1,9 @@
 <template>
   <div class="ol-upload">
-    <van-uploader :after-read="onRead">
-      <slot>上传文件</slot>
+    <van-uploader :after-read="onRead" :success="updateInput">
+      <slot>
+  
+      </slot>
     </van-uploader>
   </div>
 </template>

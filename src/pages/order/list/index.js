@@ -23,10 +23,11 @@ export default {
     // 用于初始化一些数据
     init() {
       if (!this.isAdd) {
-        this.active = parseFloat(this.$route.query.state)
-        this.query.state = this.active
+        this.active = parseFloat(this.$route.query.state);
+        this.query.state = this.active;
+        return false;
       }
-      this.update();
+        this.update();
     },
     // 用于更新一些数据
     async update() {
@@ -37,10 +38,9 @@ export default {
           this.loading = false
           this.list = [...this.list, ...res.data]
           this.total = res.total
-        } else {
-          this.finished = true;
-        }
-
+          return false
+        } 
+        this.finished = true;
       } catch (error) {}
     },
     LoadMore() {

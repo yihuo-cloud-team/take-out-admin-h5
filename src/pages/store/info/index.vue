@@ -5,7 +5,7 @@
       <div class="panel-body">
         <div class="store">
             <div class="store-head">
-                <img :src="storeInfo.logo" alt="">
+                <img :src="$getUrl(storeInfo.logo)" alt="">
             </div>
             <div class="store-info">
                 <div class="store-name">{{storeInfo.name}}</div>

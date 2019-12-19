@@ -1,9 +1,12 @@
+import { info } from "node-sass";
+
 export default {
     name: 'user',
     data() {
         return {
             list:[],
-            img:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575993797352&di=a8bd1a554d5d7cc882e8df923cda2c79&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201704%2F10%2F20170410073535_HXVfJ.thumb.700_0.jpeg"
+            info:{},
+            name:""
         };
     },
     methods: {
@@ -13,12 +16,17 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            const res = await this.$http.post('/user/info', {});
+            const res = await this.$http.post('/store/mini/qrCode')
             if(res.code>=0){
-                console.log(res.data)
-                this.list =res.data
+                this.info = res.data
+            }
+            const res1 = await this.$http.post('/domain/info')
+            if(res1.code>=0){
+                console.log(res1.data)
+                // this.name = res1.data.domain_info.name
             }
         },
+
         signOut() {
             localStorage.clear();
             this.$store.commit("user/set", null);

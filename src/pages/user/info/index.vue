@@ -2,9 +2,9 @@
   <div id="user">
     <div class="user-info">
       <div class="info-image">
-        <img class="img" :src="list.head_img?list.head_img:img" alt="">
+        <img class="img" :src="$getUrl(info.qrCode)" alt="">
       </div>
-      <div class="user-name">kido</div>
+      <div class="user-name"></div>
     </div>
     <div class="security" @click="$router.push('/user/pwd')">
       <van-cell title="账户与安全" is-link />
