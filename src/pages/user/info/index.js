@@ -1,5 +1,3 @@
-import { info } from "node-sass";
-
 export default {
     name: 'user',
     data() {
@@ -23,7 +21,7 @@ export default {
             const res1 = await this.$http.post('/domain/info')
             if(res1.code>=0){
                 console.log(res1.data)
-                // this.name = res1.data.domain_info.name
+                this.name = res1.data.domain_info.name
             }
         },
 

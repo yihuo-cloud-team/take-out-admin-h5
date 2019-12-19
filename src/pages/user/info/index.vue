@@ -4,7 +4,7 @@
       <div class="info-image">
         <img class="img" :src="$getUrl(info.qrCode)" alt="">
       </div>
-      <div class="user-name"></div>
+      <div class="user-name">{{name}}</div>
     </div>
     <div class="security" @click="$router.push('/user/pwd')">
       <van-cell title="账户与安全" is-link />
