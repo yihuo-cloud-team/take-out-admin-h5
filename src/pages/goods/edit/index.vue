@@ -1,19 +1,19 @@
 <template>
   <div id="edit">
     <div class="header">
-      <div class="image1" v-if="form.goods_head.length>0">
-        <img class="img-nav" v-for="item in form.goods_head" :key="item" :src="$getUrl(item)" alt />
+      <div class="image1" v-if="form.goods_head_list.length>0">
+        <img class="img-nav" v-for="item in form.goods_head_list" :key="item" :src="$getUrl(item)" alt />
       </div>
       <div class="btn">
-        <ol-upload @success="url=>form.goods_head.push(url)">
+        <ol-upload @success="url=>form.goods_head_list.push(url)">
           <van-icon name="photograph" />
         </ol-upload>
       </div>
       <!-- <div class="num">1/5</div> -->
     </div>
-    <div v-if="form.goods_head.length==0" class="image">
+    <div v-if="form.goods_head_list.length==0" class="image">
       <div class="info-image">
-        <ol-upload @success="url=>form.goods_head.push(url)">
+        <ol-upload @success="url=>form.goods_head_list.push(url)">
           <van-icon class="img" name="photograph" />
         </ol-upload>
       </div>

@@ -61,7 +61,7 @@
           </div>
         </div>
         <div v-if="orderList.length==0" class="panel-body">
-          暂无数据
+         <van-divider>暂无数据</van-divider>
         </div>
       </div>
       <!-- 最新订单 E -->
@@ -88,14 +88,14 @@
           </div>
         </div>
         <div v-if="goodsList.length==0" class="panel-body">
-          暂无数据
+       <van-divider>暂无数据</van-divider>
         </div>
       </div>
       <!-- 热门商品 E -->
 
       <!-- 门店信息 S -->
       <div class="panel">
-        <div class="panel-header">
+           <div class="panel-header">
           <div class="panel-title">门店信息</div>
           <div class="more" @click="$router.push('/store/edit')">
             <div>编辑</div>
@@ -110,19 +110,20 @@
           <div class="info">
             <div class="info-infos">
               <span class="title">商品分类：</span>
-              <span >快餐简餐</span>
+              <span >{{storeInfo.store_class}}</span>
             </div>
             <div class="info-infos">
               <span class="title">联系电话：</span>
-              <span>17674007036</span>
+              <span>{{storeInfo.phone}}</span>
             </div>
             <div class="info-infos">
               <span class="title">营业状态：</span>
-              <span>营业中</span>
+              <span v-if="storeInfo.state==1">营业中</span>
+              <span  v-if="storeInfo.state==2">打烊</span>
             </div>
             <div class="info-infos">
               <span class="title">营业时间：</span>
-              <span>周一到周五</span>
+              <span v-for="(item,index) in storeInfo.week" :key="index">{{item}},</span>
             </div>
           </div>
         </div>

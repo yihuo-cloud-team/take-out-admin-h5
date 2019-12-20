@@ -9,7 +9,7 @@ export default {
       form: {
         title: '', //商品名称
         sub_title: '', //副标题
-        goods_head: [], //商品图片
+        goods_head_list:[],
         o_price: '', //原价
         price: '', //优惠价
         stock: '', //库存

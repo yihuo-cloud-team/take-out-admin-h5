@@ -13,6 +13,14 @@
       <div class="message">
         <van-cell-group>
           <van-field
+            v-model="form.name"
+            required
+            clearable
+            label="门店标题"
+            placeholder
+            @click-right-icon="$toast('question')"
+          />
+          <van-field
             v-model="form.info"
             required
             clearable
@@ -31,7 +39,7 @@
       <div class="right">
         <div class="upload">
           <img class="img" v-if="form.store_bg" :src="$getUrl(form.store_bg)" alt />
-          <ol-upload class="right"  v-model="form.store_bg"></ol-upload>
+          <ol-upload class="right" v-model="form.store_bg"></ol-upload>
         </div>
       </div>
     </div>
@@ -58,35 +66,35 @@
     <div class="store-type">
       <div class="type-title">营业状态</div>
       <div class="type">
-        <van-radio-group v-model="form.state">
-          <van-cell-group>
-            <van-cell title="营业中" clickable @click="form.state = '1'">
-              <van-radio slot="right-icon" name="1" />
-            </van-cell>
-            <van-cell title="待营业" clickable @click="form.state = '2'">
-              <van-radio slot="right-icon" name="2" />
-            </van-cell>
-          </van-cell-group>
-        </van-radio-group>
+        <van-cell-group>
+          <van-switch-cell v-model="form.state" :active-value="1" :inactive-value="2" title="营业状态" />
+        </van-cell-group>
       </div>
     </div>
     <div class="store-date">
       <div class="date-title">营业时间</div>
       <div class="week">
-        <div class="checkb">
-          <van-checkbox-group v-model="form.week">
-            <van-checkbox class="check" name="周一">周一</van-checkbox>
-            <van-checkbox class="check" name="周二">周二</van-checkbox>
-            <van-checkbox class="check" name="周三">周三</van-checkbox>
-            <van-checkbox class="check" name="周四">周四</van-checkbox>
-            <van-checkbox class="check" name="周五">周五</van-checkbox>
-            <van-checkbox class="check" name="周六">周六</van-checkbox>
-            <van-checkbox class="check" name="周日">周日</van-checkbox>
-          </van-checkbox-group>
-        </div>
+        <!-- <div class="checkb">
+          <div
+            v-for="we in week"
+            :key="we"
+            @click="push(we)"
+            :class="['box',{'active':form.week.indexOf(we)>=0}]"
+          >{{we}}</div>
+        </div> -->
+        
+        <van-checkbox-group v-model="form.week" ref="checkboxGroup" class="checkb">
+          <van-checkbox :name="item" v-for="item in week" :key="item">
+            <div slot="icon" slot-scope="props" :class="['box',{'active':props.checked}]">{{item}}</div>
+          </van-checkbox>
+        </van-checkbox-group>
       </div>
       <div class="date">
-        <van-cell is-link @click="showPopup" title="开始时间" :value="form.start_time"></van-cell>
+        <div class="left" @click="showPopup">
+          <div class="footer-left">开始时间</div>
+          <div class="footer-right" style="background-color:#AAC4FD">{{form.start_time}}</div>
+        </div>
+
         <van-popup v-model="show" position="bottom" :style="{height:'200px'}">
           <van-datetime-picker
             v-model="start_time"
@@ -96,7 +104,10 @@
             @cancel="show=false"
           />
         </van-popup>
-        <van-cell is-link @click="showPopup1" title="结束时间" :value="form.end_time"></van-cell>
+        <div class="left" @click="showPopup1">
+          <div class="footer-left">结束时间</div>
+          <div class="footer-right" style="background-color:#F885A6">{{form.end_time}}</div>
+        </div>
         <van-popup v-model="show1" position="bottom" :style="{height:'200px'}">
           <van-datetime-picker
             v-model="end_time"
