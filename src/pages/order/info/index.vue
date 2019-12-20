@@ -1,6 +1,7 @@
 <template>
   <div id="info">
     <div class="order-type">
+      <div v-if="orderInfo.state==0" class="type">待支付</div>
       <div v-if="orderInfo.state==1" class="type">已接单</div>
       <div v-if="orderInfo.state==2" class="type">待取货</div>
       <div v-if="orderInfo.state==3" class="type">送货中</div>

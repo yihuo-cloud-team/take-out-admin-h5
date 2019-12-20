@@ -16,7 +16,8 @@ export default {
         start_time: '12:00',
         end_time: '12:00',
         store_img: [],
-        store_bg: ""
+        store_bg: "",
+        subsidy :0//补贴价格
       },
       start_time: '12:00',
       end_time: '12:00',

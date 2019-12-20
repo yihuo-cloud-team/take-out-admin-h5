@@ -28,6 +28,14 @@
             placeholder
             @click-right-icon="$toast('question')"
           />
+           <van-field
+            v-model="form.subsidy"
+            required
+            clearable
+            label="门店补贴"
+            placeholder
+            @click-right-icon="$toast('question')"
+          />
           <van-field v-model="form.store_class" label="门店分类" placeholder="快餐简餐" required />
           <van-field v-model="form.phone" label="联系电话" placeholder required />
         </van-cell-group>
@@ -82,7 +90,7 @@
             :class="['box',{'active':form.week.indexOf(we)>=0}]"
           >{{we}}</div>
         </div> -->
-        
+
         <van-checkbox-group v-model="form.week" ref="checkboxGroup" class="checkb">
           <van-checkbox :name="item" v-for="item in week" :key="item">
             <div slot="icon" slot-scope="props" :class="['box',{'active':props.checked}]">{{item}}</div>
