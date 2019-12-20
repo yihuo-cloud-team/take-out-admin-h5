@@ -1,6 +1,6 @@
 <template>
   <div id="open">
-    <div v-if="isdada!=1">
+    <div v-if="is_dada!=1">
       <div class="consum">
         <div class="title">
           <span class="dada">第三方同城配送 (达达)</span>
@@ -84,7 +84,7 @@
       </div>
     </div>
 
-    <dada-info v-if="isdada==1"></dada-info>
+    <dada-info v-if="is_dada==1"></dada-info>
   </div>
 </template>
 <script src="./index.js"></script>
