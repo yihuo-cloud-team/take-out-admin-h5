@@ -84,7 +84,7 @@
       </div>
     </div>
 
-    <dada-info v-if="is_dada==1"></dada-info>
+    <dada-info v-if="is_dada==1" :query="query" :yue="yue"></dada-info>
   </div>
 </template>
 <script src="./index.js"></script>

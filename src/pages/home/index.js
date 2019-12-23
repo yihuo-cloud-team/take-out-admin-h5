@@ -32,7 +32,12 @@ export default {
     async update() {
       const goodsList = await this.$http.post('/goods/list', this.query);
       if (goodsList.code >= 0) {
+        goodsList.data.forEach(el=>{
+          el.goods_head_list =el.goods_head_list.map(item=>this.$getUrl(item))
+        })
+    
         this.total = goodsList.total,
+
           this.goodsList = goodsList.data
       };
       const orderList = await this.$http.post('/order/list', this.query);
@@ -49,7 +54,6 @@ export default {
       
       if (res1.code >= 0) {
         this.storeInfo = res1.data;
-        console.log(this.storeInfo)
       };
     },
   },

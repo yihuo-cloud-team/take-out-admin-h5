@@ -79,7 +79,8 @@
         <div v-if="goodsList.length>0" class="panel-body">
           <div class="goods" v-for="(item,index) in goodsList" :key="index">
             <div class="goods-head">
-                <img :src="item.goods_head.length>0?$getUrl(item.goods_head):''" alt="">
+                <img :src="item.goods_head_list.length>0?item.goods_head_list[0]:''" alt="">
+ 
             </div>
             <div class="goods-info">
                 <div class="goods-name">{{item.title}}</div>

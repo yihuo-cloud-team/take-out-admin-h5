@@ -18,24 +18,17 @@ export default {
         async update() {
             // const res = await this.$http.post('', {});
         },
-        async submit() {
-            
-            const res = await this.$http.post('/auth/login', this.form);
-        
+        async submit() {      
+            const res = await this.$http.post('/auth/login', this.form);     
             // return 
             if (res.code >= 1) {
                 localStorage.jwt = res.jwt;
                 // localStorage.domain_id=res.data.domain_id
-                    
-                
                 // const userInfo = await this.$http.post('/user/info', {});
                 // localStorage.userInfo = JSON.stringify(userInfo.data);
-
                 // const power = await this.$http.post('/power/getUserPower', {});
                 // localStorage.power = JSON.stringify(power.data);
-
                 this.$router.push('/select');
-
             } else {
                 this.$message.warning(res.msg);
             }

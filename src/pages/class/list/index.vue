@@ -22,6 +22,11 @@
                 size="small"
                 @click="$router.push(`/class/edit?id=${item.id}`)"
               >编辑</van-button>
+                  <van-button
+                type="default"
+                size="small"
+                @click="del(item)"
+              >删除</van-button>
             </div>
           </div>
         </div>

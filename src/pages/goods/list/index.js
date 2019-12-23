@@ -26,8 +26,12 @@ export default {
         this.loading = true
         const res = await this.$http.post('/goods/list', this.form);
         if (res.code > 0) {
+          res.data.forEach(el=>{
+          el.goods_head_list = el.goods_head_list.map(item=>this.$getUrl(item))
+          }) 
           this.list = [...this.list, ...res.data]
           this.loading = false
+        
         } else {
           this.finished = true
         }
@@ -58,7 +62,7 @@ export default {
         const res = await this.$http.post('/goods/save', {
           id: item.id,
           is_up: is_up,
-          goods_head: item.goods_head
+          goods_head_list: item.goods_head_list
         });
         if (res.code >= 0) {
           this.$toast('下价成功');

@@ -7,7 +7,7 @@
         <div class="panel" v-for="(item,index) in list" :key="index">
           <div class="panel-body" @click="$router.push('/goods/edit')">
             <div class="goodss">
-              <img :src="item.goods_head.length>0?$getUrl(item.goods_head[0]):''" alt />
+              <img :src="item.goods_head_list.length>0?item.goods_head_list:''" alt />
               <div class="goods">
                 <div class="goods-info">
                   <div class="goods-title">{{item.title}}</div>
