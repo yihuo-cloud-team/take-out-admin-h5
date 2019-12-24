@@ -3,18 +3,19 @@ export default {
   layout: 'sub',
   data() {
     return {
-      props:{
-        query:{
-            type:Object,
-            default:{}
-        },
-        yue:{
-          type:String,
-          default:""
-        }
-        
-      }
+     
     };
+  },
+  props: {
+    parentQuery: {
+      type: Object,
+      default: {}
+    },
+    parentYue: {
+      type: Number,
+      default:0
+    }
+
   },
   methods: {
     // 用于初始化一些数据
@@ -22,8 +23,7 @@ export default {
       this.update();
     },
     // 用于更新一些数据
-    async update() {
-        console.log(this.query) 
+    update() {
     },
   },
   // 计算属性
@@ -54,7 +54,16 @@ export default {
   // 包含 Vue 实例可用指令的哈希表。
   directives: {},
   // 一个对象，键是需要观察的表达式，值是对应回调函数。
-  watch: {},
+  watch: {
+    // parentQuery(val){
+    //   this.parentQuery = val;
+    
+    // },
+    // parentYue(val){
+    //   this.parentYue = val;
+    //   console.log(val)
+    // }
+  },
   // 组件列表
   components: {},
 };

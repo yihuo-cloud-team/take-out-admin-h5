@@ -15,8 +15,7 @@ export default {
     async update() {
       const res = await this.$http.post('/store/data/total', {});
       if (res.code >= 0) {
-        this.info = res.data
-        console.log(res.data)
+        this.info = res.data;
       }
       const res1 = await this.$http.post('/store/info', {});
       if (res1.code >= 0) {

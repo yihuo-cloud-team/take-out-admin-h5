@@ -16,7 +16,7 @@ export default {
       is_dada: "",
       money: 0.00,
       yue: 0,
-      query: null
+      parserdata: null
     };
   },
   methods: {
@@ -29,7 +29,8 @@ export default {
       const res = await this.$http.post('/domain/info', {});
       if (res.code >= 0) {
         this.is_dada = res.data.domain_info.is_dada;
-        this.query = res.data.domain_info
+        this.parserdata = res.data.domain_info
+   
       }
 
       const res1 = await this.$http.post('/domain/dadaBalance', {});
