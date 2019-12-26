@@ -1,86 +1,17 @@
 export default {
   name: 'bill',
+  layout:"sub",
   data() {
     return {
       form: {
-        value: "",
-        time: [],
+        type: "",
         page: 1,
-        page_size: 10
+        page_size: 10,
+        times: [new Date(new Date().getFullYear(), new Date().getMonth(), 1).Format('yyyy-MM-dd'), new Date().Format('yyyy-MM-dd')],
       },
-      list: [{
-          name: "收入",
-          add_time: "2019-12-10",
-          statu: "成功",
-          price: "18.8",
-          info: ""
-        },
-        {
-          name: "支出",
-          add_time: "2019-12-11",
-          statu: "失败",
-          price: "200",
-          info: "提现不符合规定"
-        },
-        {
-          name: "收入",
-          add_time: "2019-12-12",
-          statu: "成功",
-          price: "18.8",
-          info: ""
-        },
-        {
-          name: "支出",
-          add_time: "2019-12-13",
-          statu: "成功",
-          price: "300",
-          info: ""
-        },
-        {
-          name: "收入",
-          add_time: "2019-12-14",
-          statu: "成功",
-          price: "18.8",
-          info: ""
-        },
-        {
-          name: "收入",
-          add_time: "2019-12-15",
-          statu: "成功",
-          price: "18.8",
-          info: ""
-        },
-        {
-          name: "收入",
-          add_time: "2019-12-15",
-          statu: "成功",
-          price: "18.8",
-          info: ""
-        },
-        {
-          name: "收入",
-          add_time: "2019-12-15",
-          statu: "成功",
-          price: "18.8",
-          info: ""
-        },
-        {
-          name: "收入",
-          add_time: "2019-12-15",
-          statu: "成功",
-          price: "18.8",
-          info: ""
-        },
-        {
-          name: "收入",
-          add_time: "2019-12-15",
-          statu: "成功",
-          price: "18.8",
-          info: ""
-        }
+      list: [
 
       ],
-      active: 1,
       loading: false,
       finished: false,
       show: false,
@@ -90,11 +21,11 @@ export default {
         },
         {
           text: '收入',
-          value: 0
+          value: 1
         },
         {
           text: '支出',
-          value: 1
+          value: 0
         }
       ],
       currentDate: new Date()
@@ -107,7 +38,18 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-      const res = await this.$http.post('', {});
+      try {
+        this.loading = true;
+        const res = await this.$http.post('budget/list', this.form);
+        if (res.code > 0) {
+          this.list = [...this.list, ...res.data]
+          this.loading = false
+        } else {
+          this.finished = true
+        }
+      } catch (error) {
+
+      }
     },
     showPopup() {
       this.show = true
@@ -121,20 +63,26 @@ export default {
       return value;
 
     },
-    LoadMore() {
-      this.form.page = ++this.form.page
+    loadMore() {
       this.finished = false
+      this.form.page = ++this.form.page
       this.update()
     },
     select(e) {
-      this.form.value = e
+      this.form.type = e;
+      this.list = []
+      this.form.page =1;
+      this.update();
     },
     start(e) {
-      this.form.time[0] = e.Format('yyyy-MM-dd');
+      this.list = []
+      this.form.page =1;
+      this.form.times[0] = e.Format('yyyy-MM-dd');
       this.currentDate = e;
       this.show = false;
-      var monthEndDate = new Date(new Date().getFullYear(), e.getMonth() + 1, 0).Format('yyyy-MM-dd');
-      this.form.time[1] = monthEndDate
+      var monthEndDate = new Date(e.getFullYear(), e.getMonth() + 1, 0).Format('yyyy-MM-dd');
+      this.form.times[1] = monthEndDate;
+      this.update();
     },
 
   },
@@ -167,12 +115,7 @@ export default {
   directives: {},
   // 一个对象，键是需要观察的表达式，值是对应回调函数。
   watch: {
-    active(newval) {
 
-      this.form.page = 1
-      this.list = []
-      this.update()
-    }
   },
   // 组件列表
   components: {},

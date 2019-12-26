@@ -8,6 +8,7 @@
     </div>
     <div class="security">
       <van-cell @click="$router.push('/user/pwd')" title="账户与安全" is-link />
+      <van-cell @click="$router.push('/marketing/list')" title="营销" is-link />
       <van-cell @click="$router.push('/user/overview')" title="账户总览" is-link />
       <van-cell @click="$router.push('/user/bill')" title="账单" is-link />
     </div>

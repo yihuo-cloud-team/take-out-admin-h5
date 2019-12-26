@@ -9,7 +9,7 @@ export default {
         cashCount:0
       },
       form: {
-        time: [new Date(new Date().getFullYear(), new Date().getMonth(), 1).Format('yyyy-MM-dd'), new Date().Format('yyyy-MM-dd')]
+        times: [new Date(new Date().getFullYear(), new Date().getMonth(), 1).Format('yyyy-MM-dd'), new Date().Format('yyyy-MM-dd')]
       },
       currentDate:  new Date(),
       show:false
@@ -25,7 +25,6 @@ export default {
       const res = await this.$http.post('finance/money', this.form);
       if (res.code >= 0) {
         this.info = res.data
-        console.log(res.data)
       }
     },
     formatter(type, value) {
@@ -41,11 +40,11 @@ export default {
       this.show = true
     },
     start(e) {
-        this.form.time[0] = e.Format('yyyy-MM-dd');
+        this.form.times[0] = e.Format('yyyy-MM-dd');
         this.currentDate = e;
         this.show = false;
         var monthEndDate = new Date(e.getFullYear(), e.getMonth() + 1, 0).Format('yyyy-MM-dd');
-        this.form.time[1] = monthEndDate
+        this.form.times[1] = monthEndDate
         this.update()
       },
       showPopup(){

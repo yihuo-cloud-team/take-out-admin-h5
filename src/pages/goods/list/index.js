@@ -51,7 +51,7 @@ export default {
         return false;
       }
     },
-    LoadMore() {
+    loadMore() {
       this.form.page = ++this.form.page
       this.finished = false
       this.update()

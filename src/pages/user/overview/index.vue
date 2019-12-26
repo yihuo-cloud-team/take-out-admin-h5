@@ -24,13 +24,13 @@
         <van-row>
           <van-col span="8">
             <div class="data-order">
-              <div class="data-num">{{info.allCount}}</div>
+              <div class="data-num">{{info.payTotal}}</div>
               <div class="data-title">营业总额</div>
             </div>
           </van-col>
           <van-col span="8">
             <div class="data-order">
-              <div class="data-num">{{info.orderCount}}</div>
+              <div class="data-num">{{info.orderTotal}}</div>
               <div class="data-title">订单总额</div>
             </div>
           </van-col>
@@ -42,7 +42,7 @@
           </van-col>
           <van-col span="8">
             <div class="data-order">
-              <div class="data-num">{{info.cashCount}}</div>
+              <div class="data-num">{{info.subsidy}}</div>
               <div class="data-title">补贴总额</div>
             </div>
           </van-col>
@@ -57,14 +57,14 @@
         <van-row>
           <van-col span="12">
             <div class="data-order">
-              <div class="data-num">1</div>
+              <div class="data-num">{{info.checkMoney}}</div>
               <div class="data-title">可提现的余额</div>
               <van-button class="btn">提现</van-button>
             </div>
           </van-col>
           <van-col span="12">
             <div class="data-order">
-              <div class="data-num">2</div>
+              <div class="data-num">{{info.canGet}}</div>
               <div class="data-title">待审核金额</div>
             </div>
           </van-col>

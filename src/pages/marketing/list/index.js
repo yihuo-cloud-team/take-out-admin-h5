@@ -1,5 +1,6 @@
 export default {
-    name: 'user',
+    name: 'list',
+    layout: 'sub',
     data() {
         return {
             info:{},
@@ -22,14 +23,8 @@ export default {
                 console.log(res1.data)
                 this.name = res1.data.domain_info.name
             }
+ 
         },
-
-        signOut() {
-            localStorage.clear();
-            this.$store.commit("user/set", null);
-            this.$store.commit("power/set", []);
-            this.$router.replace("/login");
-          }
     },
     // 计算属性
     computed: {},

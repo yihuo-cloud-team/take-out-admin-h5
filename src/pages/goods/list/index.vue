@@ -3,7 +3,7 @@
     <van-tabs v-model="active" title-active-color="#1890FF" :sticky="true" color="#1890FF">
       <van-tab title="已上架" :name="1"></van-tab>
       <van-tab title="已下架" :name="0"></van-tab>
-      <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="LoadMore()">
+      <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="loadMore()">
         <div class="panel" v-for="(item,index) in list" :key="index">
           <div class="panel-body" @click="$router.push('/goods/edit')">
             <div class="goodss">

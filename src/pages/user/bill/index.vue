@@ -16,19 +16,21 @@
       </van-popup>
       <div class="left">
         <van-dropdown-menu>
-          <van-dropdown-item v-model="form.value" @change="select" :options="option1" />
+          <van-dropdown-item v-model="form.type" @change="select" :options="option1" />
         </van-dropdown-menu>
       </div>
     </div>
-    <van-list class="panel-list" v-model="loading" :finished="finished" finished-text="没有更多了" @load="LoadMore()">
+    <van-list class="panel-list" v-model="loading" :finished="finished" :offset="3000" finished-text="没有更多了" @load="loadMore()">
       <div class="panel-item" v-for="(item,index) in list" :key="index">
           <div class="top">
-            <div >{{item.name}}</div>
-            <div>{{item.price}}</div>
-            <div>{{item.add_time}}</div>
+            <div class="top-left" v-if="item.type==1">收入</div>
+            <div class="top-left" v-if="item.type==2">支出</div>
+            <div class="top-center">{{item.money}}</div>
+            <div class="top-right">{{item.add_time}}</div>
           </div>
-          <div class="center">状态:{{item.statu}}</div>
-          <div class="bottom" v-if="item.info">备注:{{item.info}}</div>
+          <div class="center" v-if="item.state==1">状态:成功</div>
+          <div class="center" v-if="item.state==2">状态:失败</div>
+          <div class="bottom" v-if="item.text">备注:{{item.text}}</div>
       </div>
     </van-list>
   </div>
