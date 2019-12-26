@@ -7,14 +7,12 @@
         <van-field v-model="form.phone" placeholder="请输入用户名" />
       </van-cell-group>
       <div class="sub-title">密码</div>
-      <van-cell-group class="inp"> 
+      <van-cell-group class="inp">
         <van-field type="password" v-model="form.user_pwd" placeholder="请输入用户名" />
       </van-cell-group>
       <div class="footer">
         <van-button type="default" class="left" @click="submit">登录</van-button>
       </div>
-   
-
     </div>
   </div>
 </template>

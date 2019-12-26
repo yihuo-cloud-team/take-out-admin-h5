@@ -1,38 +1,46 @@
 @import "@/styles/variable.scss";
+
 #login {
     background-color: #F6F6F6;
-    .box{
+
+    .box {
         padding: 40px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: left;
-        
-        .box-title{
+
+        .box-title {
             flex: 1;
             text-align: center;
         }
-        .sub-title{
+
+        .sub-title {
             text-align: left;
         }
-        .inp{
+
+        .inp {
             margin: 10px 0px;
         }
-        .footer{
-       
+
+        .footer {
+
             display: flex;
             justify-content: center;
             align-items: center;
-            .left{
+
+            .left {
                 flex: 1;
                 margin-right: 30px;
             }
-            .right{
+
+            .right {
                 flex: 1;
             }
         }
     }
 }
+
 .btn {
     text-align: center;
     padding: 15px 0;
