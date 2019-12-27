@@ -28,7 +28,7 @@
             placeholder
             @click-right-icon="$toast('question')"
           />
-           <van-field
+          <van-field
             v-model="form.subsidy"
             required
             clearable
@@ -89,7 +89,7 @@
             @click="push(we)"
             :class="['box',{'active':form.week.indexOf(we)>=0}]"
           >{{we}}</div>
-        </div> -->
+        </div>-->
 
         <van-checkbox-group v-model="form.week" ref="checkboxGroup" class="checkb">
           <van-checkbox :name="item" v-for="item in week" :key="item">
