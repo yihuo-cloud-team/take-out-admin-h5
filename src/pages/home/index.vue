@@ -50,9 +50,9 @@
           <div class="order"  v-for="(item,index) in orderList" :key="index">
             <div class="order-left">
                 
-                <div class="order-info" v-for="(i,j) in item.snapshotInfo" :key="j">
-                    <div class="goods-name">{{i.title}}</div>
-                    <div class="goods-num">等3件商品</div>
+                <div class="order-info" >
+                    <div class="goods-name">{{item.snapshotInfo[0].title}}</div>
+                    <div class="goods-num">等{{item.snapshotInfo.length}}件商品</div>
                 </div>
             </div>
             <div class="order-right">
