@@ -4,7 +4,7 @@
       <div class="info-image">
         <img class="img" :src="$getUrl(info.qrCode)" alt />
       </div>
-      <div class="user-name">{{name}}</div>
+      <div class="user-name">{{name | nullToText}}</div>
     </div>
     <div class="security">
       <van-cell @click="$router.push('/marketing/coupons')" title="优惠卷" is-link />

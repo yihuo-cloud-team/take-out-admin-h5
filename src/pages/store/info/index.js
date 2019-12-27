@@ -24,7 +24,7 @@ export default {
 
     },
     goC() {
-
+      window.open('https://www.baidu.com')
     }
   },
   // 计算属性

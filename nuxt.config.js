@@ -47,9 +47,11 @@ module.exports = {
         '~/plugins/main.js',
     ],
     server: {
-        // port: 8082,
-        host: getLocalIP(),
+        // port: 80,
+        // host: getLocalIP(),
         // // default: 80
         // // default: localhost
+        port: 8080,
+        host: '192.168.0.147',
     },
 }   

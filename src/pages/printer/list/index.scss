@@ -7,7 +7,7 @@
 .p-list {
     background-color: #fff;
     padding: 15px 15px;
-
+    border-bottom: 1px solid #dddddd;
     .info-btn {
         display: flex;
 
@@ -16,7 +16,9 @@
             flex: 1;
         }
     }
-
+    .binding{
+        font-size: 14px;
+    }
     .message {
         font-size: 14px;
         color: #5CB85C;

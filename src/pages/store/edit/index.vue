@@ -2,11 +2,11 @@
   <div id="edit">
     <div class="store">
       <div class="store-image">
-        <ol-upload v-model="form.logo">
+        <ol-upload  v-model="form.logo">
           <img class="img" :src="$getUrl(form.logo)" />
         </ol-upload>
       </div>
-      <div class="store-name">{{form.name}}</div>
+      <div class="store-name">{{form.name | nullToText}}</div>
     </div>
     <div class="store-info">
       <div class="info-title">门店信息</div>

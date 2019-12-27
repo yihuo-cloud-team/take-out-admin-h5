@@ -6,7 +6,7 @@
         <div class="balance-title">账户余额</div>
       </div>
       <div class="balance-btn">
-        <van-button type="default" size="small">充值</van-button>
+        <van-button type="default" @click="$router.push('/dada/chongzhi')" size="small">充值</van-button>
       </div>
     </div>
     <div class="title">注册信息</div>

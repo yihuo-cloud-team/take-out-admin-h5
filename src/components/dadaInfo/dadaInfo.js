@@ -25,6 +25,7 @@ export default {
     // 用于更新一些数据
     update() {
     },
+ 
   },
   // 计算属性
   computed: {},

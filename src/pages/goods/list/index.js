@@ -26,12 +26,12 @@ export default {
         this.loading = true
         const res = await this.$http.post('/goods/list', this.form);
         if (res.code > 0) {
-          res.data.forEach(el=>{
-          el.goods_head_list = el.goods_head_list.map(item=>this.$getUrl(item))
-          }) 
+          res.data.forEach(el => {
+            el.goods_head_list = el.goods_head_list.map(item => this.$getUrl(item))
+          })
           this.list = [...this.list, ...res.data]
           this.loading = false
-        
+
         } else {
           this.finished = true
         }
@@ -42,10 +42,10 @@ export default {
         const res = await this.$http.post('/goods/del', {
           id: id
         });
-        if(res.code>=0){
-            this.form.page = 1
-            this.list = []
-            this.update()
+        if (res.code >= 0) {
+          this.form.page = 1
+          this.list = []
+          this.update()
         }
       } else {
         return false;
@@ -58,21 +58,32 @@ export default {
     },
     async save(item) {
       const is_up = item.is_up ? 0 : 1
-      try {
-        const res = await this.$http.post('/goods/save', {
-          id: item.id,
-          is_up: is_up,
-          goods_head_list: item.goods_head_list
-        });
-        if (res.code >= 0) {
-          this.$toast('下价成功');
-          this.form.page = 1
-          this.list = []
-          this.update()
-        }
-      } catch (error) {
 
+      if (is_up == 0) {
+        var name = "下架"
+        
+      } else {
+        var name = "上架"
       }
+      if (confirm(`确定要${name}吗`) == true) {
+
+        try {
+          const res = await this.$http.post('/goods/save', {
+            id: item.id,
+            is_up: is_up,
+            goods_head_list: item.goods_head_list
+          });
+          if (res.code >= 0) {
+            this.$toast(`${name}成功`);
+            this.form.page = 1
+            this.list = []
+            this.update()
+          }
+        } catch (error) {
+
+        }
+      }
+
     }
   },
   // 计算属性

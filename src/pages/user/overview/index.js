@@ -1,12 +1,9 @@
 export default {
   name: 'overview',
+  layout:"sub",
   data() {
     return {
       info: {
-        allCount:0,
-        orderCount:0,
-        freightCount:0,
-        cashCount:0
       },
       form: {
         times: [new Date(new Date().getFullYear(), new Date().getMonth(), 1).Format('yyyy-MM-dd'), new Date().Format('yyyy-MM-dd')]

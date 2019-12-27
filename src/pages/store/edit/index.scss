@@ -11,13 +11,17 @@
   position: relative;
 
   .store-image {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 
     .img {
+      display: block;
       width: 100px;
       height: 100px;
-      border-radius: 50%;
+      border-radius: 100%;
+      background-color: #dddddd;
     }
+    
   }
 
   .upload {
@@ -111,15 +115,16 @@
 
   .week {
     margin-top: 5px;
-    
+
     .checkb {
       display: flex;
-      .van-checkbox{
-          flex: 1;
-          display: flex;
-         overflow: visible;
+
+      .van-checkbox {
+        flex: 1;
+        display: flex;
+        overflow: visible;
       }
-  
+
       .box {
         flex: 1;
         width: 38px;
@@ -150,7 +155,7 @@
       flex: 1;
       display: flex;
       align-items: center;
-        justify-content: center;
+      justify-content: center;
 
       .footer-left {
         margin-right: 10px;

@@ -8,8 +8,8 @@
         </div>
         <div class="binding" @click="del(item)">解绑</div>
       </div>
-      <div class="message">{{item.printer_status}}</div>
-      <van-divider />
+      <div :class="bianse(item.printer_status)" class="message">{{item.printer_status}}</div>
+
     </div>
     <div style="padding:15px 20px" @click="$router.push('/printer/edit')">
       <van-button type="default" block>添加打印机</van-button>
