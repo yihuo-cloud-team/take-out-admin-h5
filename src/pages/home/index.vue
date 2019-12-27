@@ -45,7 +45,6 @@
           <div>更多</div>
           <van-icon name="arrow" />
         </div>
-<<<<<<< HEAD
         <div v-if="orderList.length>0" class="panel-body">
           <div class="order"  v-for="(item,index) in orderList" :key="index">
             <div class="order-left">
@@ -57,15 +56,6 @@
             </div>
             <div class="order-right">
               <div>{{item.price}}￥</div>
-=======
-      </div>
-      <div v-if="orderList.length>0" class="panel-body">
-        <div class="order" v-for="(item,index) in orderList" :key="index">
-          <div class="order-left">
-            <div class="order-info" v-for="(i,j) in item.snapshotInfo" :key="j">
-              <div class="goods-name">{{i.title}}</div>
-              <div class="goods-num">等3件商品</div>
->>>>>>> 03e7be30db8892d54c81fb8ae0b159cb19a15593
             </div>
           </div>
           <div class="order-right">
