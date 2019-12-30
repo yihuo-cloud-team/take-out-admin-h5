@@ -30,7 +30,7 @@ export default {
                 // localStorage.power = JSON.stringify(power.data);
                 this.$router.push('/select');
             } else {
-                this.$message.warning(res.msg);
+                this.$toast(res.msg)
             }
         }
     },

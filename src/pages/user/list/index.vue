@@ -2,7 +2,7 @@
   <div id="list">
     <div class="user-list" v-for="item in list" :key="item.id">
       <div class="list-img">
-        <img src="/images/07.jpg" alt />
+        <img :src="item.head_img" alt />
       </div>
       <div class="list-info">
         <div class="info-name">{{item.name}}</div>

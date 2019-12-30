@@ -25,12 +25,12 @@
               <div class="data-title">昨日成交额</div>
             </div>
           </van-col>
-          <van-col span="8">
+          <!-- <van-col span="8">
             <div class="data-order">
               <div class="data-num">16</div>
               <div class="data-title">今日访客</div>
             </div>
-          </van-col>
+          </van-col> -->
         </van-row>
       </div>
     </div>
@@ -50,12 +50,20 @@
         <div class="order" v-for="(item,index) in orderList" :key="index">
           <div class="order-left">
             <div class="order-info">
-              <div class="goods-name">{{item.snapshotInfo[0].title}}</div>
+              <div class="goods-name">
+                <div class="state" v-if="item.state==0">未支付</div>
+                <div class="state" v-if="item.state==1">已接单</div>
+                <div class="state" v-if="item.state==2">待取货</div>
+                <div class="state" v-if="item.state==3">配送中</div>
+                <div class="state" v-if="item.state==4">已完成</div>
+                <div class="state" v-if="item.state==5">订单取消</div>
+                {{item.snapshotInfo[0].title}}
+              </div>
               <div class="goods-num">等{{item.snapshotInfo.length}}件商品</div>
             </div>
           </div>
           <div class="order-right">
-            <div>{{item.price}}￥</div>
+            <div>￥{{item.price}}</div>
           </div>
         </div>
       </div>
@@ -117,11 +125,12 @@
           <div class="info-infos">
             <span class="title">营业状态：</span>
             <span v-if="storeInfo.state==1">营业中</span>
-            <span v-if="storeInfo.state==2">打烊</span>
+            <span v-if="storeInfo.state==2">已打烊</span>
           </div>
           <div class="info-infos">
             <span class="title">营业时间：</span>
             <span v-for="(item,index) in storeInfo.week" :key="index">{{item}},</span>
+            <div class="time">{{storeInfo.start_time}}--{{storeInfo.end_time}}</div>
           </div>
         </div>
       </div>

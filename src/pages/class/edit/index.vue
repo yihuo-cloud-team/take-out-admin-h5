@@ -17,9 +17,10 @@
             v-model="form.sort"
             :required="true"
             rows="1"
+            type="number"
             autosize
             label="排序"
-            type="textarea"
+            
             placeholder="请输入排序"
             clearable
           />

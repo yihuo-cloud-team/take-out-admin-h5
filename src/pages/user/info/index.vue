@@ -11,6 +11,7 @@
       <!-- <van-cell @click="$router.push('/marketing/list')" title="营销" is-link /> -->
       <van-cell @click="$router.push('/user/overview')" title="账户总览" is-link />
       <van-cell @click="$router.push('/user/bill')" title="账单" is-link />
+      <van-cell @click="$router.push('/kaidian')" title="我要开店" is-link />
     </div>
 
     <div class="btn" @click="signOut">退出登录</div>

@@ -36,6 +36,9 @@ export default {
 
     },
     bianse(e) {
+      if(e==null){
+        return "error"
+    }
       if (e.indexOf("离线") != -1) {
         return 'error'
       }
@@ -45,6 +48,7 @@ export default {
       if (e.indexOf("工作状态不正常") != -1) {
         return 'warn'
       }
+    
     }
   },
   // 计算属性

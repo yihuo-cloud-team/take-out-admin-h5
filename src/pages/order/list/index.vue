@@ -38,7 +38,15 @@
         <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="LoadMore()">
           <div class="panel" @click="$router.push(`/order/info?order_id=${item.order_id}`)" v-for="(item,index) in list" :key="index">
             <div class="panel-body">
+              <div class="title" v-if="item.state==0">未支付</div>
+              <div class="title" v-if="item.state==1">已接单</div>
+              <div class="title" v-if="item.state==2">待取货</div>
+              <div class="title" v-if="item.state==3">配送中</div>
+              <div class="title" v-if="item.state==4">已完成</div>
+              <div class="title" v-if="item.state==5">订单取消</div>
               <div class="order" v-for="(i,j) in item.snapshotInfo" :key="j">
+                
+          
                 <div class="order-left">
                   <div class="order-info">
                     <div class="goods-name">{{i.data.title}}</div>

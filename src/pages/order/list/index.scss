@@ -46,17 +46,22 @@
   }
 
 
-
+  .title{
+    font-size: 14px;
+    padding: 5px 0;
+    border-bottom: 1px solid #dddddd;
+  }
   .order {
     display: flex;
     padding-top: 20px;
 
+  
     // margin-bottom: 20px;
     .order-left {
       color: #333;
       display: flex;
       flex: 1;
-
+      flex-direction: row;
       .order-head {
         text-align: center;
 
@@ -105,6 +110,9 @@
 
     .freight-name {
       flex: 1;
+    }
+    .freight-price{
+      font-size: 13px;
     }
   }
 }

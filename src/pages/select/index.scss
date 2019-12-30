@@ -1,6 +1,11 @@
 @import "@/styles/variable.scss";
 #select {
     padding: $page-padding;
+    height: 100vh;
+    .title{
+    font-size: 20px;
+    margin-bottom: 10px;   
+    }
     .btn{
         margin-left: 20px;
     }

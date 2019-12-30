@@ -3,7 +3,7 @@ export default {
     layout:'sub',
     data() {
         return {
-            orderInfo:""
+            orderInfo:{}
         };
     },
     methods: {
@@ -15,9 +15,7 @@ export default {
         async update() {
             const res = await this.$http.post('/order/info', {order_id:this.$route.query.order_id});
             if(res.code>=0){
-              
                 this.orderInfo = res.data
-                console.log(this.orderInfo)
             }
         },
     },

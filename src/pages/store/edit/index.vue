@@ -2,7 +2,7 @@
   <div id="edit">
     <div class="store">
       <div class="store-image">
-        <ol-upload  v-model="form.logo">
+        <ol-upload v-model="form.logo">
           <img class="img" :src="$getUrl(form.logo)" />
         </ol-upload>
       </div>
@@ -23,6 +23,7 @@
           <van-field
             v-model="form.info"
             required
+            type="textarea"
             clearable
             label="门店描述"
             placeholder
@@ -33,11 +34,19 @@
             required
             clearable
             label="门店补贴"
+            type="number"
             placeholder
             @click-right-icon="$toast('question')"
           />
-          <van-field v-model="form.store_class" label="门店分类" placeholder="快餐简餐" required />
-          <van-field v-model="form.phone" label="联系电话" placeholder required />
+          <van-field v-model="form.store_class" clearable label="门店分类" placeholder="快餐简餐" required />
+          <van-field
+            v-model="form.phone"
+            type="number"
+            label="联系电话"
+            clearable
+            placeholder
+            required
+          />
         </van-cell-group>
       </div>
     </div>
@@ -46,23 +55,24 @@
       <div class="left">logo背景图</div>
       <div class="right">
         <div class="upload">
-          <img class="img" v-if="form.store_bg" :src="$getUrl(form.store_bg)" alt />
+          <div>
+            <img class="img" v-if="form.store_bg" :src="$getUrl(form.store_bg)" alt />
+          </div>
           <ol-upload class="right" v-model="form.store_bg"></ol-upload>
         </div>
       </div>
     </div>
-    <div class="store-img">
+    <div class="store-img1">
       <div class="left">商家图片</div>
       <div class="right">
         <div class="upload">
-          <img
-            class="img"
-            v-for="(item,index) in form.store_img"
-            :key="index"
-            :src="$getUrl(item)"
-            @click="form.store_img.splice(index,1)"
-            alt
-          />
+          <div class="box" v-for="(item,index) in form.store_img" :key="index">
+            <div @click="del(form.store_img,index)" class="chacha">
+              <van-icon name="delete" class="icon" />
+            </div>
+            <img class="img" :src="$getUrl(item)"  alt />
+          </div>
+
           <ol-upload
             class="shangchuan"
             v-if="form.store_img.length<9"
@@ -129,8 +139,18 @@
     </div>
     <div class="store-tag">
       <div class="tag-title">门店标签</div>
-      <van-field v-model="form.label" label="门店标签" placeholder="好吃的，好玩的" required />
+      <div class="tag-box">
+         <template v-if="form.label.length>0">
+        <van-tag v-for="(item,index) in form.label" :key="index" class="tag" type="primary">{{item}}</van-tag>
+      </template>
+      <van-button type="info" class="btn1" @click="shows=true">添加</van-button>
+      </div>
+     
     </div>
+    <van-popup v-model="shows" position="bottom" :style="{ height: '20%' }">
+      <van-field v-model="title" clearable label="添加标签" placeholder />
+      <van-button @click="add" class="btn" type="info">添加</van-button>
+    </van-popup>
     <div class="footer" @click="submit">保存</div>
   </div>
 </template>

@@ -65,7 +65,9 @@ export default {
       this.show = false
     },
     async submit() {
-      try {
+
+      if(this.checked){
+          try {
         const res = await this.$http.post('/goods/save', this.form);
         if (res.code >= 0) {
           this.$toast("添加成功")
@@ -74,6 +76,10 @@ export default {
       } catch (error) {
         return;
       }
+      }else{
+        this.$toast("请同意遵守平台规则")
+      }
+    
     }
   },
   // 计算属性

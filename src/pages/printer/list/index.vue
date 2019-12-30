@@ -8,7 +8,7 @@
         </div>
         <div class="binding" @click="del(item)">解绑</div>
       </div>
-      <div :class="bianse(item.printer_status)" class="message">{{item.printer_status}}</div>
+      <div :class="bianse(item.printer_status)" class="message">{{item.printer_status==null?'未知状态':item.printer_status}}</div>
 
     </div>
     <div style="padding:15px 20px" @click="$router.push('/printer/edit')">

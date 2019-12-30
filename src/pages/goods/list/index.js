@@ -61,28 +61,28 @@ export default {
 
       if (is_up == 0) {
         var name = "下架"
-        
+
       } else {
         var name = "上架"
       }
-      if (confirm(`确定要${name}吗`) == true) {
-
-        try {
-          const res = await this.$http.post('/goods/save', {
-            id: item.id,
-            is_up: is_up,
-            goods_head_list: item.goods_head_list
-          });
-          if (res.code >= 0) {
-            this.$toast(`${name}成功`);
-            this.form.page = 1
-            this.list = []
-            this.update()
-          }
-        } catch (error) {
-
+      this.$dialog.confirm({
+        message: "确认" + name,
+      }).then(async() => {
+        const res = await this.$http.post('/goods/save', {
+          id: item.id,
+          is_up: is_up,
+          goods_head_list: item.goods_head_list
+        });
+        if (res.code >= 0) {
+          this.$toast(`${name}成功`);
+          this.form.page = 1
+          this.list = []
+          this.update()
         }
-      }
+      }).catch(() => {
+
+      })
+    
 
     }
   },

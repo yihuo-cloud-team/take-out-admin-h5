@@ -44,9 +44,10 @@
           v-model="form.o_price"
           :required="true"
           rows="1"
+
           autosize
           label="原价"
-          type="textarea"
+          type="number"
           placeholder="请输入价格"
         />
         <van-field
@@ -55,7 +56,7 @@
           rows="1"
           autosize
           label="优惠价"
-          type="textarea"
+          type="number"
           placeholder="请输入价格"
         />
         <van-field
@@ -64,7 +65,7 @@
           rows="1"
           autosize
           label="排序"
-          type="textarea"
+          type="number"
           placeholder="请输入排序"
         />
         <van-field
@@ -73,7 +74,7 @@
           rows="1"
           autosize
           label="库存"
-          type="textarea"
+          type="number"
           placeholder="请输入库存量"
         />
         <van-cell :required="true" title="分类" is-link :value="value" @click="open" />

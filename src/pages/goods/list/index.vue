@@ -5,9 +5,9 @@
       <van-tab title="已下架" :name="0"></van-tab>
       <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="loadMore()">
         <div class="panel" v-for="(item,index) in list" :key="index">
-          <div class="panel-body" @click="$router.push('/goods/edit')">
+          <div class="panel-body" >
             <div class="goodss">
-              <img :src="item.goods_head_list.length>0?item.goods_head_list:''" alt />
+              <img :src="item.goods_head_list.length>0?item.goods_head_list[0]:''" alt />
               <div class="goods">
                 <div class="goods-info">
                   <div class="goods-title">{{item.title}}</div>

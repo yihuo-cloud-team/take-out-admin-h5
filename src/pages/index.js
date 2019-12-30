@@ -10,6 +10,7 @@ export default {
         async init() {
             // this.update();
             this.show();
+            this.update();
         },
         show() {
             // this.$refs['select-child'].show();
@@ -17,7 +18,7 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-
+            this.$router.push(`/home`);
         },
     },
     // 计算属性
@@ -30,7 +31,6 @@ export default {
     beforeMount() { },
     // el 被新创建的 vm.el 替换，并挂载到实例上去之后调用该钩子。
     mounted() {
-        console.warn('index');
 
         this.init();
         this.$nextTick(() => { });

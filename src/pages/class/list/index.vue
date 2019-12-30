@@ -1,7 +1,7 @@
 <template>
   <div id="list">
     <van-list>
-      <div class="panel" v-for="(item,index) in list" :key="index">
+      <div class="panel" v-for="(item,index) in list"   @click="$router.push(`/class/edit?id=${item.id}`)" :key="index">
         <div class="panel-body">
           <div class="goodss">
             <div class="goods">

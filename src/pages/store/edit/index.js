@@ -5,6 +5,7 @@ export default {
     return {
       show: false,
       show1: false,
+      shows:false,
       form: {
         logo: "",
         name: "",
@@ -17,7 +18,8 @@ export default {
         end_time: '12:00',
         store_img: [],
         store_bg: "",
-        subsidy :0//补贴价格
+        subsidy :0,//补贴价格
+        label:[]
       },
       start_time: '12:00',
       end_time: '12:00',
@@ -29,7 +31,8 @@ export default {
         "周五",
         "周六",
         "周日",
-      ]
+      ],
+      title:[]
     };
   },
   methods: {
@@ -49,10 +52,10 @@ export default {
     },
     async submit() {
       const res = await this.$http.post('/store/save', this.form);
+      console.log(res)
       if (res.code >= 0) {
         this.$toast("添加成功")
         this.$router.go(-1)
-
       }
     },
     // bianse(index) {
@@ -86,6 +89,24 @@ export default {
       this.end_time = e
       this.show1 = false
     },
+    del(item,index){
+      this.$dialog.confirm({
+        message: '确认删除',
+      }).then(()=>{
+        item.splice(index,1)
+      }).catch(()=>{
+
+      })
+    },
+    add(){
+      if(this.title==''){
+        this.$toast("标签不得为空")
+        return false
+      }
+      this.form.label.push(this.title)
+      this.title=''
+      this.shows = false
+    }
     // push(we) {
     //   if (this.form.week.indexOf(we) < 0) {
     //     this.form.week.push(we);
