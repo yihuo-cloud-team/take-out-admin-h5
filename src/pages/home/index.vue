@@ -51,12 +51,7 @@
           <div class="order-left">
             <div class="order-info">
               <div class="goods-name">
-                <div class="state" v-if="item.state==0">未支付</div>
-                <div class="state" v-if="item.state==1">已接单</div>
-                <div class="state" v-if="item.state==2">待取货</div>
-                <div class="state" v-if="item.state==3">配送中</div>
-                <div class="state" v-if="item.state==4">已完成</div>
-                <div class="state" v-if="item.state==5">订单取消</div>
+          
                 {{item.snapshotInfo[0].title}}
               </div>
               <div class="goods-num">等{{item.snapshotInfo.length}}件商品</div>
@@ -64,6 +59,12 @@
           </div>
           <div class="order-right">
             <div>￥{{item.price}}</div>
+                  <div class="state" v-if="item.state==0">未支付</div>
+                <div class="state" v-if="item.state==1">已接单</div>
+                <div class="state" v-if="item.state==2">待取货</div>
+                <div class="state" v-if="item.state==3">配送中</div>
+                <div class="state" v-if="item.state==4">已完成</div>
+                <div class="state" v-if="item.state==5">订单取消</div>
           </div>
         </div>
       </div>
@@ -129,7 +130,7 @@
           </div>
           <div class="info-infos">
             <span class="title">营业时间：</span>
-            <span v-for="(item,index) in storeInfo.week" :key="index">{{item}},</span>
+            <span v-for="(item,index) in storeInfo.week" :key="index">{{item}}</span>
             <div class="time">{{storeInfo.start_time}}--{{storeInfo.end_time}}</div>
           </div>
         </div>

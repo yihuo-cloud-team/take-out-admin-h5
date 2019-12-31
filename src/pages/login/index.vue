@@ -12,6 +12,7 @@
       </van-cell-group>
       <div class="footer">
         <van-button type="default" class="left" @click="submit">登录</van-button>
+        <van-button type="default" class="right" @click="$router.push('/register')">我要开店</van-button>
       </div>
     </div>
   </div>

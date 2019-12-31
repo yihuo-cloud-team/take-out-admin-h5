@@ -29,6 +29,7 @@
             <div class="top-right">{{item.add_time}}</div>
           </div>
           <div class="center" v-if="item.state==1">状态:成功</div>
+          <div class="center" v-if="item.state==0">状态:待审核</div>
           <div class="center" v-if="item.state==2">状态:失败</div>
           <div class="bottom" v-if="item.text">备注:{{item.text}}</div>
       </div>

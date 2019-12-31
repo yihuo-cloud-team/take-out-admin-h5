@@ -10,7 +10,7 @@
       <div class="date">下单时间:{{orderInfo.add_time}}</div>
     </div>
     <div class="goods-list">
-      <div v-for="item in orderInfo.snapshotInfo" :key="item" class="goods-info">
+      <div v-for="(item,index) in orderInfo.snapshotInfo" :key="index" class="goods-info">
         <div class="info">
           <div class="name">{{item.data.title}}</div>
           <div class="copies">x{{item.data.quantity}}</div>
@@ -59,7 +59,7 @@
               autosize
               label="备注"
               type="textarea"
-              placeholder="请输入留言"
+      
             />
           </van-cell-group>
         </van-cell-group>

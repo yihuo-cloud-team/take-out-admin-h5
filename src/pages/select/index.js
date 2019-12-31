@@ -1,5 +1,5 @@
 export default {
-  name: 'select',
+  name: 'selects',
   layout: 'root',
   data() {
     return {

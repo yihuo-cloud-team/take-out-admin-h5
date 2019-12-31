@@ -1,5 +1,5 @@
 <template>
-  <div id="select">
+  <div id="selects">
     <div class="title">
       请选择门店
     </div>

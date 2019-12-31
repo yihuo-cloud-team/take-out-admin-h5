@@ -73,6 +73,7 @@ export default {
       this.list = []
       this.form.page =1;
       this.update();
+      this.finished = false;  
     },
     start(e) {
       this.list = []

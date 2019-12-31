@@ -2,7 +2,12 @@
   <div id="edit">
     <div class="header">
       <div class="image1" v-if="form.goods_head_list.length>0">
-        <img class="img-nav" v-for="item in form.goods_head_list" :key="item" :src="$getUrl(item)" alt />
+        <div class="img-nav" v-for="(item,index) in form.goods_head_list" :key="index">
+          <div class="box" @click="del(form.goods_head_list,index)">
+            <van-icon name="delete" :size="30" class="icon" />
+          </div>
+          <img class="img"  :src="$getUrl(item)" alt />
+        </div>
       </div>
       <div class="btn">
         <ol-upload @success="url=>form.goods_head_list.push(url)">
@@ -44,7 +49,6 @@
           v-model="form.o_price"
           :required="true"
           rows="1"
-
           autosize
           label="原价"
           type="number"

@@ -1,0 +1,39 @@
+@import "@/styles/variable.scss";
+#register {
+    .box {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+    
+        .box-title {
+          flex: 1;
+          text-align: center;
+        }
+    
+        .sub-title {
+          text-align: left;
+        }
+    
+        .inp {
+          margin: 10px 0px;
+        }
+    
+        .footer {
+    
+          display: flex;
+          justify-content: center;
+          align-items: center;
+    
+          .left {
+            flex: 1;
+    
+          }
+    
+    
+        }
+      }
+}
+
+#register /deep/ {}

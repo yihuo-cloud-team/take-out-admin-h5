@@ -51,6 +51,9 @@ export default {
         return false;
       }
     },
+    qie(){
+      this.finished = false
+    },
     loadMore() {
       this.form.page = ++this.form.page
       this.finished = false

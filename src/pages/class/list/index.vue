@@ -20,12 +20,12 @@
               <van-button
                 type="default"
                 size="small"
-                @click="$router.push(`/class/edit?id=${item.id}`)"
+                @click.stop="$router.push(`/class/edit?id=${item.id}`)"
               >编辑</van-button>
                   <van-button
                 type="default"
                 size="small"
-                @click="del(item)"
+                @click.stop="del(item)"
               >删除</van-button>
             </div>
           </div>

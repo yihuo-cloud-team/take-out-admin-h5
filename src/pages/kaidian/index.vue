@@ -1,6 +1,6 @@
 <template>
   <div id="kaidian">
-    <el-card shadow="never">
+
       <div class="input-file">
         <van-cell-group>
           <van-field
@@ -230,7 +230,6 @@
         </div>
       </div>
       <div class="footer" @click="submit">保存</div>
-    </el-card>
   </div>
 </template>
 <script src="./index.js"></script>

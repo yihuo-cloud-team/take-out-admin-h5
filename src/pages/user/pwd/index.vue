@@ -23,7 +23,9 @@
       </van-cell-group>
       <div class="btn">
         <van-button type="default" size="large" @click="submit">确定</van-button>
+         <van-button type="default" size="large" @click="$router.go(-1)">取消</van-button>
       </div>
+      
     </div>
   </div>
 </template>

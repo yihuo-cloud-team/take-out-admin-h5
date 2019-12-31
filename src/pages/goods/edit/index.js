@@ -9,16 +9,16 @@ export default {
       form: {
         title: '', //商品名称
         sub_title: '', //副标题
-        goods_head_list:[],
-        o_price: '', //原价
-        price: '', //优惠价
+        goods_head_list: [],
+        o_price: 0, //原价
+        price: 0, //优惠价
         stock: '', //库存
         class_id: '', //关联的分类
         is_up: 1, //是否上下架
         sort: 0,
-        
+
       },
-      value:"",
+      value: "",
       list: [],
       totle: "",
       index: 0
@@ -45,11 +45,11 @@ export default {
           this.index = this.list.findIndex(el => this.form.class_id == el.id);
           this.value = this.list[this.index].name
         }
-     
+
       } else {
         const res = await this.$http.post('/class/list', {})
         if (res.code >= 0) {
-          this.list = res.data; 
+          this.list = res.data;
         }
       }
     },
@@ -65,21 +65,60 @@ export default {
       this.show = false
     },
     async submit() {
-
-      if(this.checked){
-          try {
-        const res = await this.$http.post('/goods/save', this.form);
-        if (res.code >= 0) {
-          this.$toast("添加成功")
-          this.$router.go(-1);
-        }
-      } catch (error) {
-        return;
+      if (this.goods_head_list == []) {
+        this.$toast("请添加图片")
+        return false
       }
-      }else{
+      if (this.form.title == "") {
+        this.$toast("请填写商品名称")
+        return false
+      }
+      if (this.form.sub_title == "") {
+        this.$toast("请填写副标题")
+        return false
+      }
+      if (this.form.o_price == 0 || this.form.o_price == "") {
+        this.$toast("请填写原价")
+        return false
+      }
+      if (this.form.price == 0 || this.form.price == "") {
+        this.$toast("请填写优惠价")
+        return false
+      }
+      if (this.stock == "") {
+        this.$toast("请填写库存")
+        return false
+      }
+
+      if (this.checked) {
+        try {
+          const res = await this.$http.post('/goods/save', this.form);
+          if (res.code >= 0) {
+            if(this.$route.query.id){
+              this.$toast("编辑成功")
+              this.$router.go(-1);
+              return false
+            }
+            this.$toast("添加成功")
+            this.$router.go(-1);
+          }
+        } catch (error) {
+          return;
+        }
+      } else {
         this.$toast("请同意遵守平台规则")
       }
-    
+
+    },
+    del(item,index){
+      console.log(item,index)
+      this.$dialog.confirm({
+        message: '确认删除',
+      }).then(()=>{
+        item.splice(index,1)
+      }).catch(()=>{
+
+      })
     }
   },
   // 计算属性

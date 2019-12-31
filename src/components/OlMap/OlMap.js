@@ -35,6 +35,7 @@ export default {
         zoom: 18
       });
     },
+    
     initLocation() {
       AMap.plugin('AMap.Geolocation', () => {
         let geolocation = new AMap.Geolocation({
@@ -46,11 +47,11 @@ export default {
           buttonOffset: new AMap.Pixel(10, 20), //定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
           zoomToAccuracy: true, //定位成功后是否自动调整地图视野到定位点
         });
+        
         this.map.addControl(geolocation);
         // 监听右下角小圆点
         AMap.event.addListener(geolocation, 'complete', (e) => {
-          // this.setPosition();
-          console.log(11)
+        
           this.setPosition(e.position.lat, e.position.lng);
         });
 
@@ -149,7 +150,9 @@ export default {
 
     value: {
       handler(v) {
+       
         if (parseFloat(this.value.x) != parseFloat(this.model.x) || parseFloat(this.value.y) != parseFloat(this.model.y)) {
+        
           this.setPosition(this.value.x, this.value.y);
         }
       },

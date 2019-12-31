@@ -30,6 +30,7 @@ export default {
     },
     // 用于更新一些数据
     async update() {
+      
       const goodsList = await this.$http.post('/goods/list', this.query);
       if (goodsList.code >= 0) {
         goodsList.data.forEach(el=>{

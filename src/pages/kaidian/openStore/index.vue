@@ -1,5 +1,5 @@
 <template>
-  <div id="edit">
+  <div id="openStore">
     <div class="store">
       <div class="store-image">
         <ol-upload v-model="form.logo">
@@ -31,7 +31,6 @@
           />
           <van-field
             v-model="form.subsidy"
-            required
             clearable
             label="门店补贴"
             type="number"
@@ -50,21 +49,15 @@
         </van-cell-group>
       </div>
     </div>
-    <div class="map">
-      <ol-map v-model="position"  style="height:300px"></ol-map>
-      <van-cell-group>
-   
-        <van-cell :value="'经度:'+position.x+',纬度'+position.y"  />
-      </van-cell-group>
-    </div>
     <!-- 多图上传 -->
     <div class="store-img">
       <div class="left">logo背景图</div>
       <div class="right">
         <div class="upload">
-          <ol-upload class="right" v-model="form.store_bg">
+          <div>
             <img class="img" v-if="form.store_bg" :src="$getUrl(form.store_bg)" alt />
-          </ol-upload>
+          </div>
+          <ol-upload class="right" v-model="form.store_bg"></ol-upload>
         </div>
       </div>
     </div>
@@ -155,12 +148,12 @@
             type="primary"
           >{{item}}</van-tag>
         </template>
-        <van-button type="primary" class="btn1" @click="shows=true">添加</van-button>
+        <van-button type="info" class="btn1" @click="shows=true">添加</van-button>
       </div>
     </div>
     <van-popup v-model="shows" position="bottom" :style="{ height: '20%' }">
       <van-field v-model="title" clearable label="添加标签" placeholder />
-      <van-button @click="add" class="btn" type="primary">添加</van-button>
+      <van-button @click="add" class="btn" type="info">添加</van-button>
     </van-popup>
     <div class="footer" @click="submit">保存</div>
   </div>
