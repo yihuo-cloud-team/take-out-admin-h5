@@ -28,16 +28,16 @@ export default {
                 phone: this.phone
             });
             if (res.code >= 0) {
-                this.show = 1
+                this.show = 1;
                 this.code = res.data * 1;
-                this.time = 60
-                this.loading = true
+                this.time = 60;
+                this.loading = true;
                 let times = setInterval(() => {
-                    this.time -= 1
+                    this.time -= 1;
                     if (this.time <= 0) {
-                        clearInterval(times)
-                        this.time = "重新获取验证码"
-                        this.loading = false
+                        clearInterval(times);
+                        this.time = "重新获取验证码";
+                        this.loading = false;
                     }
                 }, 1000)
             }
@@ -45,20 +45,20 @@ export default {
         },
         async submit() {
             if (this.pwd != this.pwd1) {
-                this.$toast("密码不一致")
-                return false
+                this.$toast("密码不一致");
+                return false;
             }
-            const res = await this.$http.post('auth/reg', {
+            const res = await this.$http.post('/auth/reg', {
                 phone: this.phone,
                 code: this.code,
                 pwd: this.pwd,
 
             });
             if (res.code >= 0) {
-                this.$toast("保存成功")
-                this.$router.push("/login")
+                this.$toast("保存成功");
+                this.$router.push("/login");
             } else {
-                this.$toast(res.msg)
+                this.$toast(res.msg);
             }
         }
     },

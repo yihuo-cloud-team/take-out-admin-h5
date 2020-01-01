@@ -10,13 +10,13 @@
     .store-image {
       display: flex;
       justify-content: center;
-
       .img {
         display: block;
         width: 100px;
         height: 100px;
         border-radius: 100%;
         background-color: #dddddd;
+        overflow: hidden;
       }
     }
 

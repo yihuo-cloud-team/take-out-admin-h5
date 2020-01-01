@@ -124,20 +124,20 @@ export default {
     },
     filter(type, options) {
       if (type === 'minute') {
-        return options.filter(option => option % 5 === 0)
+        return options.filter(option => option % 5 === 0);
       }
       return options;
     },
     start(e) {
-      this.form.start_time = e
-      this.start_time = e
+      this.form.start_time = e;
+      this.start_time = e;
 
-      this.show = false
+      this.show = false;
     },
     end(e) {
-      this.form.end_time = e
-      this.end_time = e
-      this.show1 = false
+      this.form.end_time = e;
+      this.end_time = e;
+      this.show1 = false;
     },
     del(item, index) {
       this.$dialog.confirm({
@@ -146,16 +146,16 @@ export default {
         item.splice(index, 1)
       }).catch(() => {
 
-      })
+      });
     },
     add() {
       if (this.title == '') {
-        this.$toast("标签不得为空")
-        return false
+        this.$toast("标签不得为空");
+        return false;
       }
-      this.form.label.push(this.title)
-      this.title = ''
-      this.shows = false
+      this.form.label.push(this.title);
+      this.title = '';
+      this.shows = false;
     }
     // push(we) {
     //   if (this.form.week.indexOf(we) < 0) {

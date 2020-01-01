@@ -21,18 +21,18 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-      this.loading = true
+      this.loading = true;
       const res = await this.$http.post('/user/list', this.query);
       if (res.code > 0) {
-        this.list = [...this.list,...res.data]
-        this.loading = false
+        this.list = [...this.list,...res.data];
+        this.loading = false;
       } else {
-        this.finished = true
+        this.finished = true;
       }
     },
     loadMore() {
-      this.query.page = ++this.query.page
-      this.update()
+      this.query.page = ++this.query.page;
+      this.update();
     }
   },
   // 计算属性

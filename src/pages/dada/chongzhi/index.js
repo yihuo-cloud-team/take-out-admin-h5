@@ -19,7 +19,7 @@ export default {
             
             const res = await this.$http.post('/domain/dadaPay',{money:this.money,category:'H5'});
             if(res.code>=0){
-                window.location.href = res.data.result
+                window.location.href = res.data.result;
             }else{
               
             }

@@ -27,9 +27,9 @@ export default {
             // }
         
             try {
-                const res = await this.$http.post('printer/save', this.form);
+                const res = await this.$http.post('/printer/save', this.form);
                 if (res.code >= 0) {
-                    this.$router.go(-1)
+                    this.$router.go(-1);
                     
                 } else {
                 }

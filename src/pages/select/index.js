@@ -15,21 +15,20 @@ export default {
     async update() {
       const res = await this.$http.post('/domain/list', {});
       if (res.code >= 0) {
-        this.list = res.data
+        this.list = res.data;
       }
       if (res.data.length == 0) {
         this.$dialog.alert({
           title: '提示',
           message: '您还没有组织，请添加组织'
-        })
+        });
       }
     },
     async sumbit(item) {
-      console.log(item)
-      localStorage.domain_id = item.domain_id
+      localStorage.domain_id = item.domain_id;
       if (item.store_count > 0) {
-        this.$router.replace('/home')
-        return false
+        this.$router.replace('/home');
+        return false;
       }
       this.$router.push('/kaidian/openStore')
 

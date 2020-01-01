@@ -21,31 +21,31 @@ export default {
     async update() {
       const res = await this.$http.post('finance/money', this.form);
       if (res.code >= 0) {
-        this.info = res.data
+        this.info = res.data;
       }
     },
     formatter(type, value) {
       if (type === 'year') {
         return `${value}年`;
       } else if (type === 'month') {
-        return `${value}月`
+        return `${value}月`;
       }
       return value;
 
     },
     showPopup() {
-      this.show = true
+      this.show = true;
     },
     start(e) {
         this.form.times[0] = e.Format('yyyy-MM-dd');
         this.currentDate = e;
         this.show = false;
         var monthEndDate = new Date(e.getFullYear(), e.getMonth() + 1, 0).Format('yyyy-MM-dd');
-        this.form.times[1] = monthEndDate
-        this.update()
+        this.form.times[1] = monthEndDate;
+        this.update();
       },
       showPopup(){
-          this.show = true
+          this.show = true;
       }
   },
   // 计算属性

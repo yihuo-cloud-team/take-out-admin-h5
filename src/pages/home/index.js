@@ -34,24 +34,24 @@ export default {
       const goodsList = await this.$http.post('/goods/list', this.query);
       if (goodsList.code >= 0) {
         goodsList.data.forEach(el=>{
-          el.goods_head_list =el.goods_head_list.map(item=>this.$getUrl(item))
+          el.goods_head_list =el.goods_head_list.map(item=>this.$getUrl(item));
         })
     
-        this.total = goodsList.total,
+        this.total = goodsList.total;
 
-          this.goodsList = goodsList.data
+          this.goodsList = goodsList.data;
       };
       const orderList = await this.$http.post('/order/list', this.query);
       if (orderList.code >= 0) {
-        this.total = orderList.total,
-          this.orderList = orderList.data
+        this.total = orderList.total;
+          this.orderList = orderList.data;
       };
       const res = await this.$http.post('/store/data/total', {});
       if (res.code >= 0) {
-        this.info = res.data
+        this.info = res.data;
       };
       const res1 = await this.$http.post('/store/info', {});
-      var week = []
+      var week = [];
       
       if (res1.code >= 0) {
         this.storeInfo = res1.data;

@@ -57,13 +57,13 @@ export default {
         || this.form.idcard_unpositive == ""
         || this.form.user_phone == ""
         || this.form.user_wx_code == ""){
-            this.$toast("请填写完整的资料")
-            return false
+            this.$toast("请填写完整的资料");
+            return false;
         }
         const res = await this.$http.post('/store/open', this.form);
       if (res.code >= 0) {
-        this.$toast("添加成功")
-        this.$router.push('/select')
+        this.$toast("添加成功");
+        this.$router.push('/select');
       }
     }
   },

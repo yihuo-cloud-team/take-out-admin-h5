@@ -19,7 +19,7 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-      const res = await this.$http.post("domain/miniapp/info", {});
+      const res = await this.$http.post("/domain/miniapp/info", {});
       console.log(res)
       if (res.code >= 0) {
         this.form = res.data

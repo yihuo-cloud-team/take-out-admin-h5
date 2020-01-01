@@ -18,8 +18,8 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-        let code  =JSON.parse(localStorage.login)
-        console.log(code)
+        let code  =JSON.parse(localStorage.login);
+        console.log(code);
       this.form.phone = code.phone;
       this.form.pwd = code.pwd;
     },
@@ -27,9 +27,9 @@ export default {
       const res = await this.$http.post('/domain/open', this.form);
       console.log(res)
       if (res.code >= 0) {
-        this.$router.replace('/select')
+        this.$router.replace('/select');
       } else {
-        this.$toast("添加失败")
+        this.$toast("添加失败");
       }
     }
   },

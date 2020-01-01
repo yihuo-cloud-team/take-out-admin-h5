@@ -2,7 +2,7 @@
   <div id="edit">
     <div class="store">
       <div class="store-image">
-        <ol-upload v-model="form.logo">
+        <ol-upload style="border-radius:100%;" v-model="form.logo">
           <img class="img" :src="$getUrl(form.logo)" />
         </ol-upload>
       </div>

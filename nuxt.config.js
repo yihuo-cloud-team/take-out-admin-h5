@@ -6,6 +6,7 @@ function getLocalIP() {
 
     let ip = '';
     if (osType === 'Windows_NT') {
+
         for (let dev in netInfo) {
             //win7的网络信息中显示为本地连接，win10显示为以太网
             if (dev === '本地连接' || dev === '以太网') {
@@ -48,10 +49,10 @@ module.exports = {
     ],
     server: {
         // port: 80,
-        host: getLocalIP(),
+        // host: getLocalIP(),
         // // default: 80
         // // default: localhost
-        // port: 8080,
-        // host: '192.168.0.147',
+        port: 8090,
+        host: '192.168.0.147',
     },
 }   

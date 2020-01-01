@@ -24,7 +24,7 @@ export default {
       try {
         const res = await this.$http.post('/class/list', this.form);
         if (res.code > 0) {
-          this.list = res.data
+          this.list = res.data;
 
         } else {
 
@@ -37,9 +37,9 @@ export default {
       if (confirm('确定要删除吗') == true) {
         const res = await this.$http.post('/class/del', item);
         if (res.code >= 0) {
-          this.$toast("操作成功")
+          this.$toast("操作成功");
         } else {
-            this.$toast("操作失败")
+            this.$toast("操作失败");
         }
         this.update();
       } else {
@@ -49,7 +49,7 @@ export default {
 
     async save(item) {
 
-      const is_up = item.is_up ? 0 : 1
+      const is_up = item.is_up ? 0 : 1;
       try {
         const res = await this.$http.post('/goods/save', {
           id: item.id,
@@ -57,9 +57,9 @@ export default {
         });
         if (res.code >= 0) {
           this.$toast('下价成功');
-          this.form.page = 1
-          this.list = []
-          this.update()
+          this.form.page = 1;
+          this.list = [];
+          this.update();
         }
       } catch (error) {
 

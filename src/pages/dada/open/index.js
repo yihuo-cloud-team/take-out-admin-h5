@@ -29,7 +29,7 @@ export default {
       const res = await this.$http.post('/domain/info', {});
       if (res.code >= 0) {
         this.is_dada = res.data.domain_info.is_dada;
-        this.parserdata = res.data.domain_info
+        this.parserdata = res.data.domain_info;
    
       }
 

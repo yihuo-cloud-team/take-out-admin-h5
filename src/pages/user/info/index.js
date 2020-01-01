@@ -13,13 +13,13 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            const res = await this.$http.post('/store/mini/qrCode')
+            const res = await this.$http.post('/store/mini/qrCode');
             if(res.code>=0){
-                this.info = res.data
+                this.info = res.data;
             }
-            const res1 = await this.$http.post('/domain/info')
+            const res1 = await this.$http.post('/domain/info');
             if(res1.code>=0){
-                this.name = res1.data.domain_info.name
+                this.name = res1.data.domain_info.name;
             }
         },
 

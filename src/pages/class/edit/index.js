@@ -28,7 +28,7 @@ export default {
             try {
                 const res = await this.$http.post('/class/save', this.form);
                 if (res.code >= 0) {
-                    alert('操作成功')
+                    alert('操作成功');
                     // if (this.isAdd) {
                     //     await this.$alert(`操作成功！`, '成功', { showClose: false, type: 'success' });
                     // } else {

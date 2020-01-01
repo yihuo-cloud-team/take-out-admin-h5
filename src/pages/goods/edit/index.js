@@ -43,7 +43,7 @@ export default {
         if (res.code >= 0) {
           this.list = res.data;
           this.index = this.list.findIndex(el => this.form.class_id == el.id);
-          this.value = this.list[this.index].name
+          this.value = this.list[this.index].name;
         }
 
       } else {
@@ -54,40 +54,40 @@ export default {
       }
     },
     open() {
-      this.show = true
+      this.show = true;
     },
     onConfirm(value) {
       this.value = value.name;
       this.show = false;
-      this.form.class_id = value.id
+      this.form.class_id = value.id;
     },
     onCancel() {
-      this.show = false
+      this.show = false;
     },
     async submit() {
       if (this.goods_head_list == []) {
-        this.$toast("请添加图片")
-        return false
+        this.$toast("请添加图片");
+        return false;
       }
       if (this.form.title == "") {
-        this.$toast("请填写商品名称")
-        return false
+        this.$toast("请填写商品名称");
+        return false;
       }
       if (this.form.sub_title == "") {
-        this.$toast("请填写副标题")
-        return false
+        this.$toast("请填写副标题");
+        return false;
       }
       if (this.form.o_price == 0 || this.form.o_price == "") {
-        this.$toast("请填写原价")
-        return false
+        this.$toast("请填写原价");
+        return false;
       }
       if (this.form.price == 0 || this.form.price == "") {
-        this.$toast("请填写优惠价")
-        return false
+        this.$toast("请填写优惠价");
+        return false;
       }
       if (this.stock == "") {
-        this.$toast("请填写库存")
-        return false
+        this.$toast("请填写库存");
+        return false;
       }
 
       if (this.checked) {
@@ -95,9 +95,9 @@ export default {
           const res = await this.$http.post('/goods/save', this.form);
           if (res.code >= 0) {
             if(this.$route.query.id){
-              this.$toast("编辑成功")
+              this.$toast("编辑成功");
               this.$router.go(-1);
-              return false
+              return false;
             }
             this.$toast("添加成功")
             this.$router.go(-1);
@@ -106,16 +106,15 @@ export default {
           return;
         }
       } else {
-        this.$toast("请同意遵守平台规则")
+        this.$toast("请同意遵守平台规则");
       }
 
     },
     del(item,index){
-      console.log(item,index)
       this.$dialog.confirm({
         message: '确认删除',
       }).then(()=>{
-        item.splice(index,1)
+        item.splice(index,1);
       }).catch(()=>{
 
       })

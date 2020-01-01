@@ -42,41 +42,41 @@ export default {
         this.loading = true;
         const res = await this.$http.post('budget/list', this.form);
         if (res.code > 0) {
-          this.list = [...this.list, ...res.data]
-          this.loading = false
+          this.list = [...this.list, ...res.data];
+          this.loading = false;
         } else {
-          this.finished = true
+          this.finished = true;
         }
       } catch (error) {
 
       }
     },
     showPopup() {
-      this.show = true
+      this.show = true;
     },
     formatter(type, value) {
       if (type === 'year') {
         return `${value}年`;
       } else if (type === 'month') {
-        return `${value}月`
+        return `${value}月`;
       }
       return value;
 
     },
     loadMore() {
-      this.finished = false
-      this.form.page = ++this.form.page
-      this.update()
+      this.finished = false;
+      this.form.page = ++this.form.page;
+      this.update();
     },
     select(e) {
       this.form.type = e;
-      this.list = []
+      this.list = [];
       this.form.page =1;
       this.update();
       this.finished = false;  
     },
     start(e) {
-      this.list = []
+      this.list = [];
       this.form.page =1;
       this.form.times[0] = e.Format('yyyy-MM-dd');
       this.currentDate = e;
