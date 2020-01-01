@@ -9,6 +9,7 @@ export default {
             time:"",//倒计时
             loading:false,
             pwd:"",
+            pwd1:""
             
         };
     },
@@ -22,7 +23,7 @@ export default {
             // const res = await this.$http.post('', {});
         },
         async save(){
-               const res = await this.$http.post('/register/auth/getCode', {
+               const res = await this.$http.post('/code/get', {
                    phone:this.phone
                });
                if(res.code>=0){
@@ -42,22 +43,19 @@ export default {
     
         },
         async submit(){
-            const res = await this.$http.post('/register/auth/regist', {
-                phone:this.phone,
-                code:this.code
-            });
-            if(res.code>=0){
-                this.show=2
+            if(this.pwd !=this.pwd1){
+                this.$toast("密码不一致")
+                return false
             }
-        },
-        async setPwd(){
-            const res = await this.$http.post('/register/auth/login', {
+            const res = await this.$http.post('auth/reg', {
+                phone:this.phone,
+                code:this.code,
                 pwd:this.pwd,
-                phone:this.phone
+
             });
             if(res.code>=0){
-                this.$toast("注册成功")
-              this.$router.push("/login")
+                this.$toast("保存成功")
+                this.$router.push("/login")
             }else{
                 this.$toast(res.msg)
             }

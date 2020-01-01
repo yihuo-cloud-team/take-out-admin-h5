@@ -22,6 +22,8 @@
             type="primary"
           >{{time}}</van-button>
         </van-field>
+        <van-field clearable v-model="pwd" label="密码" placeholder="设置密码" />
+        <van-field clearable v-model="pwd1" label="密码" placeholder="确认密码" />
         <div class="footer">
           <van-button
             type="default"
@@ -32,12 +34,6 @@
           >提交</van-button>
         </div>
       </van-cell-group>
-    </div>
-    <div class="box" v-if="show==2">
-      <van-cell-group class="inp">
-        <van-field clearable v-model="pwd" label="密码" placeholder="设置密码" />
-      </van-cell-group>
-      <van-button type="default" color="#FFCA0A" class="left" @click="setPwd">保存</van-button>
     </div>
   </div>
 </template>

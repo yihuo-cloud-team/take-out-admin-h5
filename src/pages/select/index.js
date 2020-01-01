@@ -27,20 +27,16 @@ export default {
       }
     },
     async sumbit(item) {
+      console.log(item)
       localStorage.domain_id = item.domain_id
-      const res1 = await this.$http.post('/domain/info', {
-      });
-      if (res1.code >= 0) {
-        if (!res1.data.store_info) {
-     
-          this.$router.push('/kaidian')
-          return false
-        }
-        // this.$router.push('/home')
-      }else{
-        this.$toast("进入失败")
+      if (item.storeInfo > 0){
+        this.$router.replace('/home')
+        return false
       }
- 
+      this.$router.push('/kaidian')
+
+
+
     }
   },
   // 计算属性
