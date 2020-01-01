@@ -2,7 +2,14 @@ export default {
     name: 'register',
     data() {
         return {
-            index:1
+            index:1,
+            phone:"",
+            show:0,//
+            code:"",//验证码
+            time:"",//倒计时
+            loading:false,
+            pwd:"",
+            
         };
     },
     methods: {
@@ -14,6 +21,47 @@ export default {
         async update() {
             // const res = await this.$http.post('', {});
         },
+        async save(){
+               const res = await this.$http.post('/register/auth/getCode', {
+                   phone:this.phone
+               });
+               if(res.code>=0){
+                this.show =1
+                alert(res.data.verification)
+                this.time= 60
+                this.loading=true
+                let times = setInterval(()=>{
+                    this.time-=1
+                    if(this.time<=0){
+                        clearInterval(times)
+                        this.time="重新获取验证码"
+                        this.loading=false
+                    }
+                },1000)
+               }
+    
+        },
+        async submit(){
+            const res = await this.$http.post('/register/auth/regist', {
+                phone:this.phone,
+                code:this.code
+            });
+            if(res.code>=0){
+                this.show=2
+            }
+        },
+        async setPwd(){
+            const res = await this.$http.post('/register/auth/login', {
+                pwd:this.pwd,
+                phone:this.phone
+            });
+            if(res.code>=0){
+                this.$toast("注册成功")
+              this.$router.push("/login")
+            }else{
+                this.$toast(res.msg)
+            }
+        }
     },
     // 计算属性
     computed: {},

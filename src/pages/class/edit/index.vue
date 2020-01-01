@@ -26,7 +26,7 @@
           />
         </van-cell-group>
       </div>
-      <div class="footer" @click="submit">保存</div>
+         <van-button class="fixed" @click="submit">保存</van-button>
 
   </div>
 </template>

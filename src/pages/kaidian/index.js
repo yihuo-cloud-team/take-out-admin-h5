@@ -63,7 +63,7 @@ export default {
         const res = await this.$http.post('/store/open', this.form);
       if (res.code >= 0) {
         this.$toast("添加成功")
-        this.$router.push('/home')
+        this.$router.push('/select')
       }
     }
   },

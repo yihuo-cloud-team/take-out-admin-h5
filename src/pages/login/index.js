@@ -5,7 +5,7 @@ export default {
         return {
             form:{
                 phone:"",
-                user_pwd:""
+                pwd:""
             }
         };
     },
@@ -23,6 +23,7 @@ export default {
             // return 
             if (res.code >= 1) {
                 localStorage.jwt = res.jwt;
+                localStorage.login = JSON.stringify(this.form);
                 // localStorage.domain_id=res.data.domain_id
                 // const userInfo = await this.$http.post('/user/info', {});
                 // localStorage.userInfo = JSON.stringify(userInfo.data);
@@ -31,6 +32,7 @@ export default {
                 this.$router.push('/select');
             } else {
                 this.$toast(res.msg)
+              
             }
         }
     },

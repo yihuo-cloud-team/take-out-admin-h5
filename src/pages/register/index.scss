@@ -7,15 +7,16 @@
         justify-content: center;
         align-items: left;
     
-        .box-title {
-          flex: 1;
+        .title{
           text-align: center;
+          font-size: 20px;
+          color: #dddddd;
         }
-    
-        .sub-title {
-          text-align: left;
+        .info{
+          text-align: center;
+          font-size: 28px;
+          margin: 20px;
         }
-    
         .inp {
           margin: 10px 0px;
         }

@@ -1,9 +1,14 @@
 export default {
-  name: 'selects',
-  layout: 'root',
+  name: 'openDomain',
+  layout: "sub",
   data() {
     return {
-      list: []
+      form: {
+        phone: "", //电话号码
+        pwd: "", //密码
+        name: "" //平台名称
+      },
+
     };
   },
   methods: {
@@ -13,34 +18,19 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-      const res = await this.$http.post('/domain/list', {});
-      if (res.code >= 0) {
-        this.list = res.data
-      }
-      if (res.data.length == 0) {
-        this.$dialog.alert({
-          title: '提示',
-          message: '您还没有组织，请添加组织'
-        }).then(() => {
-          // on close
-        });
-      }
+        let code  =JSON.parse(localStorage.login)
+        console.log(code)
+      this.form.phone = code.phone;
+      this.form.pwd = code.pwd;
     },
-    async sumbit(item) {
-      localStorage.domain_id = item.domain_id
-      const res1 = await this.$http.post('/domain/info', {
-      });
-      if (res1.code >= 0) {
-        if (!res1.data.store_info) {
-     
-          this.$router.push('/kaidian')
-          return false
-        }
-        // this.$router.push('/home')
-      }else{
-        this.$toast("进入失败")
+    async submit() {
+      const res = await this.$http.post('/domain/open', this.form);
+      console.log(res)
+      if (res.code >= 0) {
+        this.$router.replace('/select')
+      } else {
+        this.$toast("添加失败")
       }
- 
     }
   },
   // 计算属性
