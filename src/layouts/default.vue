@@ -27,8 +27,6 @@ export default {
   methods: {
     signOut() {
       localStorage.clear();
-      this.$store.commit("user/set", null);
-      this.$store.commit("power/set", []);
       this.$router.replace("/login");
     }
   },

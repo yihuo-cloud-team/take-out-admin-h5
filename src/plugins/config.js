@@ -1,5 +1,5 @@
 module.exports = {
     jwt: () => localStorage.jwt,
-    // store_id: () => "S_WLs3pkrBJu5fYJ",
+    store_id: () => localStorage.store_id,
     domain_id: () => localStorage.domain_id
 }

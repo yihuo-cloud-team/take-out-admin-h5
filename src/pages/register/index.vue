@@ -12,7 +12,7 @@
       <div class="title">已发送短信验证码至</div>
       <div class="info">{{phone}}</div>
       <van-cell-group>
-        <van-field v-model="code" type="number" center clearable placeholder="请输入短信验证码">
+        <van-field v-model.number="code" type="number" center clearable placeholder="请输入短信验证码">
           <van-button
             slot="button"
             color="#FFCA0A"
