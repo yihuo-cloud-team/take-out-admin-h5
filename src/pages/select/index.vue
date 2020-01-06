@@ -8,7 +8,7 @@
       :key="index"
       class="btn"
     >{{item.name}}</van-button>
-    <van-button class="fixed" @click="$router.push('/kaidian/openDomain')">新建组织</van-button>
+    <div class="fixed" @click="$router.push('/kaidian/openDomain')">新建组织</div>
   </div>
 </template>
 <script src="./index.js"></script>

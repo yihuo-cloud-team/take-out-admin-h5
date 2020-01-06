@@ -121,21 +121,21 @@
         <div class="info">
           <div class="info-infos">
             <span class="title">商品分类：</span>
-            <span>{{storeInfo.store_class}}</span>
+            <span class="content">{{storeInfo.store_class}}</span>
           </div>
           <div class="info-infos">
             <span class="title">联系电话：</span>
-            <span>{{storeInfo.phone}}</span>
+            <span class="content">{{storeInfo.phone}}</span>
           </div>
           <div class="info-infos">
             <span class="title">营业状态：</span>
-            <span v-if="storeInfo.state==1">营业中</span>
-            <span v-if="storeInfo.state==2">已打烊</span>
+            <span class="content" v-if="storeInfo.state==1">营业中</span>
+            <span class="content" v-if="storeInfo.state==2">已打烊</span>
           </div>
           <div class="info-infos">
             <span class="title">营业时间：</span>
-            <span v-for="(item,index) in storeInfo.week" :key="index">{{item}}</span>
-            <div class="time">{{storeInfo.start_time}}--{{storeInfo.end_time}}</div>
+            <span class="content" v-for="(item,index) in storeInfo.week" :key="index">{{item}}</span>
+            <div  class="time">{{storeInfo.start_time}}--{{storeInfo.end_time}}</div>
           </div>
         </div>
       </div>

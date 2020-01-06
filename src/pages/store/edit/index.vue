@@ -152,7 +152,7 @@
             @click="del(form.label,index)"
             :key="index"
             class="tag"
-            type="primary"
+            type="warning"
           >{{item}}</van-tag>
         </template>
         <van-button type="primary" class="btn1" @click="shows=true">添加</van-button>

@@ -4,7 +4,7 @@
       <div class="consum">
         <div class="title">
           <span class="dada">第三方同城配送 (达达)</span>
-          <a class="explain" href>消费说明</a>
+          <a class="explain" href>消费说明></a>
         </div>
         <div class="consum-info">
           <span class="message">开启后可以选择第三方配送帮你送餐，该服务产生的配送费用将从店铺余额中扣除，请保证店铺余额充足。 开启后表示已同意</span>

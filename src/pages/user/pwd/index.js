@@ -25,9 +25,20 @@ export default {
           
         },
        async submit(){
+         
+           if(this.form.pwd==''){
+            this.$toast("密码不能为空");
+            return false;
+           }
+           if(this.form.pwd1 ==''){
+               this.$toast("请确认密码一致")
+           }
+           if(this.form.pwd !=this.form.pwd1){
+            this.$toast("两次密码不一致");
+            return false;
+        }
             const res = await this.$http.post('/user/setpwd', this.form);
             if(res.code>=0){
-                
                 this.$router.go(-1);
             }
         }
