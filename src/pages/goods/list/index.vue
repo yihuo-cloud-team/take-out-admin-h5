@@ -11,6 +11,8 @@
               <div class="goods">
                 <div class="goods-info">
                   <div class="goods-title">{{item.title}}</div>
+                  <div class="stock">分类：{{item.class_name}}</div>
+
                   <div class="stock">库存：{{item.stock}}</div>
                 </div>
                 <div class="price">￥{{item.price}}</div>
@@ -38,6 +40,7 @@
                 <van-button
                   type="default"
                   size="small"
+                  class="edit-btn"
                   @click="$router.push(`/goods/edit?id=${item.id}`)"
                 >编辑</van-button>
               </div>
@@ -46,7 +49,8 @@
         </div>
       </van-list>
     </van-tabs>
-    <van-button class="fixed" @click="$router.push('/goods/edit')">发布商品</van-button>
+        <div class="fixed" @click="$router.push('/goods/edit')">发布商品</div>
+ 
   </div>
 </template>
 <script src="./index.js"></script>

@@ -31,6 +31,7 @@
               <div>已完成{{active == 4?`(${total})`:''}}</div>
             </div>
           </van-tab>
+          
         </van-tabs>
       </div>
 

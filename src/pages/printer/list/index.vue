@@ -11,9 +11,10 @@
       <div :class="bianse(item.printer_status)" class="message">{{item.printer_status==null?'未知状态':item.printer_status}}</div>
 
     </div>
-    <div style="padding:15px 20px" @click="$router.push('/printer/edit')">
-      <van-button type="default" block>添加打印机</van-button>
-    </div>
+
+   
+      <div class="fixed" @click="$router.push('/printer/edit')">添加打印机</div>
+  
   </div>
 </template>
 <script src="./index.js"></script>

@@ -162,7 +162,7 @@
       <van-field v-model="title" clearable label="添加标签" placeholder />
       <van-button @click="add" class="btn" type="primary">添加</van-button>
     </van-popup>
-    <div class="footer" @click="submit">保存</div>
+    <div class="fixed" @click="submit">保存</div>
   </div>
 </template>
 <script src="./index.js"></script>

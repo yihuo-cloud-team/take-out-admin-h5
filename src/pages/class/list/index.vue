@@ -1,7 +1,12 @@
 <template>
   <div id="list">
     <van-list>
-      <div class="panel" v-for="(item,index) in list"   @click="$router.push(`/class/edit?id=${item.id}`)" :key="index">
+      <div
+        class="panel"
+        v-for="(item,index) in list"
+        @click="$router.push(`/class/edit?id=${item.id}`)"
+        :key="index"
+      >
         <div class="panel-body">
           <div class="goodss">
             <div class="goods">
@@ -22,18 +27,13 @@
                 size="small"
                 @click.stop="$router.push(`/class/edit?id=${item.id}`)"
               >编辑</van-button>
-                  <van-button
-                type="default"
-                size="small"
-                @click.stop="del(item)"
-              >删除</van-button>
+              <van-button type="default" size="small" @click.stop="del(item)">删除</van-button>
             </div>
           </div>
         </div>
       </div>
     </van-list>
-
-    <van-button class="fixed" @click="$router.push('/class/edit')">添加分类</van-button>
+    <div class="fixed" @click="$router.push('/class/edit')">添加分类</div>
   </div>
 </template>
 <script src="./index.js"></script>

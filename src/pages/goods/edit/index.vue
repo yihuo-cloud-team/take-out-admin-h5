@@ -101,7 +101,7 @@
       </div>
       <div class="remarks-info">商家承诺：我方郑重承诺，严格遵守平台使用要求，并确保提供所有信息的真实性。</div>
     </div>
-    <div class="footer" @click="submit">保存</div>
+    <div class="fixed" @click="submit">保存</div>
   </div>
 </template>
 <script src="./index.js"></script>

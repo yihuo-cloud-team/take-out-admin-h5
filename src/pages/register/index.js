@@ -24,6 +24,10 @@ export default {
             // const res = await this.$http.post('', {});
         },
         async save() {
+            if(this.phone.length!=11){
+                this.$toast('请输入正确的手机号')
+                return false
+            }
             const res = await this.$http.post('/code/get', {
                 phone: this.phone
             });

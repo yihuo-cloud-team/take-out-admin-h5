@@ -66,8 +66,9 @@ export default {
       }
       const res = await this.$http.post('/store/save', this.form);
       if (res.code >= 0) {
-        this.$toast("添加成功")
-        this.$router.go(-1)
+        this.$toast("添加成功");
+        this.$router.go(-1);
+
       }
     },
     // bianse(index) {

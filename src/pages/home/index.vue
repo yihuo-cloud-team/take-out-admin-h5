@@ -49,6 +49,9 @@
       <div v-if="orderList.length>0" class="panel-body">
         <div class="order" v-for="(item,index) in orderList" :key="index">
           <div class="order-left">
+            <div class="order-img">
+              <img  :src="item.snapshotInfo[0].data.goods_head_list?$getUrl(item.snapshotInfo[0].data.goods_head_list[0]):''" alt="">
+            </div>
             <div class="order-info">
               <div class="goods-name">
           
@@ -65,6 +68,7 @@
                 <div class="state" v-if="item.state==3">配送中</div>
                 <div class="state" v-if="item.state==4">已完成</div>
                 <div class="state" v-if="item.state==5">订单取消</div>
+                <div class="state" v-if="item.state==21">待取消</div>
           </div>
         </div>
       </div>

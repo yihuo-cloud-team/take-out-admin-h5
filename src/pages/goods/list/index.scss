@@ -52,15 +52,20 @@
 
 .footer {
     display: flex;
+    align-items: center;
     .volume {
         margin-left: 15px;
         font-size: 12px;
         flex: 1;
-        
+        color: #888888;
     }
     .btn {
         align-items: center;
         margin-right: 15px;
+        .edit-btn{
+            background-color: #fec900;
+            color: white;
+        }
     }
 }
 

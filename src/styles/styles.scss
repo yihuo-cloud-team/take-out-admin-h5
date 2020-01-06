@@ -103,11 +103,14 @@ body {
     }
 }
 .fixed{
-    border-top: 1px solid #dddddd;
+    color: white;
+    background-color: #fec900;
     z-index: 99999;
     position: fixed;
     left: 0;
     width: 100%;
     right: 0;
     bottom: 0;
+    padding: 13px 0;
+    text-align: center;
 }

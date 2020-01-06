@@ -1,12 +1,13 @@
 .ol-map {
     position: relative;
+    box-sizing: border-box;
     #container{
         width: 100vw;
         height: 300px
     }
     .inp{
         position: absolute;
-        z-index: 100;
+        z-index: 10;
         background-color: white;
         left: 10px;
         top: 10px;

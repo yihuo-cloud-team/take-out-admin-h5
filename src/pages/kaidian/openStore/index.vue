@@ -54,10 +54,9 @@
       <div class="left">logo背景图</div>
       <div class="right">
         <div class="upload">
-          <div>
-            <img class="img" v-if="form.store_bg" :src="$getUrl(form.store_bg)" alt />
-          </div>
-          <ol-upload class="right" v-model="form.store_bg"></ol-upload>
+          <ol-upload class="right" v-model="form.store_bg">
+               <img class="img" v-if="form.store_bg" :src="$getUrl(form.store_bg)" alt />
+          </ol-upload>
         </div>
       </div>
     </div>

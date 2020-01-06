@@ -1,7 +1,8 @@
 <template>
   <div id="login">
     <div class="box">
-      <h1 class="box-title">商家登录系统</h1>
+      <div class="box-title">欢迎登录</div>
+       <div class="box-subtitle">益火后台管理系统</div>
       <div class="sub-title">账户</div>
       <van-cell-group class="inp">
         <van-field v-model="form.phone" clearable placeholder="请输入用户名" />
@@ -12,7 +13,7 @@
       </van-cell-group>
       <div class="footer">
         <van-button type="default" class="left" @click="submit">登录</van-button>
-        <van-button type="default" class="right" @click="$router.push('/register')">我要开店</van-button>
+        <div  class="right" @click="$router.push('/register')">我要开店</div>
       </div>
     </div>
   </div>
