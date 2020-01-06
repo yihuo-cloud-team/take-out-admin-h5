@@ -49,6 +49,13 @@
         </van-cell-group>
       </div>
     </div>
+       <div class="map">
+      <ol-map v-model="position"  style="height:300px"></ol-map>
+      <van-cell-group>
+   
+        <van-cell :value="'经度:'+position.x+',纬度'+position.y"  />
+      </van-cell-group>
+    </div>
     <!-- 多图上传 -->
     <div class="store-img">
       <div class="left">logo背景图</div>

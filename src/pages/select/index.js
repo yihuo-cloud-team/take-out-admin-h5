@@ -23,18 +23,13 @@ export default {
           message: '您还没有组织，请添加组织'
         });
       }
+     
     },
-    async sumbit(item) {
-      localStorage.domain_id = item.domain_id;
-      if (item.store_count > 0) {
-        this.$router.replace('/home');
-        return false;
-      }
-      this.$router.push('/kaidian/openStore')
-
-
-
+    async submit(item){
+      localStorage.domain_id = item.domain_id
+      this.$router.push(`/select/storeList?domain_id=${item.domain_id}`)
     }
+
   },
   // 计算属性
   computed: {},

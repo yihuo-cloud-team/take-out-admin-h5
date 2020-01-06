@@ -42,7 +42,11 @@ export default {
         "周六",
         "周日",
       ],
-      title: []
+      title: [],
+      position: {
+        x: 0.00,
+        y: 0.00,
+      },
     };
   },
   methods: {
@@ -55,54 +59,52 @@ export default {
 
 
 
-
     },
     async submit() {
-  
-    
-      if (this.form.week==[]){
+
+
+      if (this.form.week == []) {
         this.$toast("营业日期不得为空")
         return false
       }
-      if (this.form.store_img==[]){
+      if (this.form.store_img == []) {
         this.$toast("请添加门店图片")
         return false
       }
 
-      if (this.form.store_bg==[]){
+      if (this.form.store_bg == []) {
         this.$toast("请添加门店背景图")
         return false
       }
-      if (this.form.logo==[]){
+      if (this.form.logo == []) {
         this.$toast("请添加门店logo")
         return false
       }
-      if (this.form.week==[]){
+      if (this.form.week == []) {
         this.$toast("营业日期不得为空")
         return false
       }
-      if (this.form.week==[]){
+      if (this.form.week == []) {
         this.$toast("营业日期不得为空")
         return false
       }
-      if (this.form.week==[]){
-        this.$toast("营业日期不得为空")
-        return false
-      } if (this.form.week==[]){
+      if (this.form.week == []) {
         this.$toast("营业日期不得为空")
         return false
       }
-      if (this.form.week==[]){
+      if (this.form.week == []) {
         this.$toast("营业日期不得为空")
         return false
       }
-      if (this.form.week==[]){
+      if (this.form.week == []) {
         this.$toast("营业日期不得为空")
         return false
       }
-
-        const res = await this.$http.post('/store/save', this.form);
-      console.log(res)
+      if (this.form.week == []) {
+        this.$toast("营业日期不得为空")
+        return false
+      }
+      const res = await this.$http.post('/store/save', this.form);
       if (res.code >= 0) {
         this.$toast("添加成功")
         this.$router.go(-1)
@@ -193,7 +195,13 @@ export default {
   // 包含 Vue 实例可用指令的哈希表。
   directives: {},
   // 一个对象，键是需要观察的表达式，值是对应回调函数。
-  watch: {},
+  watch: {
+    position(x, y) {
+      this.form.x = x.x
+      this.form.y = x.y
+
+    }
+  },
   // 组件列表
   components: {},
 };

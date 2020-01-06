@@ -12,6 +12,7 @@
       <van-cell @click="$router.push('/user/overview')" title="账户总览" is-link />
       <van-cell @click="$router.push('/user/bill')" title="账单" is-link />
       <van-cell @click="$router.push('/select')" title="切换组织" is-link />
+      <van-cell @click="$router.push('/select/storeList?id=1')" title="门店列表" is-link />
     </div>
 
     <div class="btn" @click="signOut">退出登录</div>
