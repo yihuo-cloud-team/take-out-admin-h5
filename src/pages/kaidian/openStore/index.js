@@ -30,6 +30,8 @@ export default {
         c: "", //市
         a: "", //区
         address: "", //门店详细地址
+        business:"",//营业执照
+        licence:"",//食品生产许可证
       },
       start_time: '12:00',
       end_time: '12:00',
@@ -80,30 +82,15 @@ export default {
         this.$toast("请添加门店logo")
         return false
       }
-      if (this.form.week == []) {
-        this.$toast("营业日期不得为空")
+      if (this.form.business == '') {
+        this.$toast("请添加营业执照")
         return false
       }
-      if (this.form.week == []) {
-        this.$toast("营业日期不得为空")
+      if (this.form.licence == '') {
+        this.$toast("请添加食品生产许可证")
         return false
       }
-      if (this.form.week == []) {
-        this.$toast("营业日期不得为空")
-        return false
-      }
-      if (this.form.week == []) {
-        this.$toast("营业日期不得为空")
-        return false
-      }
-      if (this.form.week == []) {
-        this.$toast("营业日期不得为空")
-        return false
-      }
-      if (this.form.week == []) {
-        this.$toast("营业日期不得为空")
-        return false
-      }
+     
       const res = await this.$http.post('/store/save', this.form);
       if (res.code >= 0) {
         this.$toast("添加成功")

@@ -2,7 +2,7 @@
   <div id="user">
     <div class="user-info">
       <div class="info-image">
-        <img class="img" :src="$getUrl(info.qrCode)" alt />
+        <img class="img" src="http://pic.51yuansu.com/pic3/cover/01/69/80/595f67c042c1b_610.jpg" alt />
       </div>
       <div class="user-name">{{name | nullToText}}</div>
     </div>

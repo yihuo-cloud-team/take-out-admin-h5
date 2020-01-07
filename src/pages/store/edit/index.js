@@ -20,6 +20,7 @@ export default {
         store_bg: "",
         subsidy :0,//补贴价格
         label:[],
+        address:"",
         x: "", //纬度
         y: "", //经度
       },

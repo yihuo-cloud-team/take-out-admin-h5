@@ -18,7 +18,6 @@
             clearable
             label="门店标题"
             placeholder
-            @click-right-icon="$toast('question')"
           />
           <van-field
             v-model="form.info"
@@ -27,7 +26,13 @@
             clearable
             label="门店描述"
             placeholder
-            @click-right-icon="$toast('question')"
+          />
+            <van-field
+            v-model="form.address"
+            required
+            clearable
+            label="商家地址"
+            placeholder
           />
           <van-field
             v-model="form.subsidy"
@@ -36,7 +41,6 @@
             label="门店补贴"
             type="number"
             placeholder
-            @click-right-icon="$toast('question')"
           />
           <van-field v-model="form.store_class" clearable label="门店分类" placeholder="快餐简餐" required />
           <van-field

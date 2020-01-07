@@ -34,12 +34,12 @@
 
   .image1 {
     display: flex;
-    overflow: auto;
     flex-direction: row;
-  
- 
+
     .img-nav {
       position: relative;
+      height: 100%;
+
       .box{
         position: absolute;
         right: 0px;
@@ -50,7 +50,8 @@
           color: #dddddd;
         }
       }
-      img{
+      .img{
+     
         width: 100vw;
         height: 100%;
       }

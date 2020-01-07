@@ -29,6 +29,13 @@
             placeholder
             @click-right-icon="$toast('question')"
           />
+               <van-field
+            v-model="form.address"
+            required
+            clearable
+            label="商家地址"
+            placeholder
+          />
           <van-field
             v-model="form.subsidy"
             clearable
@@ -49,11 +56,10 @@
         </van-cell-group>
       </div>
     </div>
-       <div class="map">
-      <ol-map v-model="position"  style="height:300px"></ol-map>
+    <div class="map">
+      <ol-map v-model="position" style="height:300px"></ol-map>
       <van-cell-group>
-   
-        <van-cell :value="'经度:'+position.x+',纬度'+position.y"  />
+        <van-cell :value="'经度:'+position.x+',纬度'+position.y" />
       </van-cell-group>
     </div>
     <!-- 多图上传 -->
@@ -62,7 +68,7 @@
       <div class="right">
         <div class="upload">
           <ol-upload class="right" v-model="form.store_bg">
-               <img class="img" v-if="form.store_bg" :src="$getUrl(form.store_bg)" alt />
+            <img class="img" v-if="form.store_bg" :src="$getUrl(form.store_bg)" alt />
           </ol-upload>
         </div>
       </div>
@@ -83,6 +89,26 @@
             v-if="form.store_img.length<9"
             @success="url=>form.store_img.push(url)"
           ></ol-upload>
+        </div>
+      </div>
+    </div>
+    <div class="store-img">
+      <div class="left">营业执照</div>
+      <div class="right">
+        <div class="upload">
+          <ol-upload class="right" v-model="form.business">
+            <img class="img" v-if="form.business" :src="$getUrl(form.business)" alt />
+          </ol-upload>
+        </div>
+      </div>
+    </div>
+    <div class="store-img">
+      <div class="left">食品生产许可证</div>
+      <div class="right">
+        <div class="upload">
+          <ol-upload class="right" v-model="form.licence">
+            <img class="img" v-if="form.licence" :src="$getUrl(form.licence)" alt />
+          </ol-upload>
         </div>
       </div>
     </div>
