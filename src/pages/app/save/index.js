@@ -1,26 +1,16 @@
 export default {
-  name: 'home',
+  name: 'save',
+  layout: "sub",
   data() {
     return {
-      goodsList: [],
-      orderList: [],
-      snapshot: [],
-      total: 0,
-      query: {
-        page_size: 4,
-        page: 1,
-        is_up: '',
-        title: '',
-        type: 1,
+      form: {
         app_id: "",
-      },
-
-      info: {
-        order: 0,
-        tprice: 0,
-        yprice: 0
-      },
-      storeInfo: {}
+        wx_secret: "",
+        wx_mch_id: "",
+        wx_mch_secret: "",
+        wx_app_type: 1,
+        wx_name: ""
+      }
     };
   },
   methods: {
@@ -30,37 +20,36 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-      
-      const goodsList = await this.$http.post('/goods/list', this.query);
-      if (goodsList.code >= 0) {
-        goodsList.data.forEach(el=>{
-          el.goods_head_list =el.goods_head_list.map(item=>this.$getUrl(item));
-        })
-    
-        this.total = goodsList.total;
 
-          this.goodsList = goodsList.data;
-      };
-      const orderList = await this.$http.post('/order/list', this.query);
-      if (orderList.code >= 0) {
-        this.total = orderList.total;
-          this.orderList = orderList.data;
-      };
-      const res = await this.$http.post('/store/data/total', {});
-      if (res.code >= 0) {
-        this.info = res.data;
-      };
-      const res1 = await this.$http.post('/store/info', {
-      });
-      var week = [];
+        if(!this.isAdd){
       
-      if (res1.code >= 0) {
-        this.storeInfo = res1.data;
-      };
+            const res = await this.$http.post('/app/info', {id:this.$route.query.id});
+            if(res.code>=0){
+                this.form = res.data;
+            }
+        }
     },
+    async submit() {
+      try {
+        const res = await this.$http.post('/app/save', this.form);
+        if (res.code >= 0) {
+
+          this.$router.go(-1);
+
+        }
+
+
+      } catch (error) {
+        return;
+      }
+    }
   },
   // 计算属性
-  computed: {},
+  computed: {
+    isAdd() {
+        return typeof this.$route.query.id == 'undefined';
+    }
+  },
   // 包含 Vue 实例可用过滤器的哈希表。
   filters: {},
   // 在实例创建完成后被立即调用

@@ -1,12 +1,9 @@
 export default {
-    name: 'edit',
-    layout: 'sub',
+    name: 'list',
+    layout:"sub",
     data() {
         return {
-            form:{
-                name:"",
-                sort:0
-            }
+            list:[]
         };
     },
     methods: {
@@ -16,38 +13,32 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            if(!this.isAdd){
-                const res = await this.$http.post('/class/info', { id: this.$route.query.id });
-                if (res.code >= 0) {    
-                    this.form = res.data;
-                }
+            const res = await this.$http.post('/app/list',{});
+            if(res.code>=0){
+                this.list = res.data
             }
-    
         },
-       async submit(){
+        async save(item) {
+
+            const is_up = item.is_up ? 0 : 1;
             try {
-                const res = await this.$http.post('/class/save', this.form);
-                if (res.code >= 0) {
-                  
-                    this.$toast("操作成功");
-                    // if (this.isAdd) {
-                    //     await this.$alert(`操作成功！`, '成功', { showClose: false, type: 'success' });
-                    // } else {
-                    //     this.$message.success('保存成功~');
-                    // }
-                    this.$router.go(-1);
-                }
+              const res = await this.$http.post('/goods/save', {
+                id: item.id,
+                is_up: is_up
+              });
+              if (res.code >= 0) {
+                this.$toast('下价成功');
+                this.form.page = 1;
+                this.list = [];
+                this.update();
+              }
             } catch (error) {
-                return;
+      
             }
-        }
+          }
     },
     // 计算属性
-    computed: {
-        isAdd() {
-            return typeof this.$route.query.id == 'undefined';
-        }
-    },
+    computed: {},
     // 包含 Vue 实例可用过滤器的哈希表。
     filters: {},
     // 在实例创建完成后被立即调用

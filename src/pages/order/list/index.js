@@ -11,7 +11,6 @@ export default {
         is_up: '',
         page: 1,
         page_size: 10,
-        store_id: 'S_WLs3pkrBJu5fYJ',
         title: '',
         type: 1,
         state: ''
