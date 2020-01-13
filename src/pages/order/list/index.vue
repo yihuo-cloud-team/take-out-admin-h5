@@ -36,7 +36,7 @@
       </div>
 
       <div class="tab-body">
-        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="LoadMore()">
+        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="loadMore()">
           <div
             class="panel"
             @click="$router.push(`/order/info?order_id=${item.order_id}`)"

@@ -28,10 +28,15 @@ export default {
       }
         this.update();
     },
+    loadMore() {
+      this.query.page = ++this.query.page;
+      this.update();
+    },
     // 用于更新一些数据
     async update() {
       try {
         this.loading = true;
+        
         const res = await this.$http.post('/order/list', this.query);
         if (res.code > 0) {
           this.loading = false;
@@ -42,16 +47,13 @@ export default {
         this.finished = true;
       } catch (error) {}
     },
-    LoadMore() {
-      this.query.page = ++this.query.page;
-      this.update();
-    }
+   
   },
   // 计算属性
   computed: {
-    isAdd() {
-      return typeof this.$route.query['state'] == 'undefined';
-    }
+    // isAdd() {
+    //   return typeof this.$route.query['state'] == 'undefined';
+    // }
   },
   // 包含 Vue 实例可用过滤器的哈希表。
   filters: {},
