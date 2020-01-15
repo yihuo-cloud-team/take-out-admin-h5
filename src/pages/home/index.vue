@@ -108,7 +108,7 @@
     <div class="panel">
       <div class="panel-header">
         <div class="panel-title">门店信息</div>
-        <div class="more" @click="$router.push('/store/edit')">
+        <div class="more" @click="$router.push(`/store/edit?store_id=${store_id}`)">
           <div>编辑</div>
           <van-icon name="arrow" />
         </div>

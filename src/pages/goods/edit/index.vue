@@ -43,7 +43,7 @@
           autosize
           label="副标题"
           type="textarea"
-          placeholder="请输入商品名称"
+          placeholder="请输入副标题名称"
         />
         <van-field
           v-model="form.o_price"
@@ -52,7 +52,7 @@
           autosize
           label="原价"
           type="number"
-          placeholder="请输入价格"
+          placeholder="请输入原价"
         />
         <van-field
           v-model="form.price"
@@ -61,7 +61,7 @@
           autosize
           label="优惠价"
           type="number"
-          placeholder="请输入价格"
+          placeholder="请输入优惠价"
         />
         <van-field
           v-model="form.sort"

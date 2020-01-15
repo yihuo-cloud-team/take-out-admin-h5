@@ -53,6 +53,7 @@ export default {
       const res = await this.$http.post('/store/info', {});
       if (res.code >= 0) {
         this.form = res.data
+        
         this.position = {
           x: this.form.x,
           y: this.form.y,

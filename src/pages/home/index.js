@@ -14,7 +14,7 @@ export default {
         type: 1,
         app_id: "",
       },
-
+      store_id:"",
       info: {
         order: 0,
         tprice: 0,
@@ -30,30 +30,29 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-      
+      this.store_id = this.$route.query.store_id;
       const goodsList = await this.$http.post('/goods/list', this.query);
       if (goodsList.code >= 0) {
-        goodsList.data.forEach(el=>{
-          el.goods_head_list =el.goods_head_list.map(item=>this.$getUrl(item));
+        goodsList.data.forEach(el => {
+          el.goods_head_list = el.goods_head_list.map(item => this.$getUrl(item));
         })
-    
+
         this.total = goodsList.total;
 
-          this.goodsList = goodsList.data;
+        this.goodsList = goodsList.data;
       };
       const orderList = await this.$http.post('/order/list', this.query);
       if (orderList.code >= 0) {
         this.total = orderList.total;
-          this.orderList = orderList.data;
+        this.orderList = orderList.data;
       };
       const res = await this.$http.post('/store/data/total', {});
       if (res.code >= 0) {
         this.info = res.data;
       };
       const res1 = await this.$http.post('/store/info', {
+        store_id: this.$route.query.store_id
       });
-      var week = [];
-      
       if (res1.code >= 0) {
         this.storeInfo = res1.data;
       };
