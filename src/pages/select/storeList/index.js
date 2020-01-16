@@ -25,10 +25,12 @@ export default {
               });
             };
             if(res.data.length==1 && !this.$route.query.id==1){
+                localStorage.store_id = res.data[0].store_id;
                 this.$router.push(`/home?store_id=${res.data[0].store_id}`);
             }
         },
         save(item){
+            console.log(item)
             localStorage.store_id = item.store_id;
             this.$router.push(`/home?store_id=${item.store_id}`);
         }

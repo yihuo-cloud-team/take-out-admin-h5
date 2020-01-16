@@ -130,7 +130,7 @@
           <div class="info-infos">
             <span class="title">营业状态：</span>
             <span class="content" v-if="storeInfo.state==1">营业中</span>
-            <span class="content" v-if="storeInfo.state==2">已打烊</span>
+            <span class="content" v-if="storeInfo.state==0">已打烊</span>
           </div>
           <div class="info-infos">
             <span class="title">营业时间：</span>

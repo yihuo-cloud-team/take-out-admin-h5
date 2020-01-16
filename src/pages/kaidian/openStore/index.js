@@ -8,7 +8,7 @@ export default {
       shows: false,
       form: {
         week: [],
-        state: 1,
+        state: 0,
         store_class: "", //门店类型
         start_time: '12:00', //营业开始时间
         end_time: '12:00', //营业最后时间

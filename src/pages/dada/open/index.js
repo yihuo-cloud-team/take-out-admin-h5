@@ -26,11 +26,12 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-      const res = await this.$http.post('/domain/info', {});
+      const res = await this.$http.post('/domain/info', {
+        
+      });
       if (res.code >= 0) {
         this.is_dada = res.data.domain_info.is_dada;
         this.parserdata = res.data.domain_info;
-   
       }
 
       const res1 = await this.$http.post('/domain/dadaBalance', {});

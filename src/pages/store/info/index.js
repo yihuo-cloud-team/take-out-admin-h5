@@ -20,11 +20,12 @@ export default {
       const res1 = await this.$http.post('/store/info', {});
       if (res1.code >= 0) {
         this.storeInfo = res1.data;
+        console.log(this.storeInfo)
       };
 
     },
     goC() {
-      window.open('https://www.baidu.com');
+      window.open(`http://h5.take-out.yihuo-cloud.com/goodsList?store_id=${this.storeInfo.store_id}`);
     }
   },
   // 计算属性

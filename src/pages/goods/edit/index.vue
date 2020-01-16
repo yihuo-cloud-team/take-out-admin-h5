@@ -9,8 +9,8 @@
           <img class="img"  :src="$getUrl(item)" alt />
         </div>
       </div>
-      <div class="btn">
-        <ol-upload @success="url=>form.goods_head_list.push(url)">
+      <div v-if="form.goods_head_list.length<5" class="btn">
+        <ol-upload  @success="url=>form.goods_head_list.push(url)">
           <van-icon name="photograph" />
         </ol-upload>
       </div>

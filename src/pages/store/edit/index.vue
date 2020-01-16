@@ -90,12 +90,13 @@
         </div>
       </div>
     </div>
+ 
     <!--  -->
     <div class="store-type">
       <div class="type-title">营业状态</div>
       <div class="type">
         <van-cell-group>
-          <van-switch-cell v-model="form.state" :active-value="1" :inactive-value="2" title="营业状态" />
+          <van-switch-cell v-model="form.state" active-value="1" inactive-value="0" title="营业状态" />
         </van-cell-group>
       </div>
     </div>

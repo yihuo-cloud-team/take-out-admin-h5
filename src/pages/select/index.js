@@ -13,7 +13,8 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-      const res = await this.$http.post('/domain/list', {});
+      const res = await this.$http.post('/domain/list', {
+      });
       if (res.code >= 0) {
         this.list = res.data;
       }

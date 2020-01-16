@@ -11,7 +11,7 @@ export default {
         name: "",
         info: "",
         week: [],
-        state: 1,
+        state: 0,
         store_class: "",
         phone: "",
         start_time: '12:00',
@@ -23,6 +23,8 @@ export default {
         address:"",
         x: "", //纬度
         y: "", //经度
+        business:"",
+        licence:""
       },
       start_time: '12:00',
       end_time: '12:00',
