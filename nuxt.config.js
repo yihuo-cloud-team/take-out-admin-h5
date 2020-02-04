@@ -53,6 +53,6 @@ module.exports = {
         // // default: 80
         // // default: localhost
         port: 8090,
-        host: '192.168.0.147',
+        host: '192.168.2.1',
     },
 }   
