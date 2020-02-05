@@ -20,7 +20,6 @@ export default {
       const res1 = await this.$http.post('/store/info', {});
       if (res1.code >= 0) {
         this.storeInfo = res1.data;
-        console.log(this.storeInfo)
       };
 
     },
