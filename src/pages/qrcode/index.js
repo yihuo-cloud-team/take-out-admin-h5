@@ -26,7 +26,6 @@ export default {
 
     },
     qrcode() {
-
       this.qrcode1 = new QRCode(this.$refs.Qrcode, {
         text: `https://h5.take-out.yihuo-cloud.com/goodsList?store_id=${this.$route.query.store_id}`,
         width: 200,

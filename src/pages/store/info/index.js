@@ -25,6 +25,9 @@ export default {
     },
     goC() {
       window.open(`http://h5.take-out.yihuo-cloud.com/goodsList?store_id=${this.storeInfo.store_id}`);
+    },
+    goEr(){
+      this.$router.push(`/qrcode?store_id=${this.storeInfo.store_id}`)
     }
   },
   // 计算属性
