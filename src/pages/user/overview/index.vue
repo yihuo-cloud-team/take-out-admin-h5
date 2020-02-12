@@ -57,19 +57,50 @@
         <van-row>
           <van-col span="12">
             <div class="data-order">
-              <div class="data-num">{{info.checkMoney | nullToText }}</div>
+              <div class="data-num">{{money.user_money | nullToText }}</div>
               <div class="data-title">可提现的余额</div>
-              <van-button class="btn">提现</van-button>
+      
             </div>
           </van-col>
           <van-col span="12">
             <div class="data-order">
-              <div class="data-num">{{info.canGet | nullToText}}</div>
+              <div class="data-num">{{money.freeze_money | nullToText}}</div>
               <div class="data-title">待审核金额</div>
             </div>
           </van-col>
         </van-row>
       </div>
+    </div>
+      <div class="tixian">
+      <div class="title">提现账户类型</div>
+      <van-radio-group class="checkb" v-model="query.money_type">
+        <van-radio name="1">
+          <div slot="icon" slot-scope="props" :class="['box',{'active':props.checked}]">微信</div>
+        </van-radio>
+        <van-radio name="2">
+          <div slot="icon" slot-scope="props" :class="['box',{'active':props.checked}]">支付宝</div>
+        </van-radio>
+        <van-radio name="3">
+          <div slot="icon" slot-scope="props" :class="['box',{'active':props.checked}]">银行卡</div>
+        </van-radio>
+      </van-radio-group>
+      <div class="title">卡号</div>
+      <van-cell-group>
+        <van-field v-model="query.account" placeholder="微信号、支付宝账号、银行卡账号" />
+      </van-cell-group>
+      <div class="title">真实姓名</div>
+      <van-cell-group>
+        <van-field v-model="query.real_name" placeholder="请填写真实姓名，以免打款失败" />
+      </van-cell-group>
+      <div class="title">提现金额</div>
+      <van-cell-group>
+        <van-field v-model="query.money" type="number" placeholder="可提现金额" />
+      </van-cell-group>
+      <div class="baocun" @click="submit">发起提现</div>
+      <div class="box">
+             <div class="btn" @click="tixian">提现记录</div>
+      </div>
+ 
     </div>
   </div>
 </template>

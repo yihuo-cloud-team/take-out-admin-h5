@@ -130,6 +130,57 @@
             padding-bottom: 15px;
         }
     }
+    .tixian{
+        padding: 15px;
+        .title{
+            padding: 10px 0;
+        }
+        .checkb {
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 40px;
+            justify-content: flex-start;
+      
+      
+            .box {
+              flex: 1;
+              width: 45px;
+              margin: 0px 10px;
+              display: inline-block;
+              font-size: 13px;
+              border-radius: 4px;
+              line-height: 28px;
+              text-align: center;
+              margin-right: 5px;
+              background-color: #eee;
+              color: black;
+      
+              &.active {
+                background-color: #FFC281;
+                color: white;
+              }
+            }
+      
+          }
+        .baocun{
+            color: white;
+            background-color: #fec900;
+            z-index: 99999;
+            margin-top: 20px;
+            bottom: 0;
+            padding: 13px 0;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .box{
+            display: flex;
+            justify-content: flex-end;
+            .btn{
+                font-size: 13px;
+            }
+        }
+       
+    }
     
 }
 

@@ -12,6 +12,7 @@ export default {
       list: [
 
       ],
+      xi:false,
       loading: false,
       finished: false,
       show: false,
@@ -25,7 +26,7 @@ export default {
         },
         {
           text: '支出',
-          value: 0
+          value: 2
         }
       ],
       currentDate: new Date()
@@ -38,6 +39,10 @@ export default {
     },
     // 用于更新一些数据
     async update() {
+      if(this.$route.query.type){
+        this.form.type = 2
+        
+      }
       try {
         this.loading = true;
         const res = await this.$http.post('budget/list', this.form);
@@ -69,6 +74,7 @@ export default {
       this.update();
     },
     select(e) {
+      console.log(e)
       this.form.type = e;
       this.list = [];
       this.form.page =1;
@@ -97,8 +103,10 @@ export default {
   beforeMount() {},
   // el 被新创建的 vm.el 替换，并挂载到实例上去之后调用该钩子。
   mounted() {
-    this.init();
-    this.$nextTick(() => {});
+ 
+    this.$nextTick(() => {
+      this.init();
+    });
   },
   // 数据更新时调用，发生在虚拟 DOM 打补丁之前。
   beforeUpdate() {},

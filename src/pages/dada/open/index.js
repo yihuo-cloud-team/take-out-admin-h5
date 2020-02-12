@@ -51,12 +51,9 @@ export default {
         const res = await this.$http.post('/domain/addDada', this.form);
         if (res.code >= 0) {
           if (this.isAdd) {
-            await this.$alert(`操作成功！`, '成功', {
-              showClose: false,
-              type: 'success'
-            });
+            this.$toast('添加成功')
           } else {
-            this.$message.success('保存成功~');
+            this.$toast('保存成功')
           }
           this.$router.go(-1);
         }

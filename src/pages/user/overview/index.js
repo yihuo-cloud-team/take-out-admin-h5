@@ -1,15 +1,21 @@
 export default {
   name: 'overview',
-  layout:"sub",
+  layout: "sub",
   data() {
     return {
-      info: {
-      },
+      info: {},
       form: {
         times: [new Date(new Date().getFullYear(), new Date().getMonth(), 1).Format('yyyy-MM-dd'), new Date().Format('yyyy-MM-dd')]
       },
-      currentDate:  new Date(),
-      show:false
+      query: {
+        money_type: "1",
+        account: "",
+        real_name : "",
+        money: ""
+      },
+      money: {},
+      currentDate: new Date(),
+      show: false
     };
   },
   methods: {
@@ -22,6 +28,10 @@ export default {
       const res = await this.$http.post('finance/money', this.form);
       if (res.code >= 0) {
         this.info = res.data;
+      }
+      const res1 = await this.$http.post('/order/userMoney', {});
+      if (res1.code >= 0) {
+        this.money = res1.data;
       }
     },
     formatter(type, value) {
@@ -37,16 +47,47 @@ export default {
       this.show = true;
     },
     start(e) {
-        this.form.times[0] = e.Format('yyyy-MM-dd');
-        this.currentDate = e;
-        this.show = false;
-        var monthEndDate = new Date(e.getFullYear(), e.getMonth() + 1, 0).Format('yyyy-MM-dd');
-        this.form.times[1] = monthEndDate;
-        this.update();
-      },
-      showPopup(){
-          this.show = true;
+      this.form.times[0] = e.Format('yyyy-MM-dd');
+      this.currentDate = e;
+      this.show = false;
+      var monthEndDate = new Date(e.getFullYear(), e.getMonth() + 1, 0).Format('yyyy-MM-dd');
+      this.form.times[1] = monthEndDate;
+      this.update();
+    },
+    showPopup() {
+      this.show = true;
+    },
+    async submit() {
+      if(this.query.account == ''){
+        this.$toast("请输入卡号或者微信号")
+        return false
       }
+      if(this.query.real_name == ''){
+        this.$toast("请输入真实姓名")
+        return false
+      }
+      if(this.query.money == ''){
+        this.$toast("请输入金额")
+        return false
+      }
+      const res = await this.$http.post('/order/getMoney',this.query);
+      if (res.code >= 0) {
+        this.$toast('操作成功')
+        this.query.account = '';
+        this.query.real_name = '';
+        this.query.money = '';
+        const res1 = await this.$http.post('/order/userMoney', {});
+        if (res1.code >= 0) {
+          this.money = res1.data;
+        }
+        
+      }else{
+        this.$toast(res.msg)
+      }
+    },
+    tixian() {
+      this.$router.push('/user/bill?type=2')
+    }
   },
   // 计算属性
   computed: {},
