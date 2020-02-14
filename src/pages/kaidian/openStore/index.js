@@ -58,13 +58,8 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-
-
-
     },
     async submit() {
-
-
       if (this.form.week == []) {
         this.$toast("营业日期不得为空")
         return false
