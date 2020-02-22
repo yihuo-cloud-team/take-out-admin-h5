@@ -33,7 +33,6 @@ export default {
             });
             if (res.code >= 0) {
                 this.show = 1;
-                this.code = res.data * 1;
                 this.time = 60;
                 this.loading = true;
                 let times = setInterval(() => {
@@ -44,6 +43,8 @@ export default {
                         this.loading = false;
                     }
                 }, 1000)
+            }else{
+                this.$toast(res.msg);
             }
 
         },
