@@ -7,6 +7,9 @@
       <div class="footer">
         <van-button type="default" color="#FFCA0A" class="left" @click="save">获取验证码</van-button>
       </div>
+        <van-checkbox class="check" v-model="checked" shape="square">
+          <div class="xieyi" @click="tiaozhuan">用户协议</div>
+        </van-checkbox>
     </div>
     <div class="box" v-if="show==1">
       <div class="title">已发送短信验证码至</div>

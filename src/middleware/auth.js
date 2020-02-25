@@ -3,7 +3,8 @@ import Http from '../plugins/Http'
 export default function (context) {
     if (typeof localStorage.jwt == 'undefined') {
         // 未登录
-        if (context.route.name != 'login') {
+        if (context.route.name != 'login'&& context.route.name != 'register' && context.route.name != 'xieyi' && context.route.name != 'register-zhuce') {
+          
             context.app.router.replace('/login');
         }
 
