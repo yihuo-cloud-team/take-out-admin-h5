@@ -2,7 +2,12 @@ export default {
     name: 'xieyi',
     layout: 'root',
     data() {
-        return {};
+        return {
+            form: {
+                id: '',
+                content: '',
+            }
+        };
     },
     methods: {
         // 用于初始化一些数据
@@ -11,7 +16,8 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+            const res = await this.$http.post('/treaty/get', {});
+            this.form = res.data;
         },
     },
     // 计算属性
