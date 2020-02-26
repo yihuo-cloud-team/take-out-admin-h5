@@ -1,40 +1,58 @@
 @import "@/styles/variable.scss";
+
 #user {
-    background-color: #F6F6F6;
+  background-color: #F6F6F6;
 }
+
 .user-info {
-    background-color: #fff;
-    padding-top: 36px;
-    padding-bottom: 36px;
-    .info-image {
-        display: flex;
-        justify-content: center;
-        .img{
-            
-            display: block;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: #dddddd;
-        }
+  background-color: #fff;
+  padding-top: 36px;
+  padding-bottom: 36px;
+
+  .info-image {
+    display: flex;
+    justify-content: center;
+
+    .img {
+
+      display: block;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #dddddd;
     }
-    .user-name {
-        margin-top: 10px;
-        text-align: center;
+  }
+
+  .user-name {
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .meal-box {
+    text-align: center;
+    padding: 0 15px;
+
+    .tab {
+      font-size: 13px;
+      color: #666;
+      text-align: left;
+      display: inline-block;
     }
+  }
 }
 
 .security {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .btn {
-    text-align: center;
-    background-color: #fec900;
-    color: white;
-    margin-top: 15px;
+  text-align: center;
+  background-color: #fec900;
+  color: white;
+  margin-top: 15px;
 
-    padding: 15px 0;
+  padding: 15px 0;
 }
 
 
