@@ -5,11 +5,19 @@
         <van-field clearable v-model="phone" placeholder="请输入手机号" />
       </van-cell-group>
       <div class="footer">
-        <van-button type="default" color="#FFCA0A" class="left" @click="save">获取验证码</van-button>
+        <van-button
+          type="default"
+          color="#FFCA0A"
+          :disabled="checked==false"
+          class="left"
+          @click="save"
+        >获取验证码</van-button>
       </div>
-        <van-checkbox class="check" v-model="checked" shape="square">
-          <div class="xieyi" @click="tiaozhuan">用户协议</div>
-        </van-checkbox>
+      <van-checkbox class="check" v-model="checked" shape="square">
+        <div class="title">我已阅读并同于相关服务条款 <span class="xieyi" @click="tiaozhuan">《用户协议》 </span></div>
+    
+      </van-checkbox>
+      
     </div>
     <div class="box" v-if="show==1">
       <div class="title">已发送短信验证码至</div>

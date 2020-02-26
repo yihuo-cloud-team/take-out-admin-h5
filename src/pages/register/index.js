@@ -21,13 +21,11 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-        if(localStorage.phone!='null'){
-            this.phone = localStorage.phone
-        }
+    
       // const res = await this.$http.post('', {});
     },
     tiaozhuan() {
-        localStorage.phone = this.phone
+  
         this.$router.push("/xieyi");
     },
     async save() {
@@ -39,7 +37,6 @@ export default {
         this.$toast('请同意用户协议')
         return false 
       }
-      localStorage.phone = null;
       const res = await this.$http.post('/code/get', {
         phone: this.phone
       });

@@ -1,7 +1,7 @@
 @import "@/styles/variable.scss";
 #register {
     .box {
-        padding: 40px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -38,8 +38,14 @@
         .check{
           margin-top: 10px;
         }
+        .title{
+          color:grey;
+          font-size: 14px;
+
+        }
         .xieyi{
-          text-decoration: underline;
+          font-size: 14px;
+          
           color: blue;
         }
       }
