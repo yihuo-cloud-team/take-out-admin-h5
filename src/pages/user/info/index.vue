@@ -11,6 +11,7 @@
       <!-- <van-cell @click="$router.push('/marketing/list')" title="营销" is-link /> -->
       <van-cell @click="$router.push('/user/overview')" title="账户总览" is-link />
       <van-cell @click="$router.push('/user/bill')" title="账单" is-link />
+      <van-cell @click="$router.push('/user/gather')" title="套餐" is-link />
       <van-cell @click="$router.push('/select')" title="切换组织" is-link />
       <van-cell @click="$router.push('/select/storeList?id=1')" title="门店列表" is-link />
     </div>
