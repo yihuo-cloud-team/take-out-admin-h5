@@ -16,6 +16,7 @@ export default {
       loading: false,
       finished: false,
       show: false,
+      shows:false,
       option1: [{
           text: '全部',
           value: ""
@@ -40,8 +41,8 @@ export default {
     // 用于更新一些数据
     async update() {
       if(this.$route.query.type){
-        this.form.type = 2
-        
+        this.form.type = 2;
+        this.shows = true;
       }
       try {
         this.loading = true;
@@ -74,7 +75,6 @@ export default {
       this.update();
     },
     select(e) {
-      console.log(e)
       this.form.type = e;
       this.list = [];
       this.form.page =1;

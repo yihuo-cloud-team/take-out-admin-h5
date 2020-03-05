@@ -51,7 +51,7 @@ export default {
         this.map.addControl(geolocation);
         // 监听右下角小圆点
         AMap.event.addListener(geolocation, 'complete', (e) => {
-        
+          
           this.setPosition(e.position.lat, e.position.lng);
         });
 

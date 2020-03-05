@@ -1,33 +1,42 @@
+import AreaList from '../../../plugins/lib/area'
 export default {
   name: 'edit',
   layout: 'sub',
   data() {
     return {
+      kai: false,
       show: false,
       show1: false,
-      shows:false,
+      shows: false,
       form: {
-        logo: "",
-        name: "",
-        info: "",
         week: [],
         state: 0,
-        store_class: "",
-        phone: "",
-        start_time: '12:00',
-        end_time: '12:00',
-        store_img: [],
-        store_bg: "",
-        subsidy :0,//补贴价格
-        label:[],
-        address:"",
+        store_class: "", //门店类型
+        start_time: '9:00', //营业开始时间
+        end_time: '20:00', //营业最后时间
+        store_img: [], //门店图片
+        store_bg: "", //门店背景图
+        subsidy: 0, //补贴价格
+        label: [],
+        name: '', //门店名称
+        logo: '', //门店图片
+        info: '', //门店描述
         x: "", //纬度
         y: "", //经度
-        business:"",
-        licence:""
+        contacts: "", //门店联系人
+        phone: "", //门店联系人电话号码
+        id_card: "", //联系人身份证
+        username: "", //达达商家app账号
+        password: "", //达达商家app密码
+        p: "", //省
+        c: "", //市
+        a: "", //区
+        address: "", //门店详细地址
+        business: "", //营业执照
+        licence: "", //食品生产许可证
       },
-      start_time: '12:00',
-      end_time: '12:00',
+      start_time: '9:00',
+      end_time: '20:00',
       week: [
         "周一",
         "周二",
@@ -37,16 +46,19 @@ export default {
         "周六",
         "周日",
       ],
-      title:[],
+      title: [],
       position: {
         x: 0.00,
         y: 0.00,
       },
+      areaList: [],
+      selecarea: [],
     };
   },
   methods: {
     // 用于初始化一些数据
     init() {
+      this.areaList = AreaList
       this.update();
     },
     // 用于更新一些数据
@@ -54,20 +66,56 @@ export default {
 
       const res = await this.$http.post('/store/info', {});
       if (res.code >= 0) {
-        this.form = res.data
-        
+        this.form = res.data;
+        this.selecarea.push(res.data.p, res.data.c, res.data.a);
         this.position = {
-          x: this.form.x,
-          y: this.form.y,
+          x: this.form.x ? this.form.x : 0,
+          y: this.form.y ? this.form.y : 0,
         };
       }
-    
+
     },
     async submit() {
-      if(this.form.week.length==0){
-        this.$toast("请添加营业日期")
+      if (this.form.logo == '') {
+        this.$toast("请添加门店logo");
+        return false;
+      };
+      if (this.form.name == '') {
+        this.$toast("店铺名称不得为空");
+        return false;
+      };
+      if (this.form.p == '') {
+        this.$toast("省市区不得为空");
+        return false;
+      };
+      if (this.form.contacts == '') {
+        this.$toast("联系人不得为空");
+        return false;
+      };
+      if (this.form.phone == '') {
+        this.$toast("联系电话不得为空");
+        return false;
+      };
+      if (this.form.phone.length != 11) {
+        this.$toast("联系电话格式不对");
+        return false;
+      };
+      if(this.form.x == '' ||this.form.x == 0){
+        this.$toast("请选择定位地址");
+        return false;
+      };
+      if (this.form.store_bg == '') {
+        this.$toast("请添加logo背景图")
         return false
-      }
+      };
+      if (this.form.store_img.length == 0) {
+        this.$toast("请添加商家图片");
+        return false;
+      };
+      if (this.form.week.length == 0) {
+        this.$toast("营业日期不得为空");
+        return false;
+      };
       const res = await this.$http.post('/store/save', this.form);
       if (res.code >= 0) {
         this.$toast("添加成功");
@@ -107,24 +155,24 @@ export default {
       this.end_time = e;
       this.show1 = false;
     },
-    del(item,index){
+    del(item, index) {
       this.$dialog.confirm({
         message: '确认删除',
-      }).then(()=>{
-        item.splice(index,1)
-      }).catch(()=>{
+      }).then(() => {
+        item.splice(index, 1)
+      }).catch(() => {
 
       });
     },
-    add(){
-      if(this.title==''){
+    add() {
+      if (this.title == '') {
         this.$toast("标签不得为空");
         return false;
       }
       this.form.label.push(this.title);
-      this.title='';
+      this.title = '';
       this.shows = false;
-    }
+    },
     // push(we) {
     //   if (this.form.week.indexOf(we) < 0) {
     //     this.form.week.push(we);
@@ -132,9 +180,23 @@ export default {
     //     this.form.week.splice(this.form.week.indexOf(we), 1);
     //   }
     // }
+    select(e) {
+      this.selecarea = []
+      this.selecarea.push(e[0].name, e[1].name, e[2].name);
+
+      this.form.p = e[0].name;
+      this.form.c = e[1].name;
+      this.form.a = e[2].name;
+      this.kai = false;
+    },
   },
   // 计算属性
-  computed: {},
+  computed: {
+    area() {
+      if (this.selecarea.length < 1) return '省市区选择'
+      return `${this.selecarea[0]} ${this.selecarea[1]} ${this.selecarea[2]}`
+    }
+  },
   // 包含 Vue 实例可用过滤器的哈希表。
   filters: {},
   // 在实例创建完成后被立即调用
@@ -162,10 +224,10 @@ export default {
   directives: {},
   // 一个对象，键是需要观察的表达式，值是对应回调函数。
   watch: {
-    position(x,y){
+    position(x, y) {
       this.form.x = x.x
       this.form.y = x.y
-      
+
     }
   },
   // 组件列表

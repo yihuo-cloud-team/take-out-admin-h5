@@ -16,7 +16,7 @@
       </van-popup>
       <div class="left">
         <van-dropdown-menu>
-          <van-dropdown-item v-model="form.type" @change="select" :options="option1" />
+          <van-dropdown-item v-model="form.type" :disabled="shows" @change="select" :options="option1" />
         </van-dropdown-menu>
       </div>
     </div>

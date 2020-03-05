@@ -3,7 +3,8 @@ export default {
   data() {
     return {
       info: {},
-      storeInfo: {}
+      storeInfo: {},
+      store_id:""
     };
   },
   methods: {
@@ -20,8 +21,12 @@ export default {
       const res1 = await this.$http.post('/store/info', {});
       if (res1.code >= 0) {
         this.storeInfo = res1.data;
+        this.store_id = res1.data.store_id;
       };
 
+    },
+    goStore(e){
+      this.$router.push(`/store/edit?store_id=${e}`)
     },
     goC() {
       window.open(`http://h5.take-out.yihuo-cloud.com/goodsList?store_id=${this.storeInfo.store_id}`);

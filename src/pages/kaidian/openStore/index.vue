@@ -29,13 +29,11 @@
             placeholder
             @click-right-icon="$toast('question')"
           />
-               <van-field
-            v-model="form.address"
-            required
-            clearable
-            label="商家地址"
-            placeholder
-          />
+
+          <van-cell-group>
+            <van-cell title="省市区" @click="kai = !kai" :value="area" />
+          </van-cell-group>
+          <van-field v-model="form.address" required clearable label="商家地址" placeholder />
           <van-field
             v-model="form.subsidy"
             clearable
@@ -45,6 +43,7 @@
             @click-right-icon="$toast('question')"
           />
           <van-field v-model="form.store_class" clearable label="门店分类" placeholder="快餐简餐" required />
+          <van-field v-model="form.contacts" label="联系人" clearable placeholder required />
           <van-field
             v-model="form.phone"
             type="number"
@@ -188,6 +187,14 @@
       <van-button @click="add" class="btn" type="info">添加</van-button>
     </van-popup>
     <div class="footer" @click="submit">保存</div>
+    <van-popup v-model="kai" position="bottom">
+      <van-area
+        :area-list="areaList"
+        :value="selecarea.length > 1?selecarea[2].code:'110101'"
+        @cancel="kai = !kai"
+        @confirm="select"
+      />
+    </van-popup>
   </div>
 </template>
 <script src="./index.js"></script>

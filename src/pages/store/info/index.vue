@@ -2,7 +2,7 @@
   <div id="info">
     <!-- 店铺 S -->
     <div class="panel">
-      <div @click="$router.push('/store/edit')" class="panel-body">
+      <div @click="$router.push(`/store/edit?store_id=${store_id}`)" class="panel-body">
         <div class="store">
           <div class="store-head">
             <img :src="$getUrl(storeInfo.logo)" alt />
@@ -57,7 +57,7 @@
         <div class="panel-title">门店管理</div>
       </div>
       <van-grid :border="false">
-        <van-grid-item icon="shop-o" to="/store/edit" text="店铺管理" />
+        <van-grid-item icon="shop-o" @click='goStore(store_id)' text="店铺管理" />
         <van-grid-item icon="cart-o" to="/class/list" text="分类管理" />
         <van-grid-item icon="cart-o" to="/goods/list" text="商品管理" />
         <van-grid-item icon="orders-o" to="/order/list" text="订单管理" />

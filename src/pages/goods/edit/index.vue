@@ -10,9 +10,9 @@
         </div>
       </div>
       <div v-if="form.goods_head_list.length<5" class="btn">
-        <ol-upload  @success="url=>form.goods_head_list.push(url)">
-          <van-icon name="photograph" />
-        </ol-upload>
+          <ol-upload  @success="url=>form.goods_head_list.push(url)">
+            <van-icon :size="40" name="photograph" />
+          </ol-upload>
       </div>
       <!-- <div class="num">1/5</div> -->
     </div>

@@ -30,7 +30,7 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-      this.store_id = this.$route.query.store_id;
+    
       const goodsList = await this.$http.post('/goods/list', this.query);
       if (goodsList.code >= 0) {
         goodsList.data.forEach(el => {
@@ -55,6 +55,7 @@ export default {
       });
       if (res1.code >= 0) {
         this.storeInfo = res1.data;
+        this.store_id = res1.data.store_id;
       };
     },
   },

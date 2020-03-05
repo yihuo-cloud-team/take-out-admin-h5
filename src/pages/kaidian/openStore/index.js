@@ -1,8 +1,10 @@
+import AreaList from '../../../plugins/lib/area'
 export default {
   name: 'openStore',
   layout: "sub",
   data() {
     return {
+      kai:false,
       show: false,
       show1: false,
       shows: false,
@@ -10,8 +12,8 @@ export default {
         week: [],
         state: 0,
         store_class: "", //门店类型
-        start_time: '12:00', //营业开始时间
-        end_time: '12:00', //营业最后时间
+        start_time: '9:00', //营业开始时间
+        end_time: '20:00', //营业最后时间
         store_img: [], //门店图片
         store_bg: "", //门店背景图
         subsidy: 0, //补贴价格
@@ -33,8 +35,8 @@ export default {
         business:"",//营业执照
         licence:"",//食品生产许可证
       },
-      start_time: '12:00',
-      end_time: '12:00',
+      start_time: '9:00',
+      end_time: '20:00',
       week: [
         "周一",
         "周二",
@@ -49,47 +51,72 @@ export default {
         x: 0.00,
         y: 0.00,
       },
+      areaList: [],
+      selecarea: [],
     };
   },
   methods: {
     // 用于初始化一些数据
     init() {
+      this.areaList = AreaList
       this.update();
     },
     // 用于更新一些数据
     async update() {
     },
     async submit() {
-      if (this.form.week == []) {
-        this.$toast("营业日期不得为空")
+      if (this.form.logo == '') {
+        this.$toast("请添加门店logo");
+        return false;
+      };
+      if (this.form.name == '') {
+        this.$toast("店铺名称不得为空");
+        return false;
+      };
+      if (this.form.p == '') {
+        this.$toast("省市区不得为空");
+        return false;
+      };
+      if (this.form.contacts == '') {
+        this.$toast("联系人不得为空");
+        return false;
+      };
+      if (this.form.phone == '') {
+        this.$toast("联系电话不得为空");
+        return false;
+      };
+      if (this.form.phone.length != 11) {
+        this.$toast("联系电话格式不对");
+        return false;
+      };
+      if(this.form.x =='' ||this.form.x ==0){
+        this.$toast("请选择定位地址");
+        return false;
+      };
+      if (this.form.store_bg == '') {
+        this.$toast("请添加logo背景图")
         return false
-      }
-      if (this.form.store_img == []) {
-        this.$toast("请添加门店图片")
-        return false
-      }
-
-      if (this.form.store_bg == []) {
-        this.$toast("请添加门店背景图")
-        return false
-      }
-      if (this.form.logo == []) {
-        this.$toast("请添加门店logo")
-        return false
-      }
+      };
+      if (this.form.store_img.length==0) {
+        this.$toast("请添加商家图片");
+        return false;
+      };
       if (this.form.business == '') {
         this.$toast("请添加营业执照")
         return false
-      }
+      };
       if (this.form.licence == '') {
         this.$toast("请添加食品生产许可证")
         return false
-      }
-     
+      };
+      if (this.form.week.length == 0) {
+        this.$toast("营业日期不得为空");
+        return false;
+      };
       const res = await this.$http.post('/store/save', this.form);
       if (res.code >= 0) {
-        this.$toast("添加成功")
-        this.$router.go(-1)
+        this.$toast("添加成功");
+        this.$router.go(-1);
       }else{
         this.$toast(res.msg);
       }
@@ -119,6 +146,14 @@ export default {
       this.start_time = e;
 
       this.show = false;
+    },
+    select(e) {
+      this.selecarea = e;
+      console.log(e)
+      this.form.p = e[0].name;
+      this.form.c = e[1].name;
+      this.form.a = e[2].name;
+      this.kai = false;
     },
     end(e) {
       this.form.end_time = e;
@@ -152,7 +187,12 @@ export default {
     // }
   },
   // 计算属性
-  computed: {},
+  computed: {
+    area() {
+      if (this.selecarea.length < 1) return '省市区选择'
+      return `${this.selecarea[0].name} ${this.selecarea[1].name} ${this.selecarea[2].name}`
+    }
+  },
   // 包含 Vue 实例可用过滤器的哈希表。
   filters: {},
   // 在实例创建完成后被立即调用

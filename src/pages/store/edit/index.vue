@@ -12,13 +12,8 @@
       <div class="info-title">门店信息</div>
       <div class="message">
         <van-cell-group>
-          <van-field
-            v-model="form.name"
-            required
-            clearable
-            label="门店标题"
-            placeholder
-          />
+          <van-field v-model="form.name" required clearable label="门店标题" placeholder />
+
           <van-field
             v-model="form.info"
             required
@@ -27,13 +22,10 @@
             label="门店描述"
             placeholder
           />
-            <van-field
-            v-model="form.address"
-            required
-            clearable
-            label="商家地址"
-            placeholder
-          />
+          <van-cell-group>
+            <van-cell title="省市区" @click="kai = !kai" :value="area" />
+          </van-cell-group>
+          <van-field v-model="form.address" required clearable label="商家地址" placeholder />
           <van-field
             v-model="form.subsidy"
             required
@@ -43,6 +35,7 @@
             placeholder
           />
           <van-field v-model="form.store_class" clearable label="门店分类" placeholder="快餐简餐" required />
+          <van-field v-model="form.contacts" label="联系人" clearable placeholder required />
           <van-field
             v-model="form.phone"
             type="number"
@@ -90,7 +83,7 @@
         </div>
       </div>
     </div>
- 
+
     <!--  -->
     <div class="store-type">
       <div class="type-title">营业状态</div>
@@ -168,6 +161,14 @@
       <van-button @click="add" class="btn" type="primary">添加</van-button>
     </van-popup>
     <div class="fixed" @click="submit">保存</div>
+    <van-popup v-model="kai" position="bottom">
+      <van-area
+        :area-list="areaList"
+        :value="selecarea.length > 1?selecarea[2].code:'110101'"
+        @cancel="kai = !kai"
+        @confirm="select"
+      />
+    </van-popup>
   </div>
 </template>
 <script src="./index.js"></script>
