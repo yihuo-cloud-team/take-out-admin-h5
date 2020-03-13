@@ -31,12 +31,16 @@
               <div>已完成{{active == 4?`(${total})`:''}}</div>
             </div>
           </van-tab>
-          
+             <van-tab :name="21">
+            <div slot="title">
+              <div>待退款{{active == 21?`(${total})`:''}}</div>
+            </div>
+          </van-tab>
         </van-tabs>
       </div>
 
       <div class="tab-body">
-        <van-list v-model="loading" :finished="finished" finished-text="没有更多了"  @load="loadMore()">
+        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="loadMore()">
           <div
             class="panel"
             @click="$router.push(`/order/info?order_id=${item.order_id}`)"
@@ -44,12 +48,19 @@
             :key="index"
           >
             <div class="panel-body">
-              <div class="title" v-if="item.state==0">未支付</div>
-              <div class="title" v-if="item.state==1">已接单</div>
-              <div class="title" v-if="item.state==2">待取货</div>
-              <div class="title" v-if="item.state==3">配送中</div>
-              <div class="title" v-if="item.state==4">已完成</div>
-              <div class="title" v-if="item.state==5">订单取消</div>
+              <div class="title-box">
+                <div class="title" v-if="item.state==0">未支付</div>
+                <div class="title" v-if="item.state==1">已接单</div>
+                <div class="title" v-if="item.state==2">待取货</div>
+                <div class="title" v-if="item.state==3">配送中</div>
+                <div class="title" v-if="item.state==4">已完成</div>
+                <div class="title" v-if="item.state==21">订单取消</div>
+                
+                <div>
+                         <div class="title" >{{item.order_id}}</div>
+                </div>
+              </div>
+
               <div class="order" v-for="(i,index) in item.snapshotInfo" :key="index">
                 <div class="order-left">
                   <div class="order-info">

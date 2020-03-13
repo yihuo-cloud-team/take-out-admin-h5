@@ -18,6 +18,10 @@ export default {
                 this.orderInfo = res.data;
             }
         },
+        //确认退款
+        submit(){
+
+        }
     },
     // 计算属性
     computed: {},

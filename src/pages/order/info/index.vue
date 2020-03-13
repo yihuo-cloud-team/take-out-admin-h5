@@ -65,6 +65,7 @@
         </van-cell-group>
         <!-- <div class="address-name">：</div>  -->
         <!-- <div class="a-info">{{orderInfo.addressInfo.address_num}}</div> -->
+           <van-button class="tuikuan" v-if="orderInfo.state==21" @click="submit">确认退款</van-button>
       </div>
     </div>
   </div>

@@ -41,6 +41,12 @@
       .panel-body {
         padding: 0px 15px;
         padding-bottom: 1px;
+        .title-box{
+          display: flex;
+          .title{
+            flex: 1;
+          }
+        }
       }
     }
   }
