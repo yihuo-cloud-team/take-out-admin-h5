@@ -14,10 +14,11 @@
         >获取验证码</van-button>
       </div>
       <van-checkbox class="check" v-model="checked" shape="square">
-        <div class="title">我已阅读并同于相关服务条款 <span class="xieyi" @click="tiaozhuan">《用户协议》 </span></div>
-    
+        <div class="title">
+          我已阅读并同于相关服务条款
+          <span class="xieyi" @click="tiaozhuan">《用户协议》</span>
+        </div>
       </van-checkbox>
-      
     </div>
     <div class="box" v-if="show==1">
       <div class="title">已发送短信验证码至</div>
@@ -33,8 +34,8 @@
             type="primary"
           >{{time}}</van-button>
         </van-field>
-        <van-field clearable v-model="pwd" label="密码" placeholder="设置密码" />
-        <van-field clearable v-model="pwd1" label="密码" placeholder="确认密码" />
+        <van-field clearable v-model="pwd" label="密码" maxlength="8" placeholder="密码长度4-8位" />
+        <van-field clearable v-model="pwd1" label="密码" maxlength="8" placeholder="密码长度4-8位" />
         <div class="footer">
           <van-button
             type="default"
