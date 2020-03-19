@@ -10,30 +10,30 @@
           </van-tab>
           <van-tab :name="0">
             <div slot="title">
-              <div>待支付1</div>
+              <div>待支付{{info.to_be_paid}}</div>
             </div>
           </van-tab>
 
           <van-tab :name="2">
             <div slot="title">
-              <div>待取货1</div>
+              <div>待取货{{info.waite_goods}}</div>
             </div>
           </van-tab>
 
           <van-tab :name="3">
             <div slot="title">
-              <div>已发货1</div>
+              <div>已发货{{info.shipped}}</div>
             </div>
           </van-tab>
 
           <van-tab :name="4">
             <div slot="title">
-              <div>已完成1</div>
+              <div>已完成{{info.success}}</div>
             </div>
           </van-tab>
              <van-tab :name="21">
             <div slot="title">
-              <div>待退款1</div>
+              <div>待退款{{info.apply_cancelled}}</div>
             </div>
           </van-tab>
         </van-tabs>

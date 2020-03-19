@@ -22,7 +22,7 @@ export default {
   methods: {
     // 用于初始化一些数据
     init() {
-      // this.getTotal();
+      this.getTotal();
       if (!this.isAdd) {
         this.active = parseFloat(this.$route.query.state);
         this.query.state = this.active;
@@ -93,11 +93,11 @@ export default {
   // 一个对象，键是需要观察的表达式，值是对应回调函数。
   watch: {
     active(newval) {
-      this.query.state = newval
-      this.query.page = 1
-      this.finished = false
-      this.list = []
-      // this.update()
+      this.query.state = newval;
+      this.query.page = 1;
+      this.finished = false;
+      this.list = [];
+      this.update();
     }
   },
   // 组件列表

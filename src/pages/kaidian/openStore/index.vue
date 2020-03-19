@@ -35,12 +35,20 @@
           </van-cell-group>
           <van-field v-model="form.address" required clearable label="商家地址" placeholder />
           <van-field
-            v-model="form.subsidy"
+            v-model.number="form.subsidy"
             clearable
             label="门店补贴"
             type="number"
             placeholder
             @click-right-icon="$toast('question')"
+          />
+             <van-field
+            v-model.number="form.minimum_price"
+            clearable
+            label="起送价格"
+            type="number"
+             placeholder='不设置为0元起送'
+           
           />
           <van-field v-model="form.store_class" clearable label="门店分类" placeholder="快餐简餐" required />
           <van-field v-model="form.contacts" label="联系人" clearable placeholder required />

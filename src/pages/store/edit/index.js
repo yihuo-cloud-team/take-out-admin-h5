@@ -34,6 +34,7 @@ export default {
         address: "", //门店详细地址
         business: "", //营业执照
         licence: "", //食品生产许可证
+        minimum_price:0,//起送价格
       },
       start_time: '9:00',
       end_time: '20:00',
