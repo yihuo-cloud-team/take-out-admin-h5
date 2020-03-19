@@ -5,42 +5,42 @@
         <van-tabs v-model="active" sticky>
           <van-tab name>
             <div slot="title">
-              <div>全部{{active === ''?`(${total})`:''}}</div>
+              <div>全部{{info.all}}</div>
             </div>
           </van-tab>
           <van-tab :name="0">
             <div slot="title">
-              <div>待支付{{active === 0?`(${total})`:''}}</div>
+              <div>待支付1</div>
             </div>
           </van-tab>
 
           <van-tab :name="2">
             <div slot="title">
-              <div>待取货{{active == 2?`(${total})`:''}}</div>
+              <div>待取货1</div>
             </div>
           </van-tab>
 
           <van-tab :name="3">
             <div slot="title">
-              <div>已发货{{active == 3?`(${total})`:''}}</div>
+              <div>已发货1</div>
             </div>
           </van-tab>
 
           <van-tab :name="4">
             <div slot="title">
-              <div>已完成{{active == 4?`(${total})`:''}}</div>
+              <div>已完成1</div>
             </div>
           </van-tab>
              <van-tab :name="21">
             <div slot="title">
-              <div>待退款{{active == 21?`(${total})`:''}}</div>
+              <div>待退款1</div>
             </div>
           </van-tab>
         </van-tabs>
       </div>
 
       <div class="tab-body">
-        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="loadMore()">
+        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="update()">
           <div
             class="panel"
             @click="$router.push(`/order/info?order_id=${item.order_id}`)"

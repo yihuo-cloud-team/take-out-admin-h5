@@ -15,39 +15,49 @@ export default {
         type: 1,
         state: ''
       },
-      list: []
+      list: [],
+      info: {}
     };
   },
   methods: {
     // 用于初始化一些数据
     init() {
+      // this.getTotal();
       if (!this.isAdd) {
         this.active = parseFloat(this.$route.query.state);
         this.query.state = this.active;
         return false;
       }
-        this.update();
+  
+  
+  
+    
     },
-    loadMore() {
-      this.query.page = ++this.query.page;
-      this.update();
-    },
+  
     // 用于更新一些数据
     async update() {
       try {
+        if(this.finished) return ;
         this.loading = true;
-        
+
         const res = await this.$http.post('/order/list', this.query);
         if (res.code > 0) {
-          this.loading = false;
           this.list = [...this.list, ...res.data];
-          this.total = res.total;
-          return false;
         } 
-        this.finished = true;
+        if(this.list.length>=res.total){
+          this.finished = true;
+        }
+        this.loading = false;
+        this.query.page++;
       } catch (error) {}
     },
-   
+    async getTotal() {
+  
+      const res = await this.$http.post('/order/total', {});
+      if (res.code >= 0) {
+        this.info = res.data
+      }
+    }
   },
   // 计算属性
   computed: {
@@ -87,8 +97,7 @@ export default {
       this.query.page = 1
       this.finished = false
       this.list = []
-      this.total = 0
-      this.update()
+      // this.update()
     }
   },
   // 组件列表

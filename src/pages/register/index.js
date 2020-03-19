@@ -58,15 +58,18 @@ export default {
 
     },
     async submit() {
+      if (this.pwd.replace(/(^\s*)|(\s*$)/g, "") == '') {
+        this.$toast("密码不得为空");
+        return false;
+      };
       if (this.pwd != this.pwd1) {
         this.$toast("密码不一致");
         return false;
-      }
+      };
       const res = await this.$http.post('/auth/reg', {
         phone: this.phone,
         code: this.code,
         pwd: this.pwd,
-
       });
       if (res.code >= 0) {
         this.$toast("保存成功");
