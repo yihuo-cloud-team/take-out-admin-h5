@@ -66,7 +66,11 @@ export default {
     // }
   },
   // 包含 Vue 实例可用过滤器的哈希表。
-  filters: {},
+  filters: {
+    order(val){
+      return val.slice(-5)
+    }
+  },
   // 在实例创建完成后被立即调用
   created() {},
   // 在挂载开始之前被调用：相关的 render 函数首次被调用。

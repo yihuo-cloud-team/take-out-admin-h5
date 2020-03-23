@@ -31,7 +31,7 @@
               <div>已完成{{info.success}}</div>
             </div>
           </van-tab>
-             <van-tab :name="21">
+          <van-tab :name="21">
             <div slot="title">
               <div>待退款{{info.apply_cancelled}}</div>
             </div>
@@ -49,37 +49,54 @@
           >
             <div class="panel-body">
               <div class="title-box">
-                <div class="title" v-if="item.state==0">未支付</div>
+                <div class="title" v-if="item.state==0">待支付</div>
                 <div class="title" v-if="item.state==1">已接单</div>
                 <div class="title" v-if="item.state==2">待取货</div>
                 <div class="title" v-if="item.state==3">配送中</div>
                 <div class="title" v-if="item.state==4">已完成</div>
                 <div class="title" v-if="item.state==21">订单取消</div>
-                
-                <div>
-                         <div class="title" >{{item.order_id}}</div>
-                </div>
               </div>
 
               <div class="order" v-for="(i,index) in item.snapshotInfo" :key="index">
                 <div class="order-left">
                   <div class="order-info">
+                    <van-image
+                      width="45"
+                      height="45"
+                      v-if="i.data.goods_head_list.length > 0"
+                      style="border-radius:1px;"
+                      :src="$getUrl(i.data.goods_head_list[0])"
+                    />
                     <div class="goods-name">{{i.data.title}}</div>
-                    <div class="goods-num">x{{i.data.quantity}}</div>
                   </div>
                 </div>
                 <div class="order-right">
-                  <div>{{i.data.price}}￥</div>
+                  <div class="goods-price">￥{{i.data.price}}</div>
+                  <div class="goods-num">x{{i.data.quantity}}</div>
                 </div>
               </div>
-              <van-divider />
-
               <div class="freight">
                 <div class="freight-name">配送费</div>
-                <div class="freight-price">{{item.freight_price}}￥</div>
+                <div class="freight-price">￥{{item.freight_price}}</div>
+              </div>
+              <div class="freight">
+                <div class="freight-name">实付金额</div>
+                <div class="price">￥{{item.payInfo.price}}</div>
+              </div>
+              <div class="freight">
+                <div class="freight-name">取货码</div>
+                <div class="freight-price">{{item.order_id | order}}</div>
+              </div>
+              <div class="freight">
+                <div class="freight-name">下单时间</div>
+                <div class="time">{{item.add_time}}</div>
+              </div>
+              <div class="freight">
+                <div class="freight-name">订单备注</div>
+                <div class="remarks">{{item.remarks}}</div>
               </div>
 
-              <van-cell-group v-if="item.remarks">
+              <!-- <van-cell-group v-if="item.remarks">
                 <van-field
                   v-model="item.remarks"
                   disabled
@@ -88,13 +105,7 @@
                   label="备注"
                   type="textarea"
                 />
-              </van-cell-group>
-              <div class="panel-footer">
-                <div class="footer">
-                  <div class="date">{{item.add_time}}</div>
-                  <div class="total">总计：{{item.payInfo.price}}</div>
-                </div>
-              </div>
+              </van-cell-group>-->
             </div>
           </div>
         </van-list>
