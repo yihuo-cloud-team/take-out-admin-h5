@@ -1,18 +1,24 @@
 export default {
-    name: 'weixin',
+    name: 'openid',
     data() {
         return {};
     },
     methods: {
-        // 用于初始化一些数据
-        init() {
-            this.update();
-        },
-        // 用于更新一些数据
-        async update() {
+        async code() {
             // const res = await this.$http.post('', {});
+            if (typeof this.$route.query['code'] == 'undefined') {
+                // 跳转
+                const APPID = 'wx5bf6a90a691706d0';
+                const REDIRECT_URI = encodeURIComponent(window.location.href);
+                window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=${APPID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`);
+            } else {
+                // 登陆
+
+                let target = this.$route.query['target'];
+                const code = this.$route.query.code;
+
+            };
         },
-   
     },
     // 计算属性
     computed: {},
@@ -24,7 +30,6 @@ export default {
     beforeMount() { },
     // el 被新创建的 vm.el 替换，并挂载到实例上去之后调用该钩子。
     mounted() {
-        this.init();
         this.$nextTick(() => { });
     },
     // 数据更新时调用，发生在虚拟 DOM 打补丁之前。

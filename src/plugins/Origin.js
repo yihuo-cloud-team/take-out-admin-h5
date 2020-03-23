@@ -72,3 +72,14 @@ Vue.prototype.$isPower = function (..._) {
 Vue.prototype.$back = function (go = -1) {
   this.$router.go(go);
 }
+
+
+
+Vue.prototype.$getUserInfo = function () {
+
+  if (typeof localStorage.userInfo != 'undefined') {
+    return JSON.parse(localStorage.userInfo)
+  } else {
+    return null;
+  }
+}

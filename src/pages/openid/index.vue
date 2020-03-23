@@ -1,6 +1,8 @@
 <template>
-  <div id="weixin">
-          <van-cell @click="save" title="绑定微信" is-link />
+  <div id="openid">
+    <el-card shadow="never">
+      openid
+    </el-card>
   </div>
 </template>
 <script src="./index.js"></script>

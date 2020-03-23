@@ -1,39 +1,48 @@
 export default {
-    name: 'login',
-    layout: 'root',
+    name: 'bind',
+    layout: 'sub',
     data() {
         return {
-            form: {
-                phone: "17621643903",
-                pwd: "123"
-            }
+            isOpenid: false,
+            userInfo: null
         };
     },
     methods: {
         // 用于初始化一些数据
         init() {
+            if (typeof localStorage.bind_target != 'undefined') {
+                let target = localStorage.bind_target;
+                localStorage.removeItem('bind_target');
+                this[target]();
+            }
             this.update();
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+            const res = await this.$http.post('/user/info', {});
+            this.userInfo = res.data;
+            this.isOpenid = !!this.userInfo.openid;
         },
-        async submit() {
-            const res = await this.$http.post('/auth/login', this.form);
-            // return 
-            if (res.code >= 1) {
-                localStorage.jwt = res.jwt;
-                // localStorage.login = JSON.stringify(this.form);
-                // localStorage.domain_id=res.data.domain_id
-                // const userInfo = await this.$http.post('/user/info', {});
-                localStorage.userInfo = JSON.stringify(res.data);
-                // const power = await this.$http.post('/power/getUserPower', {});
-                // localStorage.power = JSON.stringify(power.data);
-                this.$router.push('/select');
+        async bindWx() {
+            // const res = await this.$http.post('', {});
+            if (typeof this.$route.query['code'] == 'undefined') {
+                // 跳转
+                const APPID = 'wx5bf6a90a691706d0';
+                const REDIRECT_URI = encodeURIComponent(window.location.href);
+                localStorage.bind_target = 'bindWx';
+                window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=${APPID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`);
             } else {
-                this.$toast(res.msg);
+                const res = await this.$http.post('/user/save', {
+                    openid: this.$route.query['openid'],
+                });
+                if (res.code >= 0) {
+                    this.$toast('绑定成功！');
+                    this.update();
+                }
 
-            }
+            };
+
+
         }
     },
     // 计算属性

@@ -1,7 +1,10 @@
 export default {
-    name: 'alerts',
+    name: 'notify',
+    layout: 'sub',
     data() {
-        return {};
+        return {
+            wx: false,
+        };
     },
     methods: {
         // 用于初始化一些数据
