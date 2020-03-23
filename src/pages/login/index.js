@@ -4,8 +4,8 @@ export default {
     data() {
         return {
             form: {
-                phone: "17621643903",
-                pwd: "123"
+                phone: "",
+                pwd: ""
             }
         };
     },
