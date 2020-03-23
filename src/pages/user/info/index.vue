@@ -21,6 +21,8 @@
       <!-- <van-cell @click="$router.push('/user/gather')" title="套餐" is-link /> -->
       <van-cell @click="$router.push('/select')" title="切换组织" is-link />
       <van-cell @click="$router.push('/select/storeList?id=1')" title="门店列表" is-link />
+      <van-cell @click="$router.push('/alerts')" title="消息通知" is-link />
+      <van-cell @click="$router.push('/weixin')" title="绑定微信" is-link />
     </div>
 
     <div class="btn" @click="signOut">退出登录</div>
