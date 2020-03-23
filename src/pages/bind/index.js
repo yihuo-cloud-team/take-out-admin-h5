@@ -32,10 +32,14 @@ export default {
                 localStorage.bind_target = 'bindWx';
                 window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=${APPID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`);
             } else {
-                const res = await this.$http.post('/user/save', {
-                    openid: this.$route.query['openid'],
+                const res = await this.$http.post('/auth/openid', {
+                    code: this.$route.query['code'],
                 });
-                if (res.code >= 0) {
+
+                const res2 = await this.$http.post('/user/save', {
+                    openid: res.data.openid,
+                });
+                if (res2.code >= 0) {
                     this.$toast('绑定成功！');
                     this.update();
                 }
