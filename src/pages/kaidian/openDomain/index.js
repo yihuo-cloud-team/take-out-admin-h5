@@ -18,8 +18,7 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-        let code  =JSON.parse(localStorage.login);
-        console.log(code);
+      let code  =JSON.parse(localStorage.login);
       this.form.phone = code.phone;
       this.form.pwd = code.pwd;
     },
