@@ -3,7 +3,7 @@ export default {
   layout: 'sub',
   data() {
     return {
-      checked: '',
+      checked: true,
       show: false,
       qie: false,
       form: {

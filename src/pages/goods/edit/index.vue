@@ -96,7 +96,7 @@
       </van-cell-group>
 
       <div class="goods-tag">
-        <div class="tag-title">商品标签</div>
+        <div class="tag-title">商品属性</div>
         <div class="tag-box">
           <template v-if="form.skus.length>0">
             <van-tag
