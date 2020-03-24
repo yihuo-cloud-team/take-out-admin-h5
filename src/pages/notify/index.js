@@ -13,8 +13,30 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+            const res = await this.$http.post('/notify/config/list', {});
+            console.warn(res);
+
         },
+        async open(key) {
+            const res = await this.$http.post('/notify/config/save', {
+                notify_type: key
+            });
+            if (res.code >= 0) {
+                this.$toast('操作成功！');
+            } else {
+                this.$toast('操作失败！');
+            }
+        },
+        async close(key) {
+            const res = await this.$http.post('/notify/config/del', {
+                notify_type: key
+            });
+            if (res.code >= 0) {
+                this.$toast('操作成功！');
+            } else {
+                this.$toast('操作失败！');
+            }
+        }
     },
     // 计算属性
     computed: {},
@@ -44,7 +66,15 @@ export default {
     // 包含 Vue 实例可用指令的哈希表。
     directives: {},
     // 一个对象，键是需要观察的表达式，值是对应回调函数。
-    watch: {},
+    watch: {
+        wx(v) {
+            if (v) {
+                this.open('wx_notify');
+            } else {
+                this.close('wx_notify');
+            }
+        }
+    },
     // 组件列表
     components: {},
 };
