@@ -6,13 +6,13 @@
           <div class="box" @click="del(form.goods_head_list,index)">
             <van-icon name="delete" :size="30" class="icon" />
           </div>
-          <img class="img"  :src="$getUrl(item)" alt />
+          <img class="img" :src="$getUrl(item)" alt />
         </div>
       </div>
       <div v-if="form.goods_head_list.length<5" class="btn">
-          <ol-upload  @success="url=>form.goods_head_list.push(url)">
-            <van-icon :size="40" name="photograph" />
-          </ol-upload>
+        <ol-upload @success="url=>form.goods_head_list.push(url)">
+          <van-icon :size="40" name="photograph" />
+        </ol-upload>
       </div>
       <!-- <div class="num">1/5</div> -->
     </div>
@@ -94,6 +94,26 @@
           />
         </van-popup>
       </van-cell-group>
+
+      <div class="goods-tag">
+        <div class="tag-title">商品标签</div>
+        <div class="tag-box">
+          <template v-if="form.skus.length>0">
+            <van-tag
+              v-for="(item,index) in form.skus"
+              @click="del(form.skus,index)"
+              :key="index"
+              class="tag"
+              type="warning"
+            >{{item}}</van-tag>
+          </template>
+          <van-button type="primary" class="btn1" @click="showPopup">添加</van-button>
+        </div>
+      </div>
+      <van-popup v-model="shows" position="bottom">
+        <van-field v-model="title" clearable ref="skusInput" label="添加标签" placeholder="请输入标签名称"/>
+        <van-button @click="add" class="btn" type="primary" block>添加</van-button>
+      </van-popup>
     </div>
     <div class="remarks">
       <div class="box">
