@@ -30,7 +30,7 @@
               <div class="data-num">16</div>
               <div class="data-title">今日访客</div>
             </div>
-          </van-col> -->
+          </van-col>-->
         </van-row>
       </div>
     </div>
@@ -50,25 +50,25 @@
         <div class="order" v-for="(item,index) in orderList" :key="index">
           <div class="order-left">
             <div class="order-img">
-              <img  :src="item.snapshotInfo[0].data.goods_head_list?$getUrl(item.snapshotInfo[0].data.goods_head_list[0]):''" alt="">
+              <div
+                class="imgs"
+                :style="`background-image: url(${$getUrl(item.snapshotInfo[0].data.goods_head_list[0])});`"
+              ></div>
             </div>
             <div class="order-info">
-              <div class="goods-name">
-          
-                {{item.snapshotInfo[0].title}}
-              </div>
+              <div class="goods-name">{{item.snapshotInfo[0].title}}</div>
               <div class="goods-num">等{{item.snapshotInfo.length}}件商品</div>
             </div>
           </div>
           <div class="order-right">
             <div>￥{{item.price}}</div>
-                  <div class="state" v-if="item.state==0">未支付</div>
-                <div class="state" v-if="item.state==1">已接单</div>
-                <div class="state" v-if="item.state==2">待取货</div>
-                <div class="state" v-if="item.state==3">配送中</div>
-                <div class="state" v-if="item.state==4">已完成</div>
-                <div class="state" v-if="item.state==5">订单取消</div>
-                <div class="state" v-if="item.state==21">待取消</div>
+            <div class="state" v-if="item.state==0">未支付</div>
+            <div class="state" v-if="item.state==1">已接单</div>
+            <div class="state" v-if="item.state==2">待取货</div>
+            <div class="state" v-if="item.state==3">配送中</div>
+            <div class="state" v-if="item.state==4">已完成</div>
+            <div class="state" v-if="item.state==5">订单取消</div>
+            <div class="state" v-if="item.state==21">待取消</div>
           </div>
         </div>
       </div>
@@ -90,8 +90,10 @@
       <div v-if="goodsList.length>0" class="panel-body">
         <div class="goods" v-for="(item,index) in goodsList" :key="index">
           <div class="goods-head">
-          <div class="goods-img" :style="`background-image: url(${$getUrl(item.goods_head_list[0])});`"></div>
-       
+            <div
+              class="goods-img"
+              :style="`background-image: url(${$getUrl(item.goods_head_list[0])});`"
+            ></div>
           </div>
           <div class="goods-info">
             <div class="goods-name">{{item.title}}</div>
@@ -136,7 +138,7 @@
           <div class="info-infos">
             <span class="title">营业时间：</span>
             <span class="content" v-for="(item,index) in storeInfo.week" :key="index">{{item}}</span>
-            <div  class="time">{{storeInfo.start_time}}--{{storeInfo.end_time}}</div>
+            <div class="time">{{storeInfo.start_time}}--{{storeInfo.end_time}}</div>
           </div>
         </div>
       </div>
