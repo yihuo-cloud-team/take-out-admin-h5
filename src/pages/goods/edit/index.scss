@@ -35,7 +35,7 @@
   .image1 {
     display: flex;
     flex-direction: row;
-
+    ;
     .img-nav {
       position: relative;
       height: 100%;
@@ -50,10 +50,13 @@
           color: #dddddd;
         }
       }
-      .img{
-     
+      .imgs{
+        margin-bottom: 5px;
         width: 100vw;
-        height: 100%;
+        display: block;
+        padding-bottom: 100%;
+        background-size: cover;
+        background-position: center center;
       }
     } 
 

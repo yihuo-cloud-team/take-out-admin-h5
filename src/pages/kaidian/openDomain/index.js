@@ -4,8 +4,8 @@ export default {
   data() {
     return {
       form: {
-        phone: "", //电话号码
-        pwd: "", //密码
+        // phone: "", //电话号码
+        // pwd: "", //密码
         name: "" //平台名称
       },
 
@@ -18,9 +18,9 @@ export default {
     },
     // 用于更新一些数据
     async update() {
-      let code  =JSON.parse(localStorage.login);
-      this.form.phone = code.phone;
-      this.form.pwd = code.pwd;
+      // let code  =JSON.parse(localStorage.login);
+      // this.form.phone = code.phone;
+      // this.form.pwd = code.pwd;
     },
     async submit() {
       const res = await this.$http.post('/domain/open', this.form);

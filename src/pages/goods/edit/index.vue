@@ -6,7 +6,9 @@
           <div class="box" @click="del(form.goods_head_list,index)">
             <van-icon name="delete" :size="30" class="icon" />
           </div>
-          <img class="img" :src="$getUrl(item)" alt />
+        
+            <div class="imgs" :style="`background-image: url(${$getUrl(item)});`"></div>
+       
         </div>
       </div>
       <div v-if="form.goods_head_list.length<5" class="btn">
@@ -111,7 +113,7 @@
         </div>
       </div>
       <van-popup v-model="shows" position="bottom">
-        <van-field v-model="title" clearable ref="skusInput" label="添加标签" placeholder="请输入标签名称"/>
+        <van-field v-model="title" clearable ref="skusInput" label="添加标签" placeholder="请输入标签名称" />
         <van-button @click="add" class="btn" type="primary" block>添加</van-button>
       </van-popup>
     </div>
