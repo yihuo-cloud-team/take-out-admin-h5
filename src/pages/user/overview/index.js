@@ -88,12 +88,13 @@ export default {
         this.query.real_name = '';
         this.query.money = '';
         await this.httpMoney();
-        this.disabled = false;
+   
         toast.clear();
       } else {
         toast.clear();
         this.$toast(res.msg)
       }
+      this.disabled = false;
     },
     tixian() {
       this.$router.push('/user/bill?type=2')

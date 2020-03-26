@@ -62,15 +62,15 @@ export default {
         this.$toast("密码不得为空");
         return false;
       };
-      
+      if(this.pwd.length<4){
+        this.$toast("密码长度为4-8个字符");
+        return false;
+      }
       if (this.pwd != this.pwd1) {
         this.$toast("密码不一致");
         return false;
       };
-      if(this.pwd.length<4){
-        this.$toast("密码必须大于4位数");
-        return false;
-      }
+   
       const res = await this.$http.post('/auth/reg', {
         phone: this.phone,
         code: this.code,
