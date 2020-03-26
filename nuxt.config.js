@@ -52,7 +52,7 @@ module.exports = {
         // host: getLocalIP(),
         // // default: 80
         // // default: localhost
-        port: 8090,
-        host: '192.168.2.1',
+        // port: 8090,
+        // host: '192.168.2.1',
     },
 }   

@@ -1,6 +1,6 @@
 <template>
   <div id="overview">
-        <div class="date">
+    <div class="date">
       <div class="left" @click="showPopup">
         <div class="footer-left">开始时间</div>
         <div class="footer-right" style="background-color:#AAC4FD">{{currentDate.Format('yyyy-MM')}}</div>
@@ -8,13 +8,12 @@
       <van-popup v-model="show" position="bottom" :style="{height:'200px'}">
         <van-datetime-picker
           v-model="currentDate"
-         type="year-month"
+          type="year-month"
           :formatter="formatter"
           @confirm="start"
           @cancel="show=false"
         />
       </van-popup>
-   
     </div>
     <div class="panel">
       <div class="panel-header">
@@ -59,7 +58,6 @@
             <div class="data-order">
               <div class="data-num">{{money.user_money | nullToText }}</div>
               <div class="data-title">可提现的余额</div>
-      
             </div>
           </van-col>
           <van-col span="12">
@@ -71,7 +69,7 @@
         </van-row>
       </div>
     </div>
-      <div class="tixian">
+    <div class="tixian">
       <div class="title">提现账户类型</div>
       <van-radio-group class="checkb" v-model="query.money_type">
         <van-radio name="1">
@@ -96,11 +94,13 @@
       <van-cell-group>
         <van-field v-model="query.money" type="number" placeholder="可提现金额" />
       </van-cell-group>
-      <div class="baocun" @click="submit">发起提现</div>
+
+      <!-- <div class="baocun" @click="submit">发起提现</div> -->
+      <van-button @click="submit" color="#fec900" block :disabled="disabled">发起提现</van-button>
+
       <div class="box">
-             <div class="btn" @click="tixian">提现记录</div>
+        <div class="btn" @click="tixian">提现记录</div>
       </div>
- 
     </div>
   </div>
 </template>
