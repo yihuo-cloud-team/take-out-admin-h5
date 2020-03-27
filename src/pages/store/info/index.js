@@ -33,6 +33,9 @@ export default {
     },
     goEr(){
       this.$router.push(`/qrcode?store_id=${this.storeInfo.store_id}`)
+    },
+    goCoupon(){
+      this.$router.push(`/coupon/list?store_id=${this.storeInfo.store_id}`)
     }
   },
   // 计算属性

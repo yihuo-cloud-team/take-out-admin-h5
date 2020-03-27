@@ -1,0 +1,12 @@
+@import "@/styles/variable.scss";
+#edit {
+    padding: $page-padding;
+}
+
+#edit /deep/ {
+    .cell-box{
+        padding: 10px 16px 10px 0px;
+        border-bottom:1px solid #ebedf0;
+        margin-left: 16px;
+    }
+}
