@@ -52,7 +52,12 @@ export default {
 
   },
   // 包含 Vue 实例可用过滤器的哈希表。
-  filters: {},
+  filters: {
+    typeStr(type){
+      if(type==1)return '折扣券'
+      if(type==2)return '满减券'
+    }
+  },
   // 在实例创建完成后被立即调用
   created() { },
   // 在挂载开始之前被调用：相关的 render 函数首次被调用。

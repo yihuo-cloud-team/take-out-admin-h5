@@ -12,7 +12,7 @@
             <div class="goods">
               <div class="goods-info">
                 <div class="goods-title">名称:{{item.name}}</div>
-                <div class="type">类型:{{item.type}}</div>
+                <div class="type">类型:{{item.type|typeStr}}</div>
                 <div class="condition_value">使用条件(元)：{{item.condition_value}}</div>
                 <div class="value_zen">减少金额或折扣:{{item.value_zen}}</div>
                 <div class="day">有效时间（天）:{{item.day}}</div>
