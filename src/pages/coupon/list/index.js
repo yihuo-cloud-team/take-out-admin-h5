@@ -46,6 +46,9 @@ export default {
         return false;
       }
     },
+    send(id){
+      this.$router.push(`/coupon/get?store_id=${this.$route.query.store_id}&temp_id=${id}`)
+    },
   },
   // 计算属性
   computed: {

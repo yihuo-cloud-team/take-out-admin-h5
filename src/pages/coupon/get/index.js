@@ -1,50 +1,51 @@
 export default {
-    name: 'edit',
-    layout: 'sub',
+    name: 'get',
+    layout: "sub",
     data() {
         return {
-            form:{
-                name:'',
-                type:1,
-                condition_value:0,
-                value_zen:0,
-                day:1,
-                stock:0,
-                num:null,
-            },
-            columns: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
+            src: '',
+            qrcode1: '',
+            form: {},
         };
     },
     methods: {
         // 用于初始化一些数据
         init() {
             this.update();
+            this.qrcode();
         },
         // 用于更新一些数据
         async update() {
-            if(!this.isAdd){
-                const res = await this.$http.post('/coupon/temp/info', { id: this.$route.query.id });
-                if (res.code >= 0) {    
-                    this.form = res.data;
-                }
+            const info = await this.$http.post('/coupon/temp/info', { id: this.$route.query.temp_id });
+            if (info.code >= 0) {
+                this.form = info.data;
+                console.log(this.form)
             }
+            const res = await this.$http.post('/store/info', {});
+            if (res.code >= 0) {
+                this.src = res.data.logo;
+            };
         },
-       async submit(){
-            try {
-                const res = await this.$http.post('/coupon/temp/save', this.form);
-                if (res.code >= 0) {
-                    this.$toast("操作成功");
-                    this.$router.go(-1);
-                }
-            } catch (error) {
-                return;
-            }
-        }
+        qrcode() {
+            this.qrcode1 = new QRCode(this.$refs.Qrcode, {
+                // text: `https://h5.take-out.yihuo-cloud.com/`,
+                text: `https://h5.take-out.yihuo-cloud.com/coupon/getEnd?temp_id=${this.$route.query.temp_id}`,
+                width: 112,
+                height: 112,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            })
+        },
     },
     // 计算属性
     computed: {
-        isAdd() {
-            return typeof this.$route.query.id == 'undefined';
+        conditionValue(){
+            if(this.form.condition_value<=0){
+                return '无使用门槛'
+            }else{
+                return '满'+this.form.condition_value+'元可用'
+            }
         }
     },
     // 包含 Vue 实例可用过滤器的哈希表。
