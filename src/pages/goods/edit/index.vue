@@ -66,7 +66,7 @@
           placeholder="请输入优惠价"
         />
         <van-field
-          v-model="form.sort"
+          v-model.number="form.sort"
           :required="true"
           rows="1"
           autosize

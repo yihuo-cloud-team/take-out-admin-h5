@@ -8,6 +8,9 @@ export default {
       show: false,
       show1: false,
       shows: false,
+      storeClass:false,
+      classList:[],
+      value:"",
       form: {
         week: [],
         state: 0,
@@ -35,6 +38,7 @@ export default {
         business: "", //营业执照
         licence: "", //食品生产许可证
         minimum_price:0,//起送价格
+        store_class_id:"",//门店分类
       },
       start_time: '9:00',
       end_time: '20:00',
@@ -61,6 +65,7 @@ export default {
     init() {
       this.areaList = AreaList
       this.update();
+      this.httpClassList();
     },
     // 用于更新一些数据
     async update() {
@@ -75,6 +80,12 @@ export default {
         };
       }
 
+    },
+    async httpClassList(){
+      const res = await this.$http.post('/store/store/class', {});
+      if(res.code>=0){
+        this.classList = res.data;
+      }
     },
     async submit() {
       if (this.form.logo == '') {
@@ -109,10 +120,10 @@ export default {
         this.$toast("请添加logo背景图")
         return false
       };
-      if (this.form.store_img.length == 0) {
-        this.$toast("请添加商家图片");
-        return false;
-      };
+      // if (this.form.store_img.length == 0) {
+      //   this.$toast("请添加商家图片");
+      //   return false;
+      // };
       if (this.form.week.length == 0) {
         this.$toast("营业日期不得为空");
         return false;
@@ -133,6 +144,14 @@ export default {
 
     //   }
     // },
+    onConfirm(value) {
+      this.form.store_class = value.name;
+      this.storeClass = false;
+      this.form.store_class_id = value.id;
+    },
+    onCancel() {
+      this.storeClass = false;
+    },
     showPopup() {
       this.show = true;
     },

@@ -15,7 +15,7 @@ export default {
         stock: '', //库存
         class_id: '', //关联的分类
         is_up: 1, //是否上下架
-        sort: 0,
+        sort: 0,//排序
         skus: [],
       },
       value: "",

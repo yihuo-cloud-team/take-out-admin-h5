@@ -97,6 +97,7 @@ export default {
   // 一个对象，键是需要观察的表达式，值是对应回调函数。
   watch: {
     active(newval) {
+  
       this.query.state = newval;
       this.query.page = 1;
       this.finished = false;

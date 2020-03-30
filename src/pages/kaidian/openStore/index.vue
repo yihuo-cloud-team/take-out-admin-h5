@@ -29,7 +29,9 @@
             placeholder
             @click-right-icon="$toast('question')"
           />
-
+          <van-cell-group>
+            <van-cell title="门店分类" :value="form.store_class" @click="storeClass = !storeClass" />
+          </van-cell-group>
           <van-cell-group>
             <van-cell title="省市区" @click="kai = !kai" :value="area" />
           </van-cell-group>
@@ -42,15 +44,13 @@
             placeholder
             @click-right-icon="$toast('question')"
           />
-             <van-field
+          <van-field
             v-model.number="form.minimum_price"
             clearable
             label="起送价格"
             type="number"
-             placeholder='不设置为0元起送'
-           
+            placeholder="不设置为0元起送"
           />
-          <van-field v-model="form.store_class" clearable label="门店分类" placeholder="快餐简餐" required />
           <van-field v-model="form.contacts" label="联系人" clearable placeholder required />
           <van-field
             v-model="form.phone"
@@ -202,6 +202,9 @@
         @cancel="kai = !kai"
         @confirm="select"
       />
+    </van-popup>
+        <van-popup v-model="storeClass" position="bottom">
+      <van-picker value-key="name"   show-toolbar @cancel="onCancel" @confirm="onConfirm" :columns="classList" />
     </van-popup>
   </div>
 </template>

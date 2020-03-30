@@ -27,7 +27,7 @@ export default {
     // 用于更新一些数据
     async update() {
       const res = await this.$http.post('/domain/info', {
-        
+
       });
       if (res.code >= 0) {
         this.is_dada = res.data.domain_info.is_dada;
@@ -41,22 +41,15 @@ export default {
       }
     },
     async submit() {
-      // try {
-      //     await this.$refs['form'].validate();
-      // } catch (error) {
-      //     return;
-      // }
-
       try {
         const res = await this.$http.post('/domain/addDada', this.form);
         if (res.code >= 0) {
-          if (this.isAdd) {
-            this.$toast('添加成功')
-          } else {
-            this.$toast('保存成功')
-          }
-          this.$router.go(-1);
+          this.$toast('开通成功')
+          this.update();
+        } else {
+          this.$toast(res.msg);
         }
+
       } catch (error) {
         return;
       }

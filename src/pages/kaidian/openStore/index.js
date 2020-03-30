@@ -8,6 +8,7 @@ export default {
       show: false,
       show1: false,
       shows: false,
+      storeClass:false,
       form: {
         week: [],
         state: 0,
@@ -35,6 +36,7 @@ export default {
         business:"",//营业执照
         licence:"",//食品生产许可证
         minimum_price:0,//起送价格
+        store_class_id:"",//门店分类
       },
       start_time: '9:00',
       end_time: '20:00',
@@ -54,6 +56,7 @@ export default {
       },
       areaList: [],
       selecarea: [],
+      classList:[]
     };
   },
   methods: {
@@ -61,9 +64,24 @@ export default {
     init() {
       this.areaList = AreaList
       this.update();
+      this.httpClassList();
     },
     // 用于更新一些数据
     async update() {
+    },
+    async httpClassList(){
+      const res = await this.$http.post('/store/store/class', {});
+      if(res.code>=0){
+        this.classList = res.data;
+      }
+    },
+    onConfirm(value) {
+      this.form.store_class = value.name;
+      this.storeClass = false;
+      this.form.store_class_id = value.id;
+    },
+    onCancel() {
+      this.storeClass = false;
     },
     async submit() {
       if (this.form.logo == '') {
