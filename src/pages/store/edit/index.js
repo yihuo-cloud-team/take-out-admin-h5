@@ -96,6 +96,10 @@ export default {
         this.$toast("店铺名称不得为空");
         return false;
       };
+      if (this.form.store_class_id == '') {
+        this.$toast("请选择门店分类");
+        return false;
+      };
       if (this.form.p == '') {
         this.$toast("省市区不得为空");
         return false;
@@ -213,6 +217,7 @@ export default {
   // 计算属性
   computed: {
     area() {
+      console.log(this.selecarea)
       if (this.selecarea.length < 1) return '省市区选择'
       return `${this.selecarea[0]} ${this.selecarea[1]} ${this.selecarea[2]}`
     }

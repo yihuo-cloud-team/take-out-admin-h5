@@ -92,6 +92,10 @@ export default {
         this.$toast("店铺名称不得为空");
         return false;
       };
+      if (this.form.store_class_id == '') {
+        this.$toast("请选择门店分类");
+        return false;
+      };
       if (this.form.p == '') {
         this.$toast("省市区不得为空");
         return false;

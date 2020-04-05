@@ -23,7 +23,7 @@
             placeholder
           />
           <van-cell-group>
-            <van-cell title="门店分类" :value="form.store_class" @click="storeClass = !storeClass" />
+            <van-cell title="门店分类" :value="form.store_class"  @click="storeClass = !storeClass" />
           </van-cell-group>
           <van-cell-group>
             <van-cell title="省市区" @click="kai = !kai" :value="area" />
