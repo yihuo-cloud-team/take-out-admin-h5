@@ -13,6 +13,7 @@ export default {
                 num:null,
             },
             columns: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
+            message:123,
         };
     },
     methods: {
@@ -40,7 +41,13 @@ export default {
                 return;
             }
         },
-        type_value_zen(value_zen){
+    },
+    // 计算属性
+    computed: {
+        isAdd() {
+            return typeof this.$route.query.id == 'undefined';
+        },
+        type_value_zen(){
             if(this.form.type<=1){
                 if(this.form.value_zen>1){
                     this.$toast("折扣券力度最大为1(例:折扣力度为0.1时折扣为1折)");
@@ -49,14 +56,9 @@ export default {
             }
         },
     },
-    // 计算属性
-    computed: {
-        isAdd() {
-            return typeof this.$route.query.id == 'undefined';
-        },
-    },
     // 包含 Vue 实例可用过滤器的哈希表。
-    filters: {},
+    filters: {
+    },
     // 在实例创建完成后被立即调用
     created() { },
     // 在挂载开始之前被调用：相关的 render 函数首次被调用。
