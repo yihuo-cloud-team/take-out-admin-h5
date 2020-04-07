@@ -39,13 +39,21 @@ export default {
             } catch (error) {
                 return;
             }
-        }
+        },
+        type_value_zen(value_zen){
+            if(this.form.type<=1){
+                if(this.form.value_zen>1){
+                    this.$toast("折扣券力度最大为1(例:折扣力度为0.1时折扣为1折)");
+                    this.form.value_zen= 1;
+                }
+            }
+        },
     },
     // 计算属性
     computed: {
         isAdd() {
             return typeof this.$route.query.id == 'undefined';
-        }
+        },
     },
     // 包含 Vue 实例可用过滤器的哈希表。
     filters: {},
