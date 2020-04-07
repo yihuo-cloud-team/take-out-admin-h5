@@ -31,6 +31,7 @@
       <van-cell-group>
         <van-field
           v-model="form.title"
+          maxlength="25"
           :required="true"
           rows="1"
           autosize
