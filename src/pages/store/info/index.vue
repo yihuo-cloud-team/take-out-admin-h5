@@ -63,7 +63,7 @@
         <van-grid-item icon="orders-o" to="/order/list" text="订单管理" />
         <van-grid-item icon="manager-o" to="/user/list" text="会员管理" />
         <van-grid-item icon="newspaper-o" to="/printer/list" text="打印机管理" />
-        <van-grid-item icon="logistics" to="/dada/open" text="配送管理" />
+        <!-- <van-grid-item icon="logistics" to="/dada/open" text="配送管理" /> -->
         <!-- <van-grid-item icon="points" to="/develop/info" text="开发设置" /> -->
         <van-grid-item icon="shop-o" @click="goC()" text="我的店铺" />
         <van-grid-item icon="points" to="/app/list" text="我的小程序" />
