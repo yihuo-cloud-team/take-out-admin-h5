@@ -21,30 +21,30 @@
       </div>
       <div class="data">
         <van-row>
-          <van-col span="8">
+          <van-col span="12">
             <div class="data-order">
               <div class="data-num">{{info.payTotal | nullToText }}</div>
               <div class="data-title">营业总额</div>
             </div>
           </van-col>
-          <van-col span="8">
+          <van-col span="12">
             <div class="data-order">
               <div class="data-num">{{info.orderTotal | nullToText}}</div>
               <div class="data-title">订单总额</div>
             </div>
           </van-col>
-          <van-col span="8">
+          <!-- <van-col span="8">
             <div class="data-order">
               <div class="data-num">{{info.freightCount | nullToText}}</div>
               <div class="data-title">运费总额</div>
             </div>
-          </van-col>
-          <van-col span="8">
+          </van-col>-->
+          <!-- <van-col span="8">
             <div class="data-order">
               <div class="data-num">{{info.subsidy | nullToText}}</div>
               <div class="data-title">补贴总额</div>
             </div>
-          </van-col>
+          </van-col>-->
         </van-row>
       </div>
     </div>

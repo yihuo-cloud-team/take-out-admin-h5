@@ -66,7 +66,7 @@
         <!-- <van-grid-item icon="logistics" to="/dada/open" text="配送管理" /> -->
         <!-- <van-grid-item icon="points" to="/develop/info" text="开发设置" /> -->
         <van-grid-item icon="shop-o" @click="goC()" text="我的店铺" />
-        <van-grid-item icon="points" to="/app/list" text="我的小程序" />
+        <!-- <van-grid-item icon="points" to="/app/list" text="我的小程序" /> -->
         <van-grid-item icon="newspaper-o" @click="goEr()" text="店铺二维码" />
         <van-grid-item icon="coupon-o" @click="goCoupon()" text="优惠券管理" />
       </van-grid>
