@@ -24,14 +24,14 @@ export default {
     init() {
       this.getTotal();
       if (!this.isAdd) {
-        this.active = parseFloat(this.$route.query.state);
-        this.query.state = this.active;
-        return false;
+        if(typeof this.$route.query.state!='undefined'){
+          this.active = parseFloat(this.$route.query.state);
+          this.query.state = this.active;
+        }else{
+          this.query.state = '';
+        }
+
       }
-  
-  
-  
-    
     },
   
     // 用于更新一些数据
@@ -41,6 +41,7 @@ export default {
         this.loading = true;
 
         const res = await this.$http.post('/order/list', this.query);
+        console.log(res)
         if (res.code > 0) {
           this.list = [...this.list, ...res.data];
         } 

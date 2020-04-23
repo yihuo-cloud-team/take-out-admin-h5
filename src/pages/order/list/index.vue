@@ -3,7 +3,7 @@
     <div class="tab">
       <div class="tab-head">
         <van-tabs v-model="active" color="rgba(255, 144, 32, 1)" sticky>
-          <van-tab name>
+          <van-tab name="">
             <div slot="title">
               <div>全部{{info.all}}</div>
             </div>
